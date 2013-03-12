@@ -1,0 +1,7 @@
+put usertype.dat in the same directory as "devenv.exe" this is usually in ...\Common7\IDE\
+restart visual studio and highlighting should work.
+ 
+If there is another "usertype.dat" file in that directory, open it and append the contents of the
+new usertype.dat file.
+
+

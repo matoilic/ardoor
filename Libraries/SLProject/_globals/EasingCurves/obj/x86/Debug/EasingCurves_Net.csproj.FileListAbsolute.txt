@@ -1,0 +1,18 @@
+Z:\Documents\FHNW\CG\CG12\Uebungen\_globals\EasingCurves\bin\Debug\EaseIn.exe
+Z:\Documents\FHNW\CG\CG12\Uebungen\_globals\EasingCurves\bin\Debug\EaseIn.pdb
+Z:\Documents\FHNW\CG\CG12\Uebungen\_globals\EasingCurves\obj\x86\Debug\ResolveAssemblyReference.cache
+Z:\Documents\FHNW\CG\CG12\Uebungen\_globals\EasingCurves\obj\x86\Debug\EaseIn.Form1.resources
+Z:\Documents\FHNW\CG\CG12\Uebungen\_globals\EasingCurves\obj\x86\Debug\EaseIn.Properties.Resources.resources
+Z:\Documents\FHNW\CG\CG12\Uebungen\_globals\EasingCurves\obj\x86\Debug\GenerateResource.read.1.tlog
+Z:\Documents\FHNW\CG\CG12\Uebungen\_globals\EasingCurves\obj\x86\Debug\GenerateResource.write.1.tlog
+Z:\Documents\FHNW\CG\CG12\Uebungen\_globals\EasingCurves\obj\x86\Debug\EaseIn.exe
+Z:\Documents\FHNW\CG\CG12\Uebungen\_globals\EasingCurves\obj\x86\Debug\EaseIn.pdb
+Z:\hudrima1 On My Mac\Documents\FHNW\CG\CG12\Uebungen\_globals\EasingCurves\bin\Debug\EaseIn.exe
+Z:\hudrima1 On My Mac\Documents\FHNW\CG\CG12\Uebungen\_globals\EasingCurves\bin\Debug\EaseIn.pdb
+Z:\hudrima1 On My Mac\Documents\FHNW\CG\CG12\Uebungen\_globals\EasingCurves\obj\x86\Debug\ResolveAssemblyReference.cache
+Z:\hudrima1 On My Mac\Documents\FHNW\CG\CG12\Uebungen\_globals\EasingCurves\obj\x86\Debug\EaseIn.Form1.resources
+Z:\hudrima1 On My Mac\Documents\FHNW\CG\CG12\Uebungen\_globals\EasingCurves\obj\x86\Debug\EaseIn.Properties.Resources.resources
+Z:\hudrima1 On My Mac\Documents\FHNW\CG\CG12\Uebungen\_globals\EasingCurves\obj\x86\Debug\GenerateResource.read.1.tlog
+Z:\hudrima1 On My Mac\Documents\FHNW\CG\CG12\Uebungen\_globals\EasingCurves\obj\x86\Debug\GenerateResource.write.1.tlog
+Z:\hudrima1 On My Mac\Documents\FHNW\CG\CG12\Uebungen\_globals\EasingCurves\obj\x86\Debug\EaseIn.exe
+Z:\hudrima1 On My Mac\Documents\FHNW\CG\CG12\Uebungen\_globals\EasingCurves\obj\x86\Debug\EaseIn.pdb

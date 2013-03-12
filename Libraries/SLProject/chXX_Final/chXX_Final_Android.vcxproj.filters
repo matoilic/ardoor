@@ -1,0 +1,743 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Globals">
+      <UniqueIdentifier>{51f675f7-3746-4938-a4c4-77fd3eaca4a0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Globals\GLSL">
+      <UniqueIdentifier>{a12708b6-4c90-4d3a-9240-b0758694d332}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Globals\Math">
+      <UniqueIdentifier>{ef06bd6e-c33e-4c89-94b6-fc60cda9ea47}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Globals\MeshLoader">
+      <UniqueIdentifier>{d089b22e-ecec-4db7-86f8-e583af97a5ef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Globals\GUI">
+      <UniqueIdentifier>{748c06ae-e7d2-4f00-87c3-ef43c25b295c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Globals\GL">
+      <UniqueIdentifier>{be5d5f07-5a6a-4c01-bbac-300224bdd3d2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene">
+      <UniqueIdentifier>{2d90a7c0-5993-4f98-a77a-7ce3b147fa24}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Light &amp; Material">
+      <UniqueIdentifier>{4cc72d59-5b21-4ea3-97c5-6eddb251616c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Nodes">
+      <UniqueIdentifier>{ea47796f-c1a4-4cd6-a6fd-51a64506fe4c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Nodes\Mesh">
+      <UniqueIdentifier>{5f176cc8-d7ec-4fbc-ba6a-da9bcdbbc0cb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Nodes\Mesh\Lights">
+      <UniqueIdentifier>{951a312a-3636-476b-a478-051310c3cac9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Raytracer">
+      <UniqueIdentifier>{bae762fe-b974-4860-8709-d1a12836a6ee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Globals\GUI\apk">
+      <UniqueIdentifier>{59ea3ba4-298d-48ae-862d-be4a8cc2664b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Globals\GUI\apk\src">
+      <UniqueIdentifier>{4c52275b-d7ba-4603-acdc-d888a256abc2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Globals\GUI\apk\res">
+      <UniqueIdentifier>{ce74b8f6-8ca4-4d67-9c42-1178cc2cd176}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Globals\External">
+      <UniqueIdentifier>{c55bf4f1-0a07-4e21-904e-3965391bab15}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Globals\External\png">
+      <UniqueIdentifier>{40c4fa64-3413-4416-adf0-ca5f431770d3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Globals\External\nvwa">
+      <UniqueIdentifier>{879b17c2-f5c0-4910-bca0-b73294235894}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Globals\External\jpeg-8">
+      <UniqueIdentifier>{0f1a2f10-0d86-4bd6-81a1-e9d357d81d01}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Globals\SL">
+      <UniqueIdentifier>{f5ae677d-6660-40d2-941c-35f30be2214c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Globals\SpacePartitioning">
+      <UniqueIdentifier>{6d799725-70e1-40c9-bfad-23567117468a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Nodes\AABB &amp; Animations">
+      <UniqueIdentifier>{665e4998-d62f-4ac8-b588-1c53e7fc91ed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Globals\External\randomc">
+      <UniqueIdentifier>{2347f143-3f2a-4f65-96ba-4cfd93c11510}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\_globals\GUI\Android\apk\AndroidManifest.xml">
+      <Filter>Globals\GUI\apk</Filter>
+    </None>
+    <None Include="..\_globals\GUI\Android\apk\build.xml">
+      <Filter>Globals\GUI\apk</Filter>
+    </None>
+    <None Include="..\_globals\GUI\Android\apk\project.properties">
+      <Filter>Globals\GUI\apk</Filter>
+    </None>
+    <None Include="..\_globals\GUI\Android\apk\res\values\strings.xml">
+      <Filter>Globals\GUI\apk\res</Filter>
+    </None>
+    <None Include="..\_globals\GUI\Android\apk\src\ch\fhnw\comgr\GLES2Activity.java">
+      <Filter>Globals\GUI\apk\src</Filter>
+    </None>
+    <None Include="..\_globals\GUI\Android\apk\src\ch\fhnw\comgr\GLES2Lib.java">
+      <Filter>Globals\GUI\apk\src</Filter>
+    </None>
+    <None Include="..\_globals\GUI\Android\apk\src\ch\fhnw\comgr\GLES2View.java">
+      <Filter>Globals\GUI\apk\src</Filter>
+    </None>
+    <None Include="..\_globals\oglsl\BumpNormal.frag">
+      <Filter>Globals\GLSL</Filter>
+    </None>
+    <None Include="..\_globals\oglsl\BumpNormal.vert">
+      <Filter>Globals\GLSL</Filter>
+    </None>
+    <None Include="..\_globals\oglsl\BumpNormalEarth.frag">
+      <Filter>Globals\GLSL</Filter>
+    </None>
+    <None Include="..\_globals\oglsl\BumpNormalParallax.frag">
+      <Filter>Globals\GLSL</Filter>
+    </None>
+    <None Include="..\_globals\oglsl\Color.frag">
+      <Filter>Globals\GLSL</Filter>
+    </None>
+    <None Include="..\_globals\oglsl\ColorAttribute.vert">
+      <Filter>Globals\GLSL</Filter>
+    </None>
+    <None Include="..\_globals\oglsl\ColorUniform.vert">
+      <Filter>Globals\GLSL</Filter>
+    </None>
+    <None Include="..\_globals\oglsl\FontTex.frag">
+      <Filter>Globals\GLSL</Filter>
+    </None>
+    <None Include="..\_globals\oglsl\FontTex.vert">
+      <Filter>Globals\GLSL</Filter>
+    </None>
+    <None Include="..\_globals\oglsl\PerPixBlinn.frag">
+      <Filter>Globals\GLSL</Filter>
+    </None>
+    <None Include="..\_globals\oglsl\PerPixBlinn.vert">
+      <Filter>Globals\GLSL</Filter>
+    </None>
+    <None Include="..\_globals\oglsl\PerPixBlinnTex.frag">
+      <Filter>Globals\GLSL</Filter>
+    </None>
+    <None Include="..\_globals\oglsl\PerPixBlinnTex.vert">
+      <Filter>Globals\GLSL</Filter>
+    </None>
+    <None Include="..\_globals\oglsl\PerVrtBlinn.frag">
+      <Filter>Globals\GLSL</Filter>
+    </None>
+    <None Include="..\_globals\oglsl\PerVrtBlinn.vert">
+      <Filter>Globals\GLSL</Filter>
+    </None>
+    <None Include="..\_globals\oglsl\PerVrtBlinnTex.frag">
+      <Filter>Globals\GLSL</Filter>
+    </None>
+    <None Include="..\_globals\oglsl\PerVrtBlinnTex.vert">
+      <Filter>Globals\GLSL</Filter>
+    </None>
+    <None Include="..\_globals\oglsl\Reflect.frag">
+      <Filter>Globals\GLSL</Filter>
+    </None>
+    <None Include="..\_globals\oglsl\Reflect.vert">
+      <Filter>Globals\GLSL</Filter>
+    </None>
+    <None Include="..\_globals\oglsl\RefractReflect.frag">
+      <Filter>Globals\GLSL</Filter>
+    </None>
+    <None Include="..\_globals\oglsl\RefractReflect.vert">
+      <Filter>Globals\GLSL</Filter>
+    </None>
+    <None Include="..\_globals\oglsl\RefractReflectDisp.frag">
+      <Filter>Globals\GLSL</Filter>
+    </None>
+    <None Include="..\_globals\oglsl\RefractReflectDisp.vert">
+      <Filter>Globals\GLSL</Filter>
+    </None>
+    <None Include="..\_globals\oglsl\ShadowMapping.frag">
+      <Filter>Globals\GLSL</Filter>
+    </None>
+    <None Include="..\_globals\oglsl\ShadowMapping.vert">
+      <Filter>Globals\GLSL</Filter>
+    </None>
+    <None Include="..\_globals\oglsl\TextureOnly.frag">
+      <Filter>Globals\GLSL</Filter>
+    </None>
+    <None Include="..\_globals\oglsl\TextureOnly.vert">
+      <Filter>Globals\GLSL</Filter>
+    </None>
+    <None Include="..\_globals\oglsl\Wave.frag">
+      <Filter>Globals\GLSL</Filter>
+    </None>
+    <None Include="..\_globals\oglsl\Wave.vert">
+      <Filter>Globals\GLSL</Filter>
+    </None>
+    <None Include="..\_globals\oglsl\WaveRefractReflect.vert">
+      <Filter>Globals\GLSL</Filter>
+    </None>
+    <None Include="..\_external\randomc\RANDOMC.HTM">
+      <Filter>Globals\External\randomc</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\_globals\math\SLPlane.cpp">
+      <Filter>Globals\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\_globals\MeshLoader\SL3DSMesh.cpp">
+      <Filter>Globals\MeshLoader</Filter>
+    </ClCompile>
+    <ClCompile Include="..\_globals\MeshLoader\SL3DSMeshFile.cpp">
+      <Filter>Globals\MeshLoader</Filter>
+    </ClCompile>
+    <ClCompile Include="..\_globals\GL\SLGLBuffer.cpp">
+      <Filter>Globals\GL</Filter>
+    </ClCompile>
+    <ClCompile Include="..\_globals\GL\SLGLShader.cpp">
+      <Filter>Globals\GL</Filter>
+    </ClCompile>
+    <ClCompile Include="..\_globals\GL\SLGLShaderProg.cpp">
+      <Filter>Globals\GL</Filter>
+    </ClCompile>
+    <ClCompile Include="..\_globals\GL\SLGLState.cpp">
+      <Filter>Globals\GL</Filter>
+    </ClCompile>
+    <ClCompile Include="..\_globals\GL\SLGLTexture.cpp">
+      <Filter>Globals\GL</Filter>
+    </ClCompile>
+    <ClCompile Include="source\SLScene_onLoad.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="source\SLScene.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="source\SLSceneView.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="source\SLLight.cpp">
+      <Filter>Light &amp; Material</Filter>
+    </ClCompile>
+    <ClCompile Include="source\SLMaterial.cpp">
+      <Filter>Light &amp; Material</Filter>
+    </ClCompile>
+    <ClCompile Include="source\SLButton.cpp">
+      <Filter>Nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="source\SLCamera.cpp">
+      <Filter>Nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="source\SLGroup.cpp">
+      <Filter>Nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="source\SLMesh.cpp">
+      <Filter>Nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="source\SLRefGroup.cpp">
+      <Filter>Nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="source\SLRefShape.cpp">
+      <Filter>Nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="source\SLShape.cpp">
+      <Filter>Nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="source\SLText.cpp">
+      <Filter>Nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="source\SLCone.cpp">
+      <Filter>Nodes\Mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="source\SLCylinder.cpp">
+      <Filter>Nodes\Mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="source\SLBox.cpp">
+      <Filter>Nodes\Mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="source\SLPolygon.cpp">
+      <Filter>Nodes\Mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="source\SLRectangle.cpp">
+      <Filter>Nodes\Mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="source\SLRevolver.cpp">
+      <Filter>Nodes\Mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="source\SLSphere.cpp">
+      <Filter>Nodes\Mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="source\SLLightRect.cpp">
+      <Filter>Nodes\Mesh\Lights</Filter>
+    </ClCompile>
+    <ClCompile Include="source\SLLightSphere.cpp">
+      <Filter>Nodes\Mesh\Lights</Filter>
+    </ClCompile>
+    <ClCompile Include="source\SLAABBox.cpp">
+      <Filter>Nodes\AABB &amp; Animations</Filter>
+    </ClCompile>
+    <ClCompile Include="source\SLRay.cpp">
+      <Filter>Raytracer</Filter>
+    </ClCompile>
+    <ClCompile Include="source\SLRaytracer.cpp">
+      <Filter>Raytracer</Filter>
+    </ClCompile>
+    <ClCompile Include="source\SLSamples2D.cpp">
+      <Filter>Raytracer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\_external\jpeg-8\jaricom.c">
+      <Filter>Globals\External\jpeg-8</Filter>
+    </ClCompile>
+    <ClCompile Include="..\_external\jpeg-8\jutils.c">
+      <Filter>Globals\External\jpeg-8</Filter>
+    </ClCompile>
+    <ClCompile Include="..\_external\jpeg-8\jcapimin.c">
+      <Filter>Globals\External\jpeg-8</Filter>
+    </ClCompile>
+    <ClCompile Include="..\_external\jpeg-8\jcapistd.c">
+      <Filter>Globals\External\jpeg-8</Filter>
+    </ClCompile>
+    <ClCompile Include="..\_external\jpeg-8\jcarith.c">
+      <Filter>Globals\External\jpeg-8</Filter>
+    </ClCompile>
+    <ClCompile Include="..\_external\jpeg-8\jccoefct.c">
+      <Filter>Globals\External\jpeg-8</Filter>
+    </ClCompile>
+    <ClCompile Include="..\_external\jpeg-8\jccolor.c">
+      <Filter>Globals\External\jpeg-8</Filter>
+    </ClCompile>
+    <ClCompile Include="..\_external\jpeg-8\jcdctmgr.c">
+      <Filter>Globals\External\jpeg-8</Filter>
+    </ClCompile>
+    <ClCompile Include="..\_external\jpeg-8\jchuff.c">
+      <Filter>Globals\External\jpeg-8</Filter>
+    </ClCompile>
+    <ClCompile Include="..\_external\jpeg-8\jcinit.c">
+      <Filter>Globals\External\jpeg-8</Filter>
+    </ClCompile>
+    <ClCompile Include="..\_external\jpeg-8\jcmainct.c">
+      <Filter>Globals\External\jpeg-8</Filter>
+    </ClCompile>
+    <ClCompile Include="..\_external\jpeg-8\jcmarker.c">
+      <Filter>Globals\External\jpeg-8</Filter>
+    </ClCompile>
+    <ClCompile Include="..\_external\jpeg-8\jcmaster.c">
+      <Filter>Globals\External\jpeg-8</Filter>
+    </ClCompile>
+    <ClCompile Include="..\_external\jpeg-8\jcomapi.c">
+      <Filter>Globals\External\jpeg-8</Filter>
+    </ClCompile>
+    <ClCompile Include="..\_external\jpeg-8\jcparam.c">
+      <Filter>Globals\External\jpeg-8</Filter>
+    </ClCompile>
+    <ClCompile Include="..\_external\jpeg-8\jcprepct.c">
+      <Filter>Globals\External\jpeg-8</Filter>
+    </ClCompile>
+    <ClCompile Include="..\_external\jpeg-8\jcsample.c">
+      <Filter>Globals\External\jpeg-8</Filter>
+    </ClCompile>
+    <ClCompile Include="..\_external\jpeg-8\jctrans.c">
+      <Filter>Globals\External\jpeg-8</Filter>
+    </ClCompile>
+    <ClCompile Include="..\_external\jpeg-8\jdapimin.c">
+      <Filter>Globals\External\jpeg-8</Filter>
+    </ClCompile>
+    <ClCompile Include="..\_external\jpeg-8\jdapistd.c">
+      <Filter>Globals\External\jpeg-8</Filter>
+    </ClCompile>
+    <ClCompile Include="..\_external\jpeg-8\jdarith.c">
+      <Filter>Globals\External\jpeg-8</Filter>
+    </ClCompile>
+    <ClCompile Include="..\_external\jpeg-8\jdatadst.c">
+      <Filter>Globals\External\jpeg-8</Filter>
+    </ClCompile>
+    <ClCompile Include="..\_external\jpeg-8\jdatasrc.c">
+      <Filter>Globals\External\jpeg-8</Filter>
+    </ClCompile>
+    <ClCompile Include="..\_external\jpeg-8\jdcoefct.c">
+      <Filter>Globals\External\jpeg-8</Filter>
+    </ClCompile>
+    <ClCompile Include="..\_external\jpeg-8\jdcolor.c">
+      <Filter>Globals\External\jpeg-8</Filter>
+    </ClCompile>
+    <ClCompile Include="..\_external\jpeg-8\jddctmgr.c">
+      <Filter>Globals\External\jpeg-8</Filter>
+    </ClCompile>
+    <ClCompile Include="..\_external\jpeg-8\jdhuff.c">
+      <Filter>Globals\External\jpeg-8</Filter>
+    </ClCompile>
+    <ClCompile Include="..\_external\jpeg-8\jdinput.c">
+      <Filter>Globals\External\jpeg-8</Filter>
+    </ClCompile>
+    <ClCompile Include="..\_external\jpeg-8\jdmainct.c">
+      <Filter>Globals\External\jpeg-8</Filter>
+    </ClCompile>
+    <ClCompile Include="..\_external\jpeg-8\jdmarker.c">
+      <Filter>Globals\External\jpeg-8</Filter>
+    </ClCompile>
+    <ClCompile Include="..\_external\jpeg-8\jdmaster.c">
+      <Filter>Globals\External\jpeg-8</Filter>
+    </ClCompile>
+    <ClCompile Include="..\_external\jpeg-8\jdmerge.c">
+      <Filter>Globals\External\jpeg-8</Filter>
+    </ClCompile>
+    <ClCompile Include="..\_external\jpeg-8\jdpostct.c">
+      <Filter>Globals\External\jpeg-8</Filter>
+    </ClCompile>
+    <ClCompile Include="..\_external\jpeg-8\jdsample.c">
+      <Filter>Globals\External\jpeg-8</Filter>
+    </ClCompile>
+    <ClCompile Include="..\_external\jpeg-8\jdtrans.c">
+      <Filter>Globals\External\jpeg-8</Filter>
+    </ClCompile>
+    <ClCompile Include="..\_external\jpeg-8\jerror.c">
+      <Filter>Globals\External\jpeg-8</Filter>
+    </ClCompile>
+    <ClCompile Include="..\_external\jpeg-8\jfdctflt.c">
+      <Filter>Globals\External\jpeg-8</Filter>
+    </ClCompile>
+    <ClCompile Include="..\_external\jpeg-8\jfdctfst.c">
+      <Filter>Globals\External\jpeg-8</Filter>
+    </ClCompile>
+    <ClCompile Include="..\_external\jpeg-8\jfdctint.c">
+      <Filter>Globals\External\jpeg-8</Filter>
+    </ClCompile>
+    <ClCompile Include="..\_external\jpeg-8\jidctflt.c">
+      <Filter>Globals\External\jpeg-8</Filter>
+    </ClCompile>
+    <ClCompile Include="..\_external\jpeg-8\jidctfst.c">
+      <Filter>Globals\External\jpeg-8</Filter>
+    </ClCompile>
+    <ClCompile Include="..\_external\jpeg-8\jidctint.c">
+      <Filter>Globals\External\jpeg-8</Filter>
+    </ClCompile>
+    <ClCompile Include="..\_external\jpeg-8\jmemmgr.c">
+      <Filter>Globals\External\jpeg-8</Filter>
+    </ClCompile>
+    <ClCompile Include="..\_external\jpeg-8\jmemnobs.c">
+      <Filter>Globals\External\jpeg-8</Filter>
+    </ClCompile>
+    <ClCompile Include="..\_external\jpeg-8\jquant1.c">
+      <Filter>Globals\External\jpeg-8</Filter>
+    </ClCompile>
+    <ClCompile Include="..\_external\jpeg-8\jquant2.c">
+      <Filter>Globals\External\jpeg-8</Filter>
+    </ClCompile>
+    <ClCompile Include="..\_external\png\png.c">
+      <Filter>Globals\External\png</Filter>
+    </ClCompile>
+    <ClCompile Include="..\_external\png\pngwutil.c">
+      <Filter>Globals\External\png</Filter>
+    </ClCompile>
+    <ClCompile Include="..\_external\png\pngerror.c">
+      <Filter>Globals\External\png</Filter>
+    </ClCompile>
+    <ClCompile Include="..\_external\png\pngget.c">
+      <Filter>Globals\External\png</Filter>
+    </ClCompile>
+    <ClCompile Include="..\_external\png\pngmem.c">
+      <Filter>Globals\External\png</Filter>
+    </ClCompile>
+    <ClCompile Include="..\_external\png\pngpread.c">
+      <Filter>Globals\External\png</Filter>
+    </ClCompile>
+    <ClCompile Include="..\_external\png\pngread.c">
+      <Filter>Globals\External\png</Filter>
+    </ClCompile>
+    <ClCompile Include="..\_external\png\pngrio.c">
+      <Filter>Globals\External\png</Filter>
+    </ClCompile>
+    <ClCompile Include="..\_external\png\pngrtran.c">
+      <Filter>Globals\External\png</Filter>
+    </ClCompile>
+    <ClCompile Include="..\_external\png\pngrutil.c">
+      <Filter>Globals\External\png</Filter>
+    </ClCompile>
+    <ClCompile Include="..\_external\png\pngset.c">
+      <Filter>Globals\External\png</Filter>
+    </ClCompile>
+    <ClCompile Include="..\_external\png\pngtrans.c">
+      <Filter>Globals\External\png</Filter>
+    </ClCompile>
+    <ClCompile Include="..\_external\png\pngwio.c">
+      <Filter>Globals\External\png</Filter>
+    </ClCompile>
+    <ClCompile Include="..\_external\png\pngwrite.c">
+      <Filter>Globals\External\png</Filter>
+    </ClCompile>
+    <ClCompile Include="..\_external\png\pngwtran.c">
+      <Filter>Globals\External\png</Filter>
+    </ClCompile>
+    <ClCompile Include="..\_external\nvwa\debug_new.cpp">
+      <Filter>Globals\External\nvwa</Filter>
+    </ClCompile>
+    <ClCompile Include="source\SLAnimation.cpp">
+      <Filter>Nodes\AABB &amp; Animations</Filter>
+    </ClCompile>
+    <ClCompile Include="..\_globals\math\SLCurveBezier.cpp">
+      <Filter>Globals\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\_globals\GL\glUtils.cpp">
+      <Filter>Globals\GL</Filter>
+    </ClCompile>
+    <ClCompile Include="..\_globals\SL\SL.cpp">
+      <Filter>Globals\SL</Filter>
+    </ClCompile>
+    <ClCompile Include="..\_globals\SL\SLFileSystem.cpp">
+      <Filter>Globals\SL</Filter>
+    </ClCompile>
+    <ClCompile Include="..\_globals\SL\SLImage.cpp">
+      <Filter>Globals\SL</Filter>
+    </ClCompile>
+    <ClCompile Include="..\_globals\SL\SLInterface.cpp">
+      <Filter>Globals\SL</Filter>
+    </ClCompile>
+    <ClCompile Include="..\_globals\SL\SLTexFont.cpp">
+      <Filter>Globals\SL</Filter>
+    </ClCompile>
+    <ClCompile Include="..\_globals\SL\SLTimer.cpp">
+      <Filter>Globals\SL</Filter>
+    </ClCompile>
+    <ClCompile Include="..\_globals\SL\stdafx.cpp">
+      <Filter>Globals\SL</Filter>
+    </ClCompile>
+    <ClCompile Include="..\_globals\SpacePartitioning\SLUniformGrid.cpp">
+      <Filter>Globals\SpacePartitioning</Filter>
+    </ClCompile>
+    <ClCompile Include="source\SLPhotonMap.cpp">
+      <Filter>Raytracer</Filter>
+    </ClCompile>
+    <ClCompile Include="source\SLPhotonMapper.cpp">
+      <Filter>Raytracer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\_external\randomc\mersenne.cpp">
+      <Filter>Globals\External\randomc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\_external\randomc\mother.cpp">
+      <Filter>Globals\External\randomc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\_external\randomc\rancombi.cpp">
+      <Filter>Globals\External\randomc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\_external\randomc\random.cpp">
+      <Filter>Globals\External\randomc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\_external\randomc\ranrotb.cpp">
+      <Filter>Globals\External\randomc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\_external\randomc\ranrotw.cpp">
+      <Filter>Globals\External\randomc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\_external\randomc\sobol.cpp">
+      <Filter>Globals\External\randomc</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\_globals\math\SLMat3.h">
+      <Filter>Globals\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\_globals\math\SLMat4.h">
+      <Filter>Globals\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\_globals\math\SLMath.h">
+      <Filter>Globals\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\_globals\math\SLPlane.h">
+      <Filter>Globals\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\_globals\math\SLVec2.h">
+      <Filter>Globals\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\_globals\math\SLVec3.h">
+      <Filter>Globals\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\_globals\math\SLVec4.h">
+      <Filter>Globals\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\_globals\math\TriangleBoxIntersect.h">
+      <Filter>Globals\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\_globals\MeshLoader\SL3DSMesh.h">
+      <Filter>Globals\MeshLoader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\_globals\MeshLoader\SL3DSMeshFile.h">
+      <Filter>Globals\MeshLoader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\_globals\GL\SLGLBuffer.h">
+      <Filter>Globals\GL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\_globals\GL\SLGLShader.h">
+      <Filter>Globals\GL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\_globals\GL\SLGLShaderProgGeneric.h">
+      <Filter>Globals\GL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\_globals\GL\SLGLShaderProg.h">
+      <Filter>Globals\GL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\_globals\GL\SLGLShaderUniform.h">
+      <Filter>Globals\GL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\_globals\GL\SLGLState.h">
+      <Filter>Globals\GL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\_globals\GL\SLGLTexture.h">
+      <Filter>Globals\GL</Filter>
+    </ClInclude>
+    <ClInclude Include="include\SLScene.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="include\SLSceneView.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="include\SLLight.h">
+      <Filter>Light &amp; Material</Filter>
+    </ClInclude>
+    <ClInclude Include="include\SLMaterial.h">
+      <Filter>Light &amp; Material</Filter>
+    </ClInclude>
+    <ClInclude Include="include\SLText.h">
+      <Filter>Nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="include\SLButton.h">
+      <Filter>Nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="include\SLCamera.h">
+      <Filter>Nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="include\SLGroup.h">
+      <Filter>Nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="include\SLMesh.h">
+      <Filter>Nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="include\SLNode.h">
+      <Filter>Nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="include\SLRefGroup.h">
+      <Filter>Nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="include\SLRefShape.h">
+      <Filter>Nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="include\SLShape.h">
+      <Filter>Nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="include\SLBox.h">
+      <Filter>Nodes\Mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="include\SLCone.h">
+      <Filter>Nodes\Mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="include\SLCylinder.h">
+      <Filter>Nodes\Mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="include\SLPolygon.h">
+      <Filter>Nodes\Mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="include\SLRectangle.h">
+      <Filter>Nodes\Mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="include\SLRevolver.h">
+      <Filter>Nodes\Mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="include\SLSphere.h">
+      <Filter>Nodes\Mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="include\SLLightRect.h">
+      <Filter>Nodes\Mesh\Lights</Filter>
+    </ClInclude>
+    <ClInclude Include="include\SLLightSphere.h">
+      <Filter>Nodes\Mesh\Lights</Filter>
+    </ClInclude>
+    <ClInclude Include="include\SLAABBox.h">
+      <Filter>Nodes\AABB &amp; Animations</Filter>
+    </ClInclude>
+    <ClInclude Include="include\SLRay.h">
+      <Filter>Raytracer</Filter>
+    </ClInclude>
+    <ClInclude Include="include\SLRaytracer.h">
+      <Filter>Raytracer</Filter>
+    </ClInclude>
+    <ClInclude Include="include\SLSamples2D.h">
+      <Filter>Raytracer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\_external\nvwa\debug_new.h">
+      <Filter>Globals\External\nvwa</Filter>
+    </ClInclude>
+    <ClInclude Include="include\SLKeyframe.h">
+      <Filter>Nodes\AABB &amp; Animations</Filter>
+    </ClInclude>
+    <ClInclude Include="include\SLAnimation.h">
+      <Filter>Nodes\AABB &amp; Animations</Filter>
+    </ClInclude>
+    <ClInclude Include="..\_globals\math\SLCurve.h">
+      <Filter>Globals\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\_globals\math\SLCurveBezier.h">
+      <Filter>Globals\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\_globals\GL\glUtils.h">
+      <Filter>Globals\GL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\_globals\SL\SL.h">
+      <Filter>Globals\SL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\_globals\SL\SLDrawBits.h">
+      <Filter>Globals\SL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\_globals\SL\SLEventHandler.h">
+      <Filter>Globals\SL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\_globals\SL\SLFileSystem.h">
+      <Filter>Globals\SL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\_globals\SL\SLImage.h">
+      <Filter>Globals\SL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\_globals\SL\SLInterface.h">
+      <Filter>Globals\SL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\_globals\SL\SLObject.h">
+      <Filter>Globals\SL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\_globals\SL\SLTexFont.h">
+      <Filter>Globals\SL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\_globals\SL\SLTimer.h">
+      <Filter>Globals\SL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\_globals\SL\SLUtils.h">
+      <Filter>Globals\SL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\_globals\SL\SLVector.h">
+      <Filter>Globals\SL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\_globals\SL\stdafx.h">
+      <Filter>Globals\SL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\_globals\SpacePartitioning\SLAccelStruct.h">
+      <Filter>Globals\SpacePartitioning</Filter>
+    </ClInclude>
+    <ClInclude Include="..\_globals\SpacePartitioning\SLUniformGrid.h">
+      <Filter>Globals\SpacePartitioning</Filter>
+    </ClInclude>
+    <ClInclude Include="include\SLPhotonMap.h">
+      <Filter>Raytracer</Filter>
+    </ClInclude>
+    <ClInclude Include="include\SLPhotonMapper.h">
+      <Filter>Raytracer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\_external\randomc\random.h">
+      <Filter>Globals\External\randomc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\_external\randomc\randomc.h">
+      <Filter>Globals\External\randomc</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

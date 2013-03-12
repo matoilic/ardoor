@@ -1,0 +1,10 @@
+- SLNode und SLGroup vereinfachen mit STL:List
+- GLM einbauen
+- Compressed Textures
+- Quaternionen
+- Transparente Texturen in Raytracing
+- Zeit messen von Update, Cull und Draw
+- SLCpu wieder in Betrieb nehmen, um fuer praezise Zeitmessung
+- SLUniformGrid mit weniger Speicherbelegung
+- Weitere Kameraanimationen
+- Umstellen auf Interleaved Arrays zur Performancesteigerung

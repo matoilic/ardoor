@@ -1,0 +1,307 @@
+<!--
+//#############################################################################
+//  File:      Readme.html
+//  Purpose:   Main project page for SLProject Doxygen documentation
+//             Doxygen is a documentation tool for C syntax like languages.
+//             It automatically generates the source code.
+//             Doxygen can be found under: http://www.doxygen.org
+//             The doxygen setting are defined in the file GenerateHTMLDoc.dox.
+//             To start the generation process run GenerateHTMLDoc.bat.
+//  Author:    Marcus Hudritsch
+//  Date:      February 2013
+//  Copyright: Marcus Hudritsch, Kirchrain 18, 2572 Sutz
+//             This software is provide under the GNU General Public License
+//             Please visit: http://opensource.org/licenses/GPL-3.0
+//#############################################################################
+-->
+
+/*! 
+\mainpage SLProject
+Welcome to the SLProject. SL stands for Scene Library and is a 3D computer 
+graphics scenegraph library. It is developed at the Berne University of Applied 
+Sciences and is used for student projects. This demo application shows you what you 
+can learn in one semester about 3D computer graphics in real time rendering and 
+ray tracing. During the semester we built this framework in C++ and OpenGL ES 2.0 so 
+that it can run also on mobile devices. The framework runs without changes on Windows,
+Linux, Mac OSX, Android (>=2.3.3) and Apple iOS (>=5). The framework can render 
+alternatively with ray tracing which provides in addition high quality transparencies, 
+reflections and soft shadows. 
+Please visit the project homepage at http://code.google.com/p/slproject/
+The source code is provided under the 
+<a href="http://www.gnu.org/licenses/gpl.html">GNU General Puplic License (GPL)</a>. 
+The code is provided without any warranties whether expressed or implied.<br/>
+
+<p>
+<a href="#features">Framework Features</a><br>
+<a href="#minimalApps">Minimal OpenGL App in 4 Languages</a><br>
+<a href="#downloadAndBuild">Download and Build Framework</a><br>
+<a href="#frameworkStructure">Framework Structure</a><br>
+<a href="#folderStructure">Folder Structure</a><br>
+<a href="#androidProject">Notes on the Android Project</a><br>
+<a href="#iOSProject">Notes on the Apple iOS Project</a><br>
+<a href="#support">Support</a><br>
+<a href="#version">Version History</a><br>
+</p>
+
+<a name="features"></a>
+<h2>Framework Features:</h2>
+<UL>
+<LI>Platform independent real time 3D rendering with OpenGL ES 2.0 on Windows, Mac OSX, Linux, Android and Apple iOS5.</LI>
+   <LI>99% of the code is in platform independent C++ or GLSL (OpenGL Shading 
+      Language).</LI>
+   <LI>Hierarchical scenegraph with grouping and referencing.</c
+   <LI>3DS file format import.</LI>
+   <LI>Sorted alpha blending for transparencies.</LI>
+   <LI>View frustum culling for optimal rendering of large scenes.</LI>
+   <LI>Standard GLSL shaders for vertex lighting, pixel lighting, bump mapping, 
+      parallax mapping, water and glass shading.</LI>
+   <LI>Turntable and first person camera animation.</LI>
+   <LI>Stereo rendering with anaglyphs, side-by-side, line-by-line and checkerboard 
+      image separation.</LI>
+   <LI>Simple 2D GUI buttons for hierarchical menus.</LI>
+   <LI>Space partitioning with axis aligned bounding volume hierarchy combined with 
+      uniform grids.</LI>
+   <LI>Object picking with fast ray casting.</LI>
+   <LI>Alternative rendering with ray tracing. On desktop OS the ray tracing is 
+      optimally parallelized using OpenMP.</LI>
+   <LI>Distributed ray tracing for anti aliasing, soft shadows and depth of field.</LI>
+</UL>
+
+<a name="minimalApps"></a>
+<h2>New: Minimal OpenGL ES2 App in 4 Languages</h2>
+<UL>
+<LI>Minimal OpenGL application in C++, C#, Java & WebGL.</LI>
+<LI>The projects can serve as entry points for OpenGL programming newbies.</LI>
+<LI>The apps show a simple rectangle with texture that can be rotated with the mouse implemented in:</LI>
+<UL>
+    <LI>C++ with the GLFW library for GUI.</LI>
+    <LI>C# with the OpenTK GL wrapper.</LI>
+    <LI>Java with the JOGL GL wrapper.</LI>
+    <LI>WebGL in JavaScript</LI>
+</UL>
+<LI>The code in the 4 Languages is as identical as possible.</LI>
+</UL>
+
+<a name="downloadAndBuild"></a>
+<h2>Download and Build Framework:</h2>
+<UL>
+<LI>The SLProject is hosted at Google Code: <a href="http://code.google.com/p/slproject">http://code.google.com/p/slproject</a></LI>
+    <LI>The SVN repository is for nonmembers is readonly at: https://slproject.googlecode.com/svn</LI>
+   <LI>Checkout the SVN read-only repository whereever you want.</LI>
+   <LI>The projects for Windows OS and Android is provided as a Microsoft Visual 
+      Studio 2010 solution (<strong>SLProject.sln</strong>).<UL>
+         <LI>The project <strong>ch09_TextureMapping</strong> with C++ and GLFW-GUI.</LI>
+           <LI>The project <strong>ch09_TextureMapping_Net</strong> with C# and OpenTK OpenGL wrapping.</LI>
+           <LI>The project <strong>chXX_Final</strong> builds the final project with all 
+               features for Windows by first compiling the 
+            external libraries in the CG-external project.<UL>
+               <LI>You need a graphic accelerator that supports at least OpenGL 2.1 or newer.</LI>
+            </UL>
+         </LI>
+         <LI>The project <strong>chXX_Final_Android</strong> builds and installs the Android 
+            application package (apk) within Visual Studio!<UL>
+               <LI>Read also the <a href="#androidProject">Notes on the Android Project</a>.</LI>
+            </UL>
+         </LI>
+      </UL>
+   </LI>
+   <LI>The C++ projects are alternatively provided as Qt pro-files so that you can use 
+       the Qt Creator IDE for platform independent development.</LI>
+    <LI>The project for <strong>iOS5</strong> or newer devices is provided as an Apple XCode project (<strong>chXX_Final.xcodeproj</strong>).
+        <UL>
+            <LI>Read the <a href="#iOSProject">Notes on the Apple iOS Project</a>.</LI>
+        </UL>
+    </LI>
+</UL>
+
+<a name="frameworkStructure"></a>
+<h2>Framework Structure:</h2>
+<UL>
+<LI>The applications starting code depends on the operating system. In all cases we 
+   have the most outer shell of the application that handles the window and the 
+   OpenGL context creation and passes then the events to a C-function interface 
+   before it is handled by the C++-framework. The following OS are supported: 
+   <UL>
+      <LI>Windows, Linux &amp; Max OSX applications use the
+         <a href="http://www.glfw.org/">GLFW</a> library for the platform independent window and context 
+         creation.</LI>
+      <LI>The Android application starts in JAVA and passes the events with JNI (Java 
+         Native Interface) to the C-interface.</LI>
+      <LI>On Apple iOS Devices the application starts in ObjectiveC before it passes the 
+         events to the C-interface.</LI>
+   </UL>
+</LI>
+   <LI>The framework uses beside OpenGL the libraries <a href="http://www.ijg.org/">
+      JPEG</a>, <a href="http://www.libpng.org/pub/png/libpng.html">PNG</a> and
+      <a href="http://zlib.net/">ZLIB</a> for image loading and
+      <a href="http://nvwa.sourceforge.net/">nvwa</a> for memory management.</LI>
+<LI>The toplevel class of the framework is SLScene that represents the scene with 
+   its properties. Different scenes are created in SLScene::onLoad.</LI>
+<LI>SLSceneView represents a dynamic real time 3D view onto the scene. If provides 
+   the major event handlers.</LI>
+<LI>The scenegraph hierarchy is built with the classes SLNode, SLShape, SLMesh, 
+   SLGroup, SLRefShape and SLRefGroup.</LI>
+<LI>The classes SLRevolver, SLSphere, SLCylinder, SLCone, SLBox, SLPolygon and SLRectangle are all inheritants from SLMesh.</LI>
+   <LI>The space partitioning is implemented in the classes SLAABBox and 
+      SLUniformGrid.</LI>
+<LI>All OpenGL ES 2.0 code is restricted to the classes SLGLState, SLGLTexture, SLGLBuffer, SLGLShader and SLGLShaderProg.</LI>
+<LI>The lighting is implemented in the classes SLMaterial, SLLight, SLLightSphere 
+   and SLLightRect.</LI>
+<LI>The classes for the 2D-GUI are SLTexFont, SLText and SLButton.</LI>
+<LI>The ray tracer is implemented in the classes SLRaytracer and SLRay.</LI>
+<LI>The linear algebra math is implemented in the classes SLMat3, SLMat4, SLVec3 and SLVec4.</LI>
+</UL>
+
+<a name="folderStructure"></a>
+<h2>Folder Structure:</h2>
+<UL>
+<LI><b>_bin-SLProject</b>: Folder with the executable application for Windows</LI>
+<LI><b>_data</b>: Folder with assets loaded at run time</LI>
+<UL>
+   <LI><b>fonts</b>: Folder with font images</LI>
+   <LI><b>images</b>: Folder with texture images</LI>
+   <LI><b>models</b>: Folder with 3DS model files</LI>
+</UL>
+<LI><b>_globals</b>: Folder with global source files used in all projects</LI>
+<LI><b>_external</b>: External libraries such as JPEG, PNG, ZLIB & GLFW</LI>
+<UL>
+   <LI><b>GL</b>: All classes that have OpenGL functions</LI>
+   <LI><b>GUI</b>: All GUI and OS binding code.</LI>
+   <UL>
+      <LI><b>Android</b>: Binding for Android with Java and JNI in Visual Studio 2010</LI>
+      <LI><b>GLFW</b>: Starting main function using the GLFW library for Windows, Linux and OSX</LI>
+      <LI><b>iOS5</b>: Binding for Apple iOS5 for XCode IDE with ObjectiveC</LI>
+   </UL>
+   <LI><b>Math</b>: All math classes for vectors and matrices</LI>
+   <LI><b>MeshLoader</b>: Classes for 3DS mesh file loading.</LI>
+   <LI><b>oglsl</b>: OpenGL GLSL shader files</LI>
+</UL>
+<LI><b>ch09_TextureMapping</b>: Folder of the minimal OpenGL ES C++ application with 
+    texture mapping (IDE: VisualStudio or Qt Creator).
+    <LI><b>ch09_TextureMapping_Java</b>: Folder of the minimal OpenGL ES Java 
+        application with texture mapping (IDE: Eclipse). 
+    <LI><b>ch09_TextureMapping_Net</b>: Folder of the minimal OpenGL ES C# application 
+        with texture mapping (IDE: Visual Studio). 
+    <LI><b>ch09_TextureMapping_WebGL</b>: Folder of the minimal OpenGL WebGL/JavaScript 
+        application with texture mapping (IDE: any text editor). 
+    <LI><b>chXX_Final</b>: Folder of the Visual Studio project for Windows
+        <UL>
+            <LI><b>html</b>: This documentation as local files. This folder is not in the 
+                repository. It is generated by doxygen.</LI>
+            <LI><b>includes</b>: Folder with all header files</LI>
+            <LI><b>source</b>: Folder with all source files</LI>
+            <LI>doxyfile: Doxygen configuration file</LI>
+            <LI>GenerateHTMLDoc.bat: Batch file that starts the HTML-help generation.</LI>
+            <LI>chXX_Final.pro the Qt project definition file. It can be opened in the platform 
+                independen and free Qt Creator IDE.</LI>
+            <LI>chXX_Final.vcxproj.filters: Folder structure file for VisualStudio 10</LI>
+            <LI>chXX_Final_Android.vcxproj.filters: Android project folder structure file for VisualStudio 10</LI>
+            <LI>chXX_Final.vcxproj: Project file for VisualStudio 10</LI>
+            <LI>chXX_Final_Android.vcxproj: Project file for the Android project with VisualStudio 10</LI>
+            <LI>readme.html: This file</LI>
+        </UL>
+    <LI><b>chXX_Final.xcodeproj</b>: XCode Project for Mac OSX for iOS5 app.</LI>
+    <LI><b>SLProject.sln</b>: VisualStudio 10 solution file</LI>
+</UL>
+
+<a name="androidProject"></a>
+<h2>Notes on the Android Project:</h2>
+<UL>
+   <LI>You need at least a device with Android 2.3.3 (API-10) with a graphic accelerator that 
+       supports OpenGL ES 2.0.</LI>
+     <LI>The project uses the <a href="http://code.google.com/p/vs-android/">VS-Android</a> 
+      project definition that calls the Apache-ANT tool for building the JAVA layer 
+      and the apk (Android Package).</LI>
+   <LI>You need to install prior
+      <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">
+      JAVA SDK</a> and the <a href="http://developer.android.com/sdk/index.html">
+      Android SDK</a> and <a href="http://developer.android.com/sdk/ndk/index.html">
+      NDK</a>. 
+       After installation you can update the Android SDK with the Android SDK Manager 
+       (by starting the {AndroidSDKPath}/tools/android.bat).</LI>
+   <LI>Run the VS-Android installer (_external\vs-android\MSBuild\install.cmd) and 
+      follow the <a href="http://code.google.com/p/vs-android/wiki/HowTo_Samples">installation 
+      and usage tutorial</a>.</LI>
+   <LI>Connect an Android device with the USB cable. </LI>
+    <LI>Check the connection with the 
+      command &quot;adb devices&quot; in the console. It starts the USB deamon and returns the 
+      device ID. The Android Debug Bridge (adb.exe) is located in 
+        {AndroidSDKPath}/plattform-tools. If there is no device ID listed you have a USB 
+        connection problem. For my Samsung Galaxy S2 it was not enough to install the 
+        Google USB driver from the SDK. I had also to install the Samsung Kies desktop 
+        application that installs its own USB driver.</LI>
+   <LI>The VS project is in general a static library project that is compiled with the 
+      GCC arm compiler provided in the Android NDK.</LI>
+   <LI>Start the build process by building the chXX_Final_Android project. It compiles 
+      the C/C++ code, the JAVA classes and builds, signs and installs the apk on the 
+      device.</LI>
+   <LI>Until now I was not able to use the debugger via the adb (Android Debug 
+      Bridge).</LI>
+   <LI>The project has a prebuild step that copies all the assets (textures, models 
+      and shaders) into the apk folder 
+      (_globals/GUI/Android/apk/assets).</LI>
+   <LI>When the app runs the first time it extracts the compressed asset files into the 
+      apps folder on the device.</LI>
+   <LI>The debug configuration has a postbuild step that starts the logging with adb 
+      (adb logcat SLProject:I *:S).</LI>
+   <LI>In the debug configuration the apk is automatically signed with a development 
+      certificate.</LI>
+   <LI>The realease version has to be properly signed with your certificate. Please 
+      read the Android dev docs.</LI>
+   <LI>You can find the demo project also on the
+      <a href="https://market.android.com/details?id=ch.fhnw.comgr&amp;feature=search_result#?t=W251bGwsMSwyLDEsImNoLmZobncuY29tZ3IiXQ..">
+      Android Market</a></LI>
+    <LI>Final remark on Android development: I&#39;m a newbie on Android development. After 
+        several days of struggeling and installing and reinstalling you really feel the 
+        nerdy linux background of the Android system. The qualtiy of the graphics driver 
+        is good on the block buster selling devices such as the Samsung Galaxys etc. But 
+        otherwise you get tons of GLSL compilation errors on rarer devices. There seems 
+        to be no debugging options for native apps. You just can log on the output 
+        stream and read that with adb. Native code development in Eclipse with 
+        deployment is a nightmare. The VS-Android project was a salvation. </LI>
+</UL>
+
+<a name="iOSProject"></a>
+<h2>Notes on the Apple iOS Project:</h2>
+<UL>
+   <LI>You need an Apple computer with at least Mac OS 10.7 installed.</LI>
+   <LI>You need at least XCode version 4 that you can download at
+            <a href="http://developer.apple.com/">developer.apple.com</a>.</LI>
+   <LI>Without registering for the <a href="http://developer.apple.com/programs/ios/">iOS Developer Program</a> (99$ per year) you can only run the application on the iOS emulator.</LI>
+   <LI>With a developer account you can debug, run and install the application on any 
+            device with the iOS version 5 or newer.</LI>
+   <LI>You need a iOS device that supports OpenGL ES 2.0. These are iPod Touch 2nd 
+              generation or newer, iPhone 3 or newer and all iPads.</LI>
+   <LI>Please refer to the iOS online documentation on how to create the provisioning 
+            for the application.</LI>
+   <LI>The XCode environment provides also sofisticated tools for profiling and for 
+      the OpenGL ES pipeline analysis. </LI>
+</UL>
+
+<a name="support"></a>
+<h2>Support:</h2>
+<UL>
+   <LI>The code is provided without any warranties whether expressed or implied.</LI>
+   <LI>No support can be provided on installation, compiler or build issues. The 
+      framework was tested on several machines using MS Visual Studio 2010 as well as 
+      on Mac OSX using XCode with GCC or LLVM compiler.</LI>
+   <LI>The code is provided under <a href="http://opensource.org/licenses/GPL-3.0">GNU General Puplic License (GPL)</a>. 
+      This means in general, that you must provide your code as well under GPL if you 
+      use this code.</LI>
+   <LI>Feedback always welcome.</LI>
+</UL>
+
+<a name="version"></a>
+<h2>Version History:</h2>
+<UL>
+<LI>Version 0.90, 23-JAN-2012: Initial release.</LI>
+    <LI>Version 0.91, 19-FEB-2013: Google Code Repository, Minimal OpenGL ES projects in 
+        C++, C#, Java &amp; WebGL added.</LI>
+</UL>
+
+<p>
+Author: marcus.hudritsch@bfh.ch<br>
+Date: Februar 2013<br>
+Copyright (c): 2002-2013 Marcus Hudritsch, Kirchrain 18, 2572 Sutz, Switzerland<br>
+</p>
+*/

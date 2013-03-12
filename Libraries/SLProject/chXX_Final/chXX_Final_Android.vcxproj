@@ -1,0 +1,483 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Android">
+      <Configuration>Debug</Configuration>
+      <Platform>Android</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Android">
+      <Configuration>Release</Configuration>
+      <Platform>Android</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{158CCAFB-7A8D-4532-91DF-99284FADABEB}</ProjectGuid>
+    <RootNamespace>chXX_Final_Android</RootNamespace>
+    <ProjectName>chXX_Final_Android</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Android'">
+    <IntDir>$(ProjectDir)$(Configuration)\$(Platform)\</IntDir>
+    <OutDir>$(ProjectDir)$(Configuration)\$(Platform)\</OutDir>
+    <TargetName>GLES2Android</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Android'">
+    <OutDir>$(ProjectDir)$(Configuration)\$(Platform)\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Android'">
+    <IntDir>$(ProjectDir)$(Configuration)\$(Platform)\</IntDir>
+    <TargetName>GLES2Android</TargetName>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Android'">
+    <AntBuild>
+      <AntBuildPath>../_globals/GUI/Android/apk</AntBuildPath>
+      <AdbRunAddCmdLine>
+      </AdbRunAddCmdLine>
+    </AntBuild>
+    <Link>
+      <AdditionalOptions>-lGLESv2 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>
+      </AdditionalDependencies>
+      <AndroidSystemLibs>c;m;log;gcc;z</AndroidSystemLibs>
+    </Link>
+    <PostBuildEvent>
+      <Command>$(ANDROID_HOME)\platform-tools\adb logcat SLProject:I *:S</Command>
+    </PostBuildEvent>
+    <PostBuildEvent>
+      <Message>adb logcat SLProject:I *:S</Message>
+    </PostBuildEvent>
+    <PreBuildEvent>
+      <Command>$(ANDROID_HOME)\platform-tools\adb logcat -c
+
+xcopy ..\_globals\oglsl\*.frag ..\_globals\GUI\Android\apk\assets\shaders /d/y
+xcopy ..\_globals\oglsl\*.vert ..\_globals\GUI\Android\apk\assets\shaders /d/y
+del ..\_globals\GUI\Android\apk\assets\shaders\ADS*
+
+xcopy ..\_data\models\3DS\Halloween\GUTS.BMP ..\_globals\GUI\Android\apk\assets\models /d/y
+xcopy ..\_data\models\3DS\Halloween\jackolan.3ds ..\_globals\GUI\Android\apk\assets\models /d/y
+xcopy ..\_data\models\3DS\Halloween\JACKTOP.BMP ..\_globals\GUI\Android\apk\assets\models /d/y
+xcopy ..\_data\models\3DS\Halloween\JACK_C.BMP ..\_globals\GUI\Android\apk\assets\models /d/y
+xcopy ..\_data\models\3DS\Halloween\kerze.3DS ..\_globals\GUI\Android\apk\assets\models /d/y
+xcopy ..\_data\models\3DS\Halloween\stem.3DS ..\_globals\GUI\Android\apk\assets\models /d/y
+xcopy ..\_data\models\3DS\Halloween\STEM.BMP ..\_globals\GUI\Android\apk\assets\models /d/y
+
+xcopy ..\_data\images\textures\CompileError.png ..\_globals\GUI\Android\apk\assets\textures /d/y
+xcopy ..\_data\images\textures\brick0512_C.png ..\_globals\GUI\Android\apk\assets\textures /d/y
+xcopy ..\_data\images\textures\bricks1_0256_C.jpg ..\_globals\GUI\Android\apk\assets\textures /d/y
+xcopy ..\_data\images\textures\bricks1_0512_C.jpg ..\_globals\GUI\Android\apk\assets\textures /d/y
+xcopy ..\_data\images\textures\brickwall0512_C.jpg ..\_globals\GUI\Android\apk\assets\textures /d/y
+xcopy ..\_data\images\textures\brickwall0512_G.jpg ..\_globals\GUI\Android\apk\assets\textures /d/y
+xcopy ..\_data\images\textures\brickwall0512_H.jpg ..\_globals\GUI\Android\apk\assets\textures /d/y
+xcopy ..\_data\images\textures\brickwall0512_N.jpg ..\_globals\GUI\Android\apk\assets\textures /d/y
+xcopy ..\_data\images\textures\Checkerboard0512_C.png ..\_globals\GUI\Android\apk\assets\textures /d/y
+xcopy ..\_data\images\textures\Chess0256_C.bmp ..\_globals\GUI\Android\apk\assets\textures /d/y
+xcopy ..\_data\images\textures\earth1024_C.jpg ..\_globals\GUI\Android\apk\assets\textures /d/y
+xcopy ..\_data\images\textures\earth1024_G.jpg ..\_globals\GUI\Android\apk\assets\textures /d/y
+xcopy ..\_data\images\textures\earth1024_H.jpg ..\_globals\GUI\Android\apk\assets\textures /d/y
+xcopy ..\_data\images\textures\earth1024_N.jpg ..\_globals\GUI\Android\apk\assets\textures /d/y
+xcopy ..\_data\images\textures\earthCloud1024_A.jpg ..\_globals\GUI\Android\apk\assets\textures /d/y
+xcopy ..\_data\images\textures\earthCloud1024_C.jpg ..\_globals\GUI\Android\apk\assets\textures /d/y
+xcopy ..\_data\images\textures\earthNight1024_C.jpg ..\_globals\GUI\Android\apk\assets\textures /d/y
+xcopy ..\_data\images\textures\grass0512_C.jpg ..\_globals\GUI\Android\apk\assets\textures /d/y
+xcopy ..\_data\images\textures\gray_0256_C.jpg ..\_globals\GUI\Android\apk\assets\textures /d/y
+xcopy ..\_data\images\textures\MuttenzerBox+X0512_C.png ..\_globals\GUI\Android\apk\assets\textures /d/y
+xcopy ..\_data\images\textures\MuttenzerBox+Y0512_C.png ..\_globals\GUI\Android\apk\assets\textures /d/y
+xcopy ..\_data\images\textures\MuttenzerBox+Z0512_C.png ..\_globals\GUI\Android\apk\assets\textures /d/y
+xcopy ..\_data\images\textures\MuttenzerBox-X0512_C.png ..\_globals\GUI\Android\apk\assets\textures /d/y
+xcopy ..\_data\images\textures\MuttenzerBox-Y0512_C.png ..\_globals\GUI\Android\apk\assets\textures /d/y
+xcopy ..\_data\images\textures\MuttenzerBox-Z0512_C.png ..\_globals\GUI\Android\apk\assets\textures /d/y
+xcopy ..\_data\images\textures\Pool+X0512_C.png ..\_globals\GUI\Android\apk\assets\textures /d/y
+xcopy ..\_data\images\textures\Pool+Y0512_C.png ..\_globals\GUI\Android\apk\assets\textures /d/y
+xcopy ..\_data\images\textures\Pool+Z0512_C.png ..\_globals\GUI\Android\apk\assets\textures /d/y
+xcopy ..\_data\images\textures\Pool-X0512_C.png ..\_globals\GUI\Android\apk\assets\textures /d/y
+xcopy ..\_data\images\textures\Pool-Y0512_C.png ..\_globals\GUI\Android\apk\assets\textures /d/y
+xcopy ..\_data\images\textures\Pool-Z0512_C.png ..\_globals\GUI\Android\apk\assets\textures /d/y
+xcopy ..\_data\images\textures\Testmap_0512_C.png ..\_globals\GUI\Android\apk\assets\textures /d/y
+xcopy ..\_data\images\textures\tile1_0256_C.jpg ..\_globals\GUI\Android\apk\assets\textures /d/y
+xcopy ..\_data\images\textures\tree1_1024_C.png ..\_globals\GUI\Android\apk\assets\textures /d/y
+xcopy ..\_data\images\textures\wood0_0256_C.jpg ..\_globals\GUI\Android\apk\assets\textures /d/y
+xcopy ..\_data\images\textures\wood0_0512_C.jpg ..\_globals\GUI\Android\apk\assets\textures /d/y
+xcopy ..\_data\images\textures\wood2_0256_C.jpg ..\_globals\GUI\Android\apk\assets\textures /d/y
+xcopy ..\_data\images\textures\wood2_0512_C.jpg ..\_globals\GUI\Android\apk\assets\textures /d/y</Command>
+    </PreBuildEvent>
+    <PreBuildEvent>
+      <Message>clear logcat</Message>
+    </PreBuildEvent>
+    <ClCompile>
+      <PreprocessorDefinitions>SL_RT1;GL_FRAGMENT_PRECISION_HIGH</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)\include;..\_external;..\_external\jpeg-8;..\_external\png;..\_external\zlib;..\_external\glew\include;..\_external\glfw\include;..\_external\randomc;..\_globals;..\_globals\SL;..\_globals\GL;..\_globals\math;..\_globals\MeshLoader;..\_globals\SpacePartitioning</AdditionalIncludeDirectories>
+      <GccExceptionHandling>false</GccExceptionHandling>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <OptimizationLevel>O3</OptimizationLevel>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Android'">
+    <AntBuild>
+      <AntBuildPath>../_globals/GUI/Android/apk</AntBuildPath>
+    </AntBuild>
+    <Link>
+      <AdditionalOptions>-lGLESv2 %(AdditionalOptions)</AdditionalOptions>
+      <AndroidSystemLibs>c;m;log;gcc;z</AndroidSystemLibs>
+    </Link>
+    <ClCompile>
+      <PreprocessorDefinitions>SL_RT1;GL_FRAGMENT_PRECISION_HIGH</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)\include;..\_external;..\_external\jpeg-8;..\_external\png;..\_external\zlib;..\_external\glew\include;..\_external\glfw\include;..\_external\randomc;..\_globals;..\_globals\SL;..\_globals\GL;..\_globals\math;..\_globals\MeshLoader;..\_globals\SpacePartitioning</AdditionalIncludeDirectories>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+    </ClCompile>
+    <PreBuildEvent>
+      <Command>$(ANDROID_HOME)\platform-tools\adb logcat -c
+
+xcopy ..\_globals\oglsl\*.frag ..\_globals\GUI\Android\apk\assets\shaders /d/y
+xcopy ..\_globals\oglsl\*.vert ..\_globals\GUI\Android\apk\assets\shaders /d/y
+del ..\_globals\GUI\Android\apk\assets\shaders\ADS*
+
+xcopy ..\_data\models\3DS\Halloween\GUTS.BMP ..\_globals\GUI\Android\apk\assets\models /d/y
+xcopy ..\_data\models\3DS\Halloween\jackolan.3ds ..\_globals\GUI\Android\apk\assets\models /d/y
+xcopy ..\_data\models\3DS\Halloween\JACKTOP.BMP ..\_globals\GUI\Android\apk\assets\models /d/y
+xcopy ..\_data\models\3DS\Halloween\JACK_C.BMP ..\_globals\GUI\Android\apk\assets\models /d/y
+xcopy ..\_data\models\3DS\Halloween\kerze.3DS ..\_globals\GUI\Android\apk\assets\models /d/y
+xcopy ..\_data\models\3DS\Halloween\stem.3DS ..\_globals\GUI\Android\apk\assets\models /d/y
+xcopy ..\_data\models\3DS\Halloween\STEM.BMP ..\_globals\GUI\Android\apk\assets\models /d/y
+
+xcopy ..\_data\images\textures\CompileError.png ..\_globals\GUI\Android\apk\assets\textures /d/y
+xcopy ..\_data\images\textures\brick0512_C.png ..\_globals\GUI\Android\apk\assets\textures /d/y
+xcopy ..\_data\images\textures\bricks1_0256_C.jpg ..\_globals\GUI\Android\apk\assets\textures /d/y
+xcopy ..\_data\images\textures\bricks1_0512_C.jpg ..\_globals\GUI\Android\apk\assets\textures /d/y
+xcopy ..\_data\images\textures\brickwall0512_C.jpg ..\_globals\GUI\Android\apk\assets\textures /d/y
+xcopy ..\_data\images\textures\brickwall0512_G.jpg ..\_globals\GUI\Android\apk\assets\textures /d/y
+xcopy ..\_data\images\textures\brickwall0512_H.jpg ..\_globals\GUI\Android\apk\assets\textures /d/y
+xcopy ..\_data\images\textures\brickwall0512_N.jpg ..\_globals\GUI\Android\apk\assets\textures /d/y
+xcopy ..\_data\images\textures\Checkerboard0512_C.png ..\_globals\GUI\Android\apk\assets\textures /d/y
+xcopy ..\_data\images\textures\Chess0256_C.bmp ..\_globals\GUI\Android\apk\assets\textures /d/y
+xcopy ..\_data\images\textures\earth1024_C.jpg ..\_globals\GUI\Android\apk\assets\textures /d/y
+xcopy ..\_data\images\textures\earth1024_G.jpg ..\_globals\GUI\Android\apk\assets\textures /d/y
+xcopy ..\_data\images\textures\earth1024_H.jpg ..\_globals\GUI\Android\apk\assets\textures /d/y
+xcopy ..\_data\images\textures\earth1024_N.jpg ..\_globals\GUI\Android\apk\assets\textures /d/y
+xcopy ..\_data\images\textures\earthCloud1024_A.jpg ..\_globals\GUI\Android\apk\assets\textures /d/y
+xcopy ..\_data\images\textures\earthCloud1024_C.jpg ..\_globals\GUI\Android\apk\assets\textures /d/y
+xcopy ..\_data\images\textures\earthNight1024_C.jpg ..\_globals\GUI\Android\apk\assets\textures /d/y
+xcopy ..\_data\images\textures\grass0512_C.jpg ..\_globals\GUI\Android\apk\assets\textures /d/y
+xcopy ..\_data\images\textures\gray_0256_C.jpg ..\_globals\GUI\Android\apk\assets\textures /d/y
+xcopy ..\_data\images\textures\MuttenzerBox+X0512_C.png ..\_globals\GUI\Android\apk\assets\textures /d/y
+xcopy ..\_data\images\textures\MuttenzerBox+Y0512_C.png ..\_globals\GUI\Android\apk\assets\textures /d/y
+xcopy ..\_data\images\textures\MuttenzerBox+Z0512_C.png ..\_globals\GUI\Android\apk\assets\textures /d/y
+xcopy ..\_data\images\textures\MuttenzerBox-X0512_C.png ..\_globals\GUI\Android\apk\assets\textures /d/y
+xcopy ..\_data\images\textures\MuttenzerBox-Y0512_C.png ..\_globals\GUI\Android\apk\assets\textures /d/y
+xcopy ..\_data\images\textures\MuttenzerBox-Z0512_C.png ..\_globals\GUI\Android\apk\assets\textures /d/y
+xcopy ..\_data\images\textures\Pool+X0512_C.png ..\_globals\GUI\Android\apk\assets\textures /d/y
+xcopy ..\_data\images\textures\Pool+Y0512_C.png ..\_globals\GUI\Android\apk\assets\textures /d/y
+xcopy ..\_data\images\textures\Pool+Z0512_C.png ..\_globals\GUI\Android\apk\assets\textures /d/y
+xcopy ..\_data\images\textures\Pool-X0512_C.png ..\_globals\GUI\Android\apk\assets\textures /d/y
+xcopy ..\_data\images\textures\Pool-Y0512_C.png ..\_globals\GUI\Android\apk\assets\textures /d/y
+xcopy ..\_data\images\textures\Pool-Z0512_C.png ..\_globals\GUI\Android\apk\assets\textures /d/y
+xcopy ..\_data\images\textures\Testmap_0512_C.png ..\_globals\GUI\Android\apk\assets\textures /d/y
+xcopy ..\_data\images\textures\tile1_0256_C.jpg ..\_globals\GUI\Android\apk\assets\textures /d/y
+xcopy ..\_data\images\textures\tree1_1024_C.png ..\_globals\GUI\Android\apk\assets\textures /d/y
+xcopy ..\_data\images\textures\wood0_0256_C.jpg ..\_globals\GUI\Android\apk\assets\textures /d/y
+xcopy ..\_data\images\textures\wood0_0512_C.jpg ..\_globals\GUI\Android\apk\assets\textures /d/y
+xcopy ..\_data\images\textures\wood2_0256_C.jpg ..\_globals\GUI\Android\apk\assets\textures /d/y
+xcopy ..\_data\images\textures\wood2_0512_C.jpg ..\_globals\GUI\Android\apk\assets\textures /d/y</Command>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <None Include="..\_external\randomc\RANDOMC.HTM">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\_globals\GUI\Android\apk\AndroidManifest.xml">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="..\_globals\GUI\Android\apk\build.xml">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="..\_globals\GUI\Android\apk\project.properties" />
+    <None Include="..\_globals\GUI\Android\apk\res\values\strings.xml" />
+    <None Include="..\_globals\GUI\Android\apk\src\ch\fhnw\comgr\GLES2Activity.java" />
+    <None Include="..\_globals\GUI\Android\apk\src\ch\fhnw\comgr\GLES2Lib.java" />
+    <None Include="..\_globals\GUI\Android\apk\src\ch\fhnw\comgr\GLES2View.java" />
+    <None Include="..\_globals\oglsl\BumpNormal.frag">
+      <FileType>Document</FileType>
+    </None>
+    <None Include="..\_globals\oglsl\BumpNormal.vert">
+      <FileType>Document</FileType>
+    </None>
+    <None Include="..\_globals\oglsl\BumpNormalEarth.frag">
+      <FileType>Document</FileType>
+    </None>
+    <None Include="..\_globals\oglsl\BumpNormalParallax.frag">
+      <FileType>Document</FileType>
+    </None>
+    <None Include="..\_globals\oglsl\Color.frag">
+      <FileType>Document</FileType>
+    </None>
+    <None Include="..\_globals\oglsl\ColorAttribute.vert">
+      <FileType>Document</FileType>
+    </None>
+    <None Include="..\_globals\oglsl\ColorUniform.vert">
+      <FileType>Document</FileType>
+    </None>
+    <None Include="..\_globals\oglsl\FontTex.frag">
+      <FileType>Document</FileType>
+    </None>
+    <None Include="..\_globals\oglsl\FontTex.vert">
+      <FileType>Document</FileType>
+    </None>
+    <None Include="..\_globals\oglsl\PerPixBlinn.frag">
+      <FileType>Document</FileType>
+    </None>
+    <None Include="..\_globals\oglsl\PerPixBlinn.vert">
+      <FileType>Document</FileType>
+    </None>
+    <None Include="..\_globals\oglsl\PerPixBlinnTex.frag">
+      <FileType>Document</FileType>
+    </None>
+    <None Include="..\_globals\oglsl\PerPixBlinnTex.vert">
+      <FileType>Document</FileType>
+    </None>
+    <None Include="..\_globals\oglsl\PerVrtBlinn.frag">
+      <FileType>Document</FileType>
+    </None>
+    <None Include="..\_globals\oglsl\PerVrtBlinn.vert">
+      <FileType>Document</FileType>
+    </None>
+    <None Include="..\_globals\oglsl\PerVrtBlinnTex.frag">
+      <FileType>Document</FileType>
+    </None>
+    <None Include="..\_globals\oglsl\PerVrtBlinnTex.vert">
+      <FileType>Document</FileType>
+    </None>
+    <None Include="..\_globals\oglsl\Reflect.frag">
+      <FileType>Document</FileType>
+    </None>
+    <None Include="..\_globals\oglsl\Reflect.vert">
+      <FileType>Document</FileType>
+    </None>
+    <None Include="..\_globals\oglsl\RefractReflect.frag">
+      <FileType>Document</FileType>
+    </None>
+    <None Include="..\_globals\oglsl\RefractReflect.vert">
+      <FileType>Document</FileType>
+    </None>
+    <None Include="..\_globals\oglsl\RefractReflectDisp.frag">
+      <FileType>Document</FileType>
+    </None>
+    <None Include="..\_globals\oglsl\RefractReflectDisp.vert">
+      <FileType>Document</FileType>
+    </None>
+    <None Include="..\_globals\oglsl\ShadowMapping.frag">
+      <FileType>Document</FileType>
+    </None>
+    <None Include="..\_globals\oglsl\ShadowMapping.vert">
+      <FileType>Document</FileType>
+    </None>
+    <None Include="..\_globals\oglsl\TextureOnly.frag">
+      <FileType>Document</FileType>
+    </None>
+    <None Include="..\_globals\oglsl\TextureOnly.vert">
+      <FileType>Document</FileType>
+    </None>
+    <None Include="..\_globals\oglsl\Wave.frag">
+      <FileType>Document</FileType>
+    </None>
+    <None Include="..\_globals\oglsl\Wave.vert">
+      <FileType>Document</FileType>
+    </None>
+    <None Include="..\_globals\oglsl\WaveRefractReflect.vert">
+      <FileType>Document</FileType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\_external\jpeg-8\jaricom.c" />
+    <ClCompile Include="..\_external\jpeg-8\jcapimin.c" />
+    <ClCompile Include="..\_external\jpeg-8\jcapistd.c" />
+    <ClCompile Include="..\_external\jpeg-8\jcarith.c" />
+    <ClCompile Include="..\_external\jpeg-8\jccoefct.c" />
+    <ClCompile Include="..\_external\jpeg-8\jccolor.c" />
+    <ClCompile Include="..\_external\jpeg-8\jcdctmgr.c" />
+    <ClCompile Include="..\_external\jpeg-8\jchuff.c" />
+    <ClCompile Include="..\_external\jpeg-8\jcinit.c" />
+    <ClCompile Include="..\_external\jpeg-8\jcmainct.c" />
+    <ClCompile Include="..\_external\jpeg-8\jcmarker.c" />
+    <ClCompile Include="..\_external\jpeg-8\jcmaster.c" />
+    <ClCompile Include="..\_external\jpeg-8\jcomapi.c" />
+    <ClCompile Include="..\_external\jpeg-8\jcparam.c" />
+    <ClCompile Include="..\_external\jpeg-8\jcprepct.c" />
+    <ClCompile Include="..\_external\jpeg-8\jcsample.c" />
+    <ClCompile Include="..\_external\jpeg-8\jctrans.c" />
+    <ClCompile Include="..\_external\jpeg-8\jdapimin.c" />
+    <ClCompile Include="..\_external\jpeg-8\jdapistd.c" />
+    <ClCompile Include="..\_external\jpeg-8\jdarith.c" />
+    <ClCompile Include="..\_external\jpeg-8\jdatadst.c" />
+    <ClCompile Include="..\_external\jpeg-8\jdatasrc.c" />
+    <ClCompile Include="..\_external\jpeg-8\jdcoefct.c" />
+    <ClCompile Include="..\_external\jpeg-8\jdcolor.c" />
+    <ClCompile Include="..\_external\jpeg-8\jddctmgr.c" />
+    <ClCompile Include="..\_external\jpeg-8\jdhuff.c" />
+    <ClCompile Include="..\_external\jpeg-8\jdinput.c" />
+    <ClCompile Include="..\_external\jpeg-8\jdmainct.c" />
+    <ClCompile Include="..\_external\jpeg-8\jdmarker.c" />
+    <ClCompile Include="..\_external\jpeg-8\jdmaster.c" />
+    <ClCompile Include="..\_external\jpeg-8\jdmerge.c" />
+    <ClCompile Include="..\_external\jpeg-8\jdpostct.c" />
+    <ClCompile Include="..\_external\jpeg-8\jdsample.c" />
+    <ClCompile Include="..\_external\jpeg-8\jdtrans.c" />
+    <ClCompile Include="..\_external\jpeg-8\jerror.c" />
+    <ClCompile Include="..\_external\jpeg-8\jfdctflt.c" />
+    <ClCompile Include="..\_external\jpeg-8\jfdctfst.c" />
+    <ClCompile Include="..\_external\jpeg-8\jfdctint.c" />
+    <ClCompile Include="..\_external\jpeg-8\jidctflt.c" />
+    <ClCompile Include="..\_external\jpeg-8\jidctfst.c" />
+    <ClCompile Include="..\_external\jpeg-8\jidctint.c" />
+    <ClCompile Include="..\_external\jpeg-8\jmemmgr.c" />
+    <ClCompile Include="..\_external\jpeg-8\jmemnobs.c" />
+    <ClCompile Include="..\_external\jpeg-8\jquant1.c" />
+    <ClCompile Include="..\_external\jpeg-8\jquant2.c" />
+    <ClCompile Include="..\_external\jpeg-8\jutils.c" />
+    <ClCompile Include="..\_external\nvwa\debug_new.cpp" />
+    <ClCompile Include="..\_external\png\png.c" />
+    <ClCompile Include="..\_external\png\pngerror.c" />
+    <ClCompile Include="..\_external\png\pngget.c" />
+    <ClCompile Include="..\_external\png\pngmem.c" />
+    <ClCompile Include="..\_external\png\pngpread.c" />
+    <ClCompile Include="..\_external\png\pngread.c" />
+    <ClCompile Include="..\_external\png\pngrio.c" />
+    <ClCompile Include="..\_external\png\pngrtran.c" />
+    <ClCompile Include="..\_external\png\pngrutil.c" />
+    <ClCompile Include="..\_external\png\pngset.c" />
+    <ClCompile Include="..\_external\png\pngtrans.c" />
+    <ClCompile Include="..\_external\png\pngwio.c" />
+    <ClCompile Include="..\_external\png\pngwrite.c" />
+    <ClCompile Include="..\_external\png\pngwtran.c" />
+    <ClCompile Include="..\_external\png\pngwutil.c" />
+    <ClCompile Include="..\_external\randomc\mersenne.cpp" />
+    <ClCompile Include="..\_external\randomc\mother.cpp" />
+    <ClCompile Include="..\_external\randomc\rancombi.cpp" />
+    <ClCompile Include="..\_external\randomc\random.cpp" />
+    <ClCompile Include="..\_external\randomc\ranrotb.cpp" />
+    <ClCompile Include="..\_external\randomc\ranrotw.cpp" />
+    <ClCompile Include="..\_external\randomc\sobol.cpp" />
+    <ClCompile Include="..\_globals\GL\glUtils.cpp" />
+    <ClCompile Include="..\_globals\GL\SLGLBuffer.cpp" />
+    <ClCompile Include="..\_globals\GL\SLGLShader.cpp" />
+    <ClCompile Include="..\_globals\GL\SLGLShaderProg.cpp" />
+    <ClCompile Include="..\_globals\GL\SLGLState.cpp" />
+    <ClCompile Include="..\_globals\GL\SLGLTexture.cpp" />
+    <ClCompile Include="..\_globals\math\SLCurveBezier.cpp" />
+    <ClCompile Include="..\_globals\math\SLPlane.cpp" />
+    <ClCompile Include="..\_globals\MeshLoader\SL3DSMesh.cpp" />
+    <ClCompile Include="..\_globals\MeshLoader\SL3DSMeshFile.cpp" />
+    <ClCompile Include="..\_globals\SL\SL.cpp" />
+    <ClCompile Include="..\_globals\SL\SLFileSystem.cpp" />
+    <ClCompile Include="..\_globals\SL\SLImage.cpp" />
+    <ClCompile Include="..\_globals\SL\SLInterface.cpp" />
+    <ClCompile Include="..\_globals\SL\SLTexFont.cpp" />
+    <ClCompile Include="..\_globals\SL\SLTimer.cpp" />
+    <ClCompile Include="..\_globals\SL\stdafx.cpp" />
+    <ClCompile Include="..\_globals\SpacePartitioning\SLUniformGrid.cpp" />
+    <ClCompile Include="source\SLAABBox.cpp" />
+    <ClCompile Include="source\SLAnimation.cpp" />
+    <ClCompile Include="source\SLBox.cpp" />
+    <ClCompile Include="source\SLButton.cpp" />
+    <ClCompile Include="source\SLCamera.cpp" />
+    <ClCompile Include="source\SLCone.cpp" />
+    <ClCompile Include="source\SLCylinder.cpp" />
+    <ClCompile Include="source\SLGroup.cpp" />
+    <ClCompile Include="source\SLLight.cpp" />
+    <ClCompile Include="source\SLLightRect.cpp" />
+    <ClCompile Include="source\SLLightSphere.cpp" />
+    <ClCompile Include="source\SLMaterial.cpp" />
+    <ClCompile Include="source\SLMesh.cpp" />
+    <ClCompile Include="source\SLPhotonMap.cpp" />
+    <ClCompile Include="source\SLPhotonMapper.cpp" />
+    <ClCompile Include="source\SLPolygon.cpp" />
+    <ClCompile Include="source\SLRay.cpp" />
+    <ClCompile Include="source\SLRaytracer.cpp" />
+    <ClCompile Include="source\SLRectangle.cpp" />
+    <ClCompile Include="source\SLRefGroup.cpp" />
+    <ClCompile Include="source\SLRefShape.cpp" />
+    <ClCompile Include="source\SLRevolver.cpp" />
+    <ClCompile Include="source\SLSamples2D.cpp" />
+    <ClCompile Include="source\SLScene.cpp" />
+    <ClCompile Include="source\SLSceneView.cpp" />
+    <ClCompile Include="source\SLScene_onLoad.cpp" />
+    <ClCompile Include="source\SLShape.cpp" />
+    <ClCompile Include="source\SLSphere.cpp" />
+    <ClCompile Include="source\SLText.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\_external\nvwa\debug_new.h" />
+    <ClInclude Include="..\_external\randomc\random.h" />
+    <ClInclude Include="..\_external\randomc\randomc.h" />
+    <ClInclude Include="..\_globals\GL\glUtils.h" />
+    <ClInclude Include="..\_globals\GL\SLGLBuffer.h" />
+    <ClInclude Include="..\_globals\GL\SLGLShader.h" />
+    <ClInclude Include="..\_globals\GL\SLGLShaderProg.h" />
+    <ClInclude Include="..\_globals\GL\SLGLShaderProgGeneric.h" />
+    <ClInclude Include="..\_globals\GL\SLGLShaderUniform.h" />
+    <ClInclude Include="..\_globals\GL\SLGLState.h" />
+    <ClInclude Include="..\_globals\GL\SLGLTexture.h" />
+    <ClInclude Include="..\_globals\math\SLCurve.h" />
+    <ClInclude Include="..\_globals\math\SLCurveBezier.h" />
+    <ClInclude Include="..\_globals\math\SLMat3.h" />
+    <ClInclude Include="..\_globals\math\SLMat4.h" />
+    <ClInclude Include="..\_globals\math\SLMath.h" />
+    <ClInclude Include="..\_globals\math\SLPlane.h" />
+    <ClInclude Include="..\_globals\math\SLVec2.h" />
+    <ClInclude Include="..\_globals\math\SLVec3.h" />
+    <ClInclude Include="..\_globals\math\SLVec4.h" />
+    <ClInclude Include="..\_globals\math\TriangleBoxIntersect.h" />
+    <ClInclude Include="..\_globals\MeshLoader\SL3DSMesh.h" />
+    <ClInclude Include="..\_globals\MeshLoader\SL3DSMeshFile.h" />
+    <ClInclude Include="..\_globals\SL\SL.h" />
+    <ClInclude Include="..\_globals\SL\SLDrawBits.h" />
+    <ClInclude Include="..\_globals\SL\SLEventHandler.h" />
+    <ClInclude Include="..\_globals\SL\SLFileSystem.h" />
+    <ClInclude Include="..\_globals\SL\SLImage.h" />
+    <ClInclude Include="..\_globals\SL\SLInterface.h" />
+    <ClInclude Include="..\_globals\SL\SLObject.h" />
+    <ClInclude Include="..\_globals\SL\SLTexFont.h" />
+    <ClInclude Include="..\_globals\SL\SLTimer.h" />
+    <ClInclude Include="..\_globals\SL\SLUtils.h" />
+    <ClInclude Include="..\_globals\SL\SLVector.h" />
+    <ClInclude Include="..\_globals\SL\stdafx.h" />
+    <ClInclude Include="..\_globals\SpacePartitioning\SLAccelStruct.h" />
+    <ClInclude Include="..\_globals\SpacePartitioning\SLUniformGrid.h" />
+    <ClInclude Include="include\SLAABBox.h" />
+    <ClInclude Include="include\SLAnimation.h" />
+    <ClInclude Include="include\SLBox.h" />
+    <ClInclude Include="include\SLButton.h" />
+    <ClInclude Include="include\SLCamera.h" />
+    <ClInclude Include="include\SLCone.h" />
+    <ClInclude Include="include\SLCylinder.h" />
+    <ClInclude Include="include\SLGroup.h" />
+    <ClInclude Include="include\SLKeyframe.h" />
+    <ClInclude Include="include\SLLight.h" />
+    <ClInclude Include="include\SLLightRect.h" />
+    <ClInclude Include="include\SLLightSphere.h" />
+    <ClInclude Include="include\SLMaterial.h" />
+    <ClInclude Include="include\SLMesh.h" />
+    <ClInclude Include="include\SLNode.h" />
+    <ClInclude Include="include\SLPhotonMap.h" />
+    <ClInclude Include="include\SLPhotonMapper.h" />
+    <ClInclude Include="include\SLPolygon.h" />
+    <ClInclude Include="include\SLRay.h" />
+    <ClInclude Include="include\SLRaytracer.h" />
+    <ClInclude Include="include\SLRectangle.h" />
+    <ClInclude Include="include\SLRefGroup.h" />
+    <ClInclude Include="include\SLRefShape.h" />
+    <ClInclude Include="include\SLRevolver.h" />
+    <ClInclude Include="include\SLSamples2D.h" />
+    <ClInclude Include="include\SLScene.h" />
+    <ClInclude Include="include\SLSceneView.h" />
+    <ClInclude Include="include\SLShape.h" />
+    <ClInclude Include="include\SLSphere.h" />
+    <ClInclude Include="include\SLText.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
