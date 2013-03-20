@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C34BF3E116E73ACD001CD3D1"
+               BlueprintIdentifier = "00427A3E142B956600E5019E"
                BuildableName = "ARDoor.app"
                BlueprintName = "ARDoor"
                ReferencedContainer = "container:ARDoor.xcodeproj">
@@ -28,21 +28,11 @@
       shouldUseLaunchSchemeArgsEnv = "YES"
       buildConfiguration = "Debug">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C34BF40A16E73ACD001CD3D1"
-               BuildableName = "ARDoorTests.octest"
-               BlueprintName = "ARDoorTests"
-               ReferencedContainer = "container:ARDoor.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "C34BF3E116E73ACD001CD3D1"
+            BlueprintIdentifier = "00427A3E142B956600E5019E"
             BuildableName = "ARDoor.app"
             BlueprintName = "ARDoor"
             ReferencedContainer = "container:ARDoor.xcodeproj">
@@ -61,7 +51,7 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "C34BF3E116E73ACD001CD3D1"
+            BlueprintIdentifier = "00427A3E142B956600E5019E"
             BuildableName = "ARDoor.app"
             BlueprintName = "ARDoor"
             ReferencedContainer = "container:ARDoor.xcodeproj">
@@ -79,7 +69,7 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "C34BF3E116E73ACD001CD3D1"
+            BlueprintIdentifier = "00427A3E142B956600E5019E"
             BuildableName = "ARDoor.app"
             BlueprintName = "ARDoor"
             ReferencedContainer = "container:ARDoor.xcodeproj">

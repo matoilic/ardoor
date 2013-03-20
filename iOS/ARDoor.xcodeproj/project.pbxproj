@@ -7,422 +7,214 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C34BF3E616E73ACD001CD3D1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C34BF3E516E73ACD001CD3D1 /* UIKit.framework */; };
-		C34BF3E816E73ACD001CD3D1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C34BF3E716E73ACD001CD3D1 /* Foundation.framework */; };
-		C34BF3EA16E73ACD001CD3D1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C34BF3E916E73ACD001CD3D1 /* CoreGraphics.framework */; };
-		C34BF3F016E73ACD001CD3D1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C34BF3EE16E73ACD001CD3D1 /* InfoPlist.strings */; };
-		C34BF3F216E73ACD001CD3D1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C34BF3F116E73ACD001CD3D1 /* main.m */; };
-		C34BF3F616E73ACD001CD3D1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C34BF3F516E73ACD001CD3D1 /* AppDelegate.m */; };
-		C34BF3F816E73ACD001CD3D1 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = C34BF3F716E73ACD001CD3D1 /* Default.png */; };
-		C34BF3FA16E73ACD001CD3D1 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C34BF3F916E73ACD001CD3D1 /* Default@2x.png */; };
-		C34BF3FC16E73ACD001CD3D1 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C34BF3FB16E73ACD001CD3D1 /* Default-568h@2x.png */; };
-		C34BF3FF16E73ACD001CD3D1 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C34BF3FE16E73ACD001CD3D1 /* ViewController.m */; };
-		C34BF40216E73ACD001CD3D1 /* ViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = C34BF40016E73ACD001CD3D1 /* ViewController_iPhone.xib */; };
-		C34BF40516E73ACD001CD3D1 /* ViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = C34BF40316E73ACD001CD3D1 /* ViewController_iPad.xib */; };
-		C34BF40D16E73ACD001CD3D1 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C34BF40C16E73ACD001CD3D1 /* SenTestingKit.framework */; };
-		C34BF40E16E73ACD001CD3D1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C34BF3E516E73ACD001CD3D1 /* UIKit.framework */; };
-		C34BF40F16E73ACD001CD3D1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C34BF3E716E73ACD001CD3D1 /* Foundation.framework */; };
-		C34BF41716E73ACD001CD3D1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C34BF41516E73ACD001CD3D1 /* InfoPlist.strings */; };
-		C34BF41A16E73ACD001CD3D1 /* ARDoorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C34BF41916E73ACD001CD3D1 /* ARDoorTests.m */; };
-		C34BF42416E73B0E001CD3D1 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C34BF42316E73B0E001CD3D1 /* libc++.dylib */; };
-		C34BF42616E73B22001CD3D1 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C34BF42516E73B22001CD3D1 /* OpenGLES.framework */; };
-		C34BF42816E73B39001CD3D1 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C34BF42716E73B39001CD3D1 /* CoreVideo.framework */; };
-		C34BF42A16E73B4C001CD3D1 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C34BF42916E73B4C001CD3D1 /* opencv2.framework */; };
-		C34BF43216E7433D001CD3D1 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C34BF43116E7433D001CD3D1 /* AVFoundation.framework */; };
-		C34BF43616E749E9001CD3D1 /* CannyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C34BF43516E749E9001CD3D1 /* CannyModel.m */; };
-		C34BF43B16E74B45001CD3D1 /* Shader.fsh in Sources */ = {isa = PBXBuildFile; fileRef = C34BF43916E74B45001CD3D1 /* Shader.fsh */; };
-		C34BF43C16E74B45001CD3D1 /* Shader.vsh in Sources */ = {isa = PBXBuildFile; fileRef = C34BF43A16E74B45001CD3D1 /* Shader.vsh */; };
-		C34BF43D16E74B8A001CD3D1 /* Shader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = C34BF43916E74B45001CD3D1 /* Shader.fsh */; };
-		C34BF43E16E74B8A001CD3D1 /* Shader.vsh in Resources */ = {isa = PBXBuildFile; fileRef = C34BF43A16E74B45001CD3D1 /* Shader.vsh */; };
-		C34BF44016E74D15001CD3D1 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C34BF43F16E74D15001CD3D1 /* GLKit.framework */; };
-		C34BF44216E74D2C001CD3D1 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C34BF44116E74D2C001CD3D1 /* CoreMedia.framework */; };
+		00427A44142B956600E5019E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00427A43142B956600E5019E /* UIKit.framework */; };
+		00427A46142B956600E5019E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00427A45142B956600E5019E /* Foundation.framework */; };
+		00427A48142B956600E5019E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00427A47142B956600E5019E /* CoreGraphics.framework */; };
+		00427A4E142B956600E5019E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 00427A4C142B956600E5019E /* InfoPlist.strings */; };
+		00427A50142B956600E5019E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 00427A4F142B956600E5019E /* main.m */; };
+		00427A54142B956600E5019E /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 00427A53142B956600E5019E /* AppDelegate.mm */; };
+		00427A62142B960D00E5019E /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00427A61142B960D00E5019E /* AVFoundation.framework */; };
+		00427A64142B9A9700E5019E /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00427A63142B9A9700E5019E /* CoreMedia.framework */; };
+		00427A66142B9AEC00E5019E /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00427A65142B9AEC00E5019E /* CoreVideo.framework */; };
+		00DE37361430E806004993CC /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00DE37351430E806004993CC /* QuartzCore.framework */; };
+		00E53780142BE66400F30526 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 00E5377F142BE66300F30526 /* libz.dylib */; };
+		00E53783142BE6D600F30526 /* UIImage+OpenCV.mm in Sources */ = {isa = PBXBuildFile; fileRef = 00E53782142BE6D600F30526 /* UIImage+OpenCV.mm */; };
+		00E53787142BFEE600F30526 /* VideoCaptureViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 00E53785142BFEE600F30526 /* VideoCaptureViewController.mm */; };
+		00E53788142BFEE700F30526 /* VideoCaptureViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00E53786142BFEE600F30526 /* VideoCaptureViewController.xib */; };
+		C39CAA4916FA4988009C59CC /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C39CAA4816FA4988009C59CC /* opencv2.framework */; };
+		C39CAA4B16FA49A5009C59CC /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C39CAA4A16FA49A5009C59CC /* libc++.dylib */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		C34BF41016E73ACD001CD3D1 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C34BF3DA16E73ACD001CD3D1 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = C34BF3E116E73ACD001CD3D1;
-			remoteInfo = ARDoor;
-		};
-		C34BF42F16E73B60001CD3D1 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C34BF42B16E73B60001CD3D1 /* chXX_Final.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 419BCD3714865C0800D576F1;
-			remoteInfo = SLProject;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
-		C34BF3E216E73ACD001CD3D1 /* ARDoor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARDoor.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		C34BF3E516E73ACD001CD3D1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		C34BF3E716E73ACD001CD3D1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		C34BF3E916E73ACD001CD3D1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		C34BF3ED16E73ACD001CD3D1 /* ARDoor-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ARDoor-Info.plist"; sourceTree = "<group>"; };
-		C34BF3EF16E73ACD001CD3D1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		C34BF3F116E73ACD001CD3D1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		C34BF3F316E73ACD001CD3D1 /* ARDoor-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ARDoor-Prefix.pch"; sourceTree = "<group>"; };
-		C34BF3F416E73ACD001CD3D1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		C34BF3F516E73ACD001CD3D1 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		C34BF3F716E73ACD001CD3D1 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		C34BF3F916E73ACD001CD3D1 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
-		C34BF3FB16E73ACD001CD3D1 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		C34BF3FD16E73ACD001CD3D1 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		C34BF3FE16E73ACD001CD3D1 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		C34BF40116E73ACD001CD3D1 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController_iPhone.xib; sourceTree = "<group>"; };
-		C34BF40416E73ACD001CD3D1 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController_iPad.xib; sourceTree = "<group>"; };
-		C34BF40B16E73ACD001CD3D1 /* ARDoorTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ARDoorTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
-		C34BF40C16E73ACD001CD3D1 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		C34BF41416E73ACD001CD3D1 /* ARDoorTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ARDoorTests-Info.plist"; sourceTree = "<group>"; };
-		C34BF41616E73ACD001CD3D1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		C34BF41816E73ACD001CD3D1 /* ARDoorTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ARDoorTests.h; sourceTree = "<group>"; };
-		C34BF41916E73ACD001CD3D1 /* ARDoorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ARDoorTests.m; sourceTree = "<group>"; };
-		C34BF42316E73B0E001CD3D1 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
-		C34BF42516E73B22001CD3D1 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
-		C34BF42716E73B39001CD3D1 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
-		C34BF42916E73B4C001CD3D1 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = opencv2.framework; path = ../Libraries/opencv2.framework; sourceTree = "<group>"; };
-		C34BF42B16E73B60001CD3D1 /* chXX_Final.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = chXX_Final.xcodeproj; path = ../Libraries/SLProject/chXX_Final.xcodeproj; sourceTree = "<group>"; };
-		C34BF43116E7433D001CD3D1 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		C34BF43416E749E9001CD3D1 /* CannyModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CannyModel.h; sourceTree = "<group>"; };
-		C34BF43516E749E9001CD3D1 /* CannyModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CannyModel.m; sourceTree = "<group>"; };
-		C34BF43916E74B45001CD3D1 /* Shader.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Shader.fsh; sourceTree = "<group>"; };
-		C34BF43A16E74B45001CD3D1 /* Shader.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Shader.vsh; sourceTree = "<group>"; };
-		C34BF43F16E74D15001CD3D1 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
-		C34BF44116E74D2C001CD3D1 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		00427A3F142B956600E5019E /* ARDoor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARDoor.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		00427A43142B956600E5019E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		00427A45142B956600E5019E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		00427A47142B956600E5019E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		00427A4B142B956600E5019E /* ARDoor-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ARDoor-Info.plist"; sourceTree = "<group>"; };
+		00427A4D142B956600E5019E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		00427A4F142B956600E5019E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		00427A51142B956600E5019E /* ARDoor-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ARDoor-Prefix.pch"; sourceTree = "<group>"; };
+		00427A52142B956600E5019E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		00427A53142B956600E5019E /* AppDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AppDelegate.mm; sourceTree = "<group>"; };
+		00427A61142B960D00E5019E /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		00427A63142B9A9700E5019E /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		00427A65142B9AEC00E5019E /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		00DE37351430E806004993CC /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		00E5377F142BE66300F30526 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		00E53781142BE6D600F30526 /* UIImage+OpenCV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+OpenCV.h"; sourceTree = "<group>"; };
+		00E53782142BE6D600F30526 /* UIImage+OpenCV.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "UIImage+OpenCV.mm"; sourceTree = "<group>"; };
+		00E53784142BFEE600F30526 /* VideoCaptureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoCaptureViewController.h; sourceTree = "<group>"; };
+		00E53785142BFEE600F30526 /* VideoCaptureViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = VideoCaptureViewController.mm; sourceTree = "<group>"; };
+		00E53786142BFEE600F30526 /* VideoCaptureViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideoCaptureViewController.xib; sourceTree = "<group>"; };
+		C39CAA4816FA4988009C59CC /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = opencv2.framework; path = ../Libraries/opencv2.framework; sourceTree = "<group>"; };
+		C39CAA4A16FA49A5009C59CC /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		C34BF3DF16E73ACD001CD3D1 /* Frameworks */ = {
+		00427A3C142B956600E5019E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C34BF44216E74D2C001CD3D1 /* CoreMedia.framework in Frameworks */,
-				C34BF44016E74D15001CD3D1 /* GLKit.framework in Frameworks */,
-				C34BF43216E7433D001CD3D1 /* AVFoundation.framework in Frameworks */,
-				C34BF42A16E73B4C001CD3D1 /* opencv2.framework in Frameworks */,
-				C34BF42816E73B39001CD3D1 /* CoreVideo.framework in Frameworks */,
-				C34BF42616E73B22001CD3D1 /* OpenGLES.framework in Frameworks */,
-				C34BF42416E73B0E001CD3D1 /* libc++.dylib in Frameworks */,
-				C34BF3E616E73ACD001CD3D1 /* UIKit.framework in Frameworks */,
-				C34BF3E816E73ACD001CD3D1 /* Foundation.framework in Frameworks */,
-				C34BF3EA16E73ACD001CD3D1 /* CoreGraphics.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C34BF40716E73ACD001CD3D1 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C34BF40D16E73ACD001CD3D1 /* SenTestingKit.framework in Frameworks */,
-				C34BF40E16E73ACD001CD3D1 /* UIKit.framework in Frameworks */,
-				C34BF40F16E73ACD001CD3D1 /* Foundation.framework in Frameworks */,
+				C39CAA4B16FA49A5009C59CC /* libc++.dylib in Frameworks */,
+				C39CAA4916FA4988009C59CC /* opencv2.framework in Frameworks */,
+				00DE37361430E806004993CC /* QuartzCore.framework in Frameworks */,
+				00E53780142BE66400F30526 /* libz.dylib in Frameworks */,
+				00427A66142B9AEC00E5019E /* CoreVideo.framework in Frameworks */,
+				00427A64142B9A9700E5019E /* CoreMedia.framework in Frameworks */,
+				00427A62142B960D00E5019E /* AVFoundation.framework in Frameworks */,
+				00427A44142B956600E5019E /* UIKit.framework in Frameworks */,
+				00427A46142B956600E5019E /* Foundation.framework in Frameworks */,
+				00427A48142B956600E5019E /* CoreGraphics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		C34BF3D916E73ACD001CD3D1 = {
+		000B551014326D2F0076F5A1 /* UIImage Additions */ = {
 			isa = PBXGroup;
 			children = (
-				C34BF43816E74B45001CD3D1 /* Shaders */,
-				C34BF43316E74353001CD3D1 /* Libraries */,
-				C34BF3EB16E73ACD001CD3D1 /* ARDoor */,
-				C34BF41216E73ACD001CD3D1 /* ARDoorTests */,
-				C34BF3E416E73ACD001CD3D1 /* Frameworks */,
-				C34BF3E316E73ACD001CD3D1 /* Products */,
+				00E53781142BE6D600F30526 /* UIImage+OpenCV.h */,
+				00E53782142BE6D600F30526 /* UIImage+OpenCV.mm */,
+			);
+			name = "UIImage Additions";
+			sourceTree = "<group>";
+		};
+		00427A34142B956500E5019E = {
+			isa = PBXGroup;
+			children = (
+				00427A49142B956600E5019E /* ARDoor */,
+				00427A42142B956600E5019E /* Frameworks */,
+				00427A40142B956600E5019E /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		C34BF3E316E73ACD001CD3D1 /* Products */ = {
+		00427A40142B956600E5019E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C34BF3E216E73ACD001CD3D1 /* ARDoor.app */,
-				C34BF40B16E73ACD001CD3D1 /* ARDoorTests.octest */,
+				00427A3F142B956600E5019E /* ARDoor.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		C34BF3E416E73ACD001CD3D1 /* Frameworks */ = {
+		00427A42142B956600E5019E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				C34BF44116E74D2C001CD3D1 /* CoreMedia.framework */,
-				C34BF43F16E74D15001CD3D1 /* GLKit.framework */,
-				C34BF43116E7433D001CD3D1 /* AVFoundation.framework */,
-				C34BF42916E73B4C001CD3D1 /* opencv2.framework */,
-				C34BF42716E73B39001CD3D1 /* CoreVideo.framework */,
-				C34BF42516E73B22001CD3D1 /* OpenGLES.framework */,
-				C34BF3E516E73ACD001CD3D1 /* UIKit.framework */,
-				C34BF3E716E73ACD001CD3D1 /* Foundation.framework */,
-				C34BF3E916E73ACD001CD3D1 /* CoreGraphics.framework */,
-				C34BF40C16E73ACD001CD3D1 /* SenTestingKit.framework */,
+				C39CAA4A16FA49A5009C59CC /* libc++.dylib */,
+				00E5377F142BE66300F30526 /* libz.dylib */,
+				C39CAA4816FA4988009C59CC /* opencv2.framework */,
+				00DE37351430E806004993CC /* QuartzCore.framework */,
+				00427A65142B9AEC00E5019E /* CoreVideo.framework */,
+				00427A63142B9A9700E5019E /* CoreMedia.framework */,
+				00427A61142B960D00E5019E /* AVFoundation.framework */,
+				00427A43142B956600E5019E /* UIKit.framework */,
+				00427A45142B956600E5019E /* Foundation.framework */,
+				00427A47142B956600E5019E /* CoreGraphics.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		C34BF3EB16E73ACD001CD3D1 /* ARDoor */ = {
+		00427A49142B956600E5019E /* ARDoor */ = {
 			isa = PBXGroup;
 			children = (
-				C34BF3F416E73ACD001CD3D1 /* AppDelegate.h */,
-				C34BF3F516E73ACD001CD3D1 /* AppDelegate.m */,
-				C34BF3FD16E73ACD001CD3D1 /* ViewController.h */,
-				C34BF3FE16E73ACD001CD3D1 /* ViewController.m */,
-				C34BF40016E73ACD001CD3D1 /* ViewController_iPhone.xib */,
-				C34BF40316E73ACD001CD3D1 /* ViewController_iPad.xib */,
-				C34BF3EC16E73ACD001CD3D1 /* Supporting Files */,
-				C34BF43416E749E9001CD3D1 /* CannyModel.h */,
-				C34BF43516E749E9001CD3D1 /* CannyModel.m */,
+				00427A52142B956600E5019E /* AppDelegate.h */,
+				00427A53142B956600E5019E /* AppDelegate.mm */,
+				00E53784142BFEE600F30526 /* VideoCaptureViewController.h */,
+				00E53785142BFEE600F30526 /* VideoCaptureViewController.mm */,
+				00E53786142BFEE600F30526 /* VideoCaptureViewController.xib */,
+				000B551014326D2F0076F5A1 /* UIImage Additions */,
+				00427A4A142B956600E5019E /* Supporting Files */,
 			);
 			path = ARDoor;
 			sourceTree = "<group>";
 		};
-		C34BF3EC16E73ACD001CD3D1 /* Supporting Files */ = {
+		00427A4A142B956600E5019E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				C34BF3ED16E73ACD001CD3D1 /* ARDoor-Info.plist */,
-				C34BF3EE16E73ACD001CD3D1 /* InfoPlist.strings */,
-				C34BF3F116E73ACD001CD3D1 /* main.m */,
-				C34BF3F316E73ACD001CD3D1 /* ARDoor-Prefix.pch */,
-				C34BF3F716E73ACD001CD3D1 /* Default.png */,
-				C34BF3F916E73ACD001CD3D1 /* Default@2x.png */,
-				C34BF3FB16E73ACD001CD3D1 /* Default-568h@2x.png */,
+				00427A4B142B956600E5019E /* ARDoor-Info.plist */,
+				00427A4C142B956600E5019E /* InfoPlist.strings */,
+				00427A4F142B956600E5019E /* main.m */,
+				00427A51142B956600E5019E /* ARDoor-Prefix.pch */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		C34BF41216E73ACD001CD3D1 /* ARDoorTests */ = {
-			isa = PBXGroup;
-			children = (
-				C34BF41816E73ACD001CD3D1 /* ARDoorTests.h */,
-				C34BF41916E73ACD001CD3D1 /* ARDoorTests.m */,
-				C34BF41316E73ACD001CD3D1 /* Supporting Files */,
-			);
-			path = ARDoorTests;
-			sourceTree = "<group>";
-		};
-		C34BF41316E73ACD001CD3D1 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				C34BF41416E73ACD001CD3D1 /* ARDoorTests-Info.plist */,
-				C34BF41516E73ACD001CD3D1 /* InfoPlist.strings */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		C34BF42C16E73B60001CD3D1 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				C34BF43016E73B60001CD3D1 /* SLProject.app */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		C34BF43316E74353001CD3D1 /* Libraries */ = {
-			isa = PBXGroup;
-			children = (
-				C34BF42316E73B0E001CD3D1 /* libc++.dylib */,
-				C34BF42B16E73B60001CD3D1 /* chXX_Final.xcodeproj */,
-			);
-			name = Libraries;
-			sourceTree = "<group>";
-		};
-		C34BF43816E74B45001CD3D1 /* Shaders */ = {
-			isa = PBXGroup;
-			children = (
-				C34BF43916E74B45001CD3D1 /* Shader.fsh */,
-				C34BF43A16E74B45001CD3D1 /* Shader.vsh */,
-			);
-			name = Shaders;
-			path = ARDoor/Shaders;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		C34BF3E116E73ACD001CD3D1 /* ARDoor */ = {
+		00427A3E142B956600E5019E /* ARDoor */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C34BF41D16E73ACD001CD3D1 /* Build configuration list for PBXNativeTarget "ARDoor" */;
+			buildConfigurationList = 00427A5D142B956600E5019E /* Build configuration list for PBXNativeTarget "ARDoor" */;
 			buildPhases = (
-				C34BF3DE16E73ACD001CD3D1 /* Sources */,
-				C34BF3DF16E73ACD001CD3D1 /* Frameworks */,
-				C34BF3E016E73ACD001CD3D1 /* Resources */,
+				00427A3B142B956600E5019E /* Sources */,
+				00427A3C142B956600E5019E /* Frameworks */,
+				00427A3D142B956600E5019E /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = ARDoor;
-			productName = ARDoor;
-			productReference = C34BF3E216E73ACD001CD3D1 /* ARDoor.app */;
+			productName = VidTest;
+			productReference = 00427A3F142B956600E5019E /* ARDoor.app */;
 			productType = "com.apple.product-type.application";
-		};
-		C34BF40A16E73ACD001CD3D1 /* ARDoorTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = C34BF42016E73ACD001CD3D1 /* Build configuration list for PBXNativeTarget "ARDoorTests" */;
-			buildPhases = (
-				C34BF40616E73ACD001CD3D1 /* Sources */,
-				C34BF40716E73ACD001CD3D1 /* Frameworks */,
-				C34BF40816E73ACD001CD3D1 /* Resources */,
-				C34BF40916E73ACD001CD3D1 /* ShellScript */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				C34BF41116E73ACD001CD3D1 /* PBXTargetDependency */,
-			);
-			name = ARDoorTests;
-			productName = ARDoorTests;
-			productReference = C34BF40B16E73ACD001CD3D1 /* ARDoorTests.octest */;
-			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		C34BF3DA16E73ACD001CD3D1 /* Project object */ = {
+		00427A36142B956500E5019E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0460;
-				ORGANIZATIONNAME = "Mato Ilic";
 			};
-			buildConfigurationList = C34BF3DD16E73ACD001CD3D1 /* Build configuration list for PBXProject "ARDoor" */;
+			buildConfigurationList = 00427A39142B956500E5019E /* Build configuration list for PBXProject "ARDoor" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = C34BF3D916E73ACD001CD3D1;
-			productRefGroup = C34BF3E316E73ACD001CD3D1 /* Products */;
+			mainGroup = 00427A34142B956500E5019E;
+			productRefGroup = 00427A40142B956600E5019E /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = C34BF42C16E73B60001CD3D1 /* Products */;
-					ProjectRef = C34BF42B16E73B60001CD3D1 /* chXX_Final.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
-				C34BF3E116E73ACD001CD3D1 /* ARDoor */,
-				C34BF40A16E73ACD001CD3D1 /* ARDoorTests */,
+				00427A3E142B956600E5019E /* ARDoor */,
 			);
 		};
 /* End PBXProject section */
 
-/* Begin PBXReferenceProxy section */
-		C34BF43016E73B60001CD3D1 /* SLProject.app */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.application;
-			path = SLProject.app;
-			remoteRef = C34BF42F16E73B60001CD3D1 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
-
 /* Begin PBXResourcesBuildPhase section */
-		C34BF3E016E73ACD001CD3D1 /* Resources */ = {
+		00427A3D142B956600E5019E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C34BF43D16E74B8A001CD3D1 /* Shader.fsh in Resources */,
-				C34BF43E16E74B8A001CD3D1 /* Shader.vsh in Resources */,
-				C34BF3F016E73ACD001CD3D1 /* InfoPlist.strings in Resources */,
-				C34BF3F816E73ACD001CD3D1 /* Default.png in Resources */,
-				C34BF3FA16E73ACD001CD3D1 /* Default@2x.png in Resources */,
-				C34BF3FC16E73ACD001CD3D1 /* Default-568h@2x.png in Resources */,
-				C34BF40216E73ACD001CD3D1 /* ViewController_iPhone.xib in Resources */,
-				C34BF40516E73ACD001CD3D1 /* ViewController_iPad.xib in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C34BF40816E73ACD001CD3D1 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C34BF41716E73ACD001CD3D1 /* InfoPlist.strings in Resources */,
+				00427A4E142B956600E5019E /* InfoPlist.strings in Resources */,
+				00E53788142BFEE700F30526 /* VideoCaptureViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		C34BF40916E73ACD001CD3D1 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
-		C34BF3DE16E73ACD001CD3D1 /* Sources */ = {
+		00427A3B142B956600E5019E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C34BF3F216E73ACD001CD3D1 /* main.m in Sources */,
-				C34BF3F616E73ACD001CD3D1 /* AppDelegate.m in Sources */,
-				C34BF3FF16E73ACD001CD3D1 /* ViewController.m in Sources */,
-				C34BF43616E749E9001CD3D1 /* CannyModel.m in Sources */,
-				C34BF43B16E74B45001CD3D1 /* Shader.fsh in Sources */,
-				C34BF43C16E74B45001CD3D1 /* Shader.vsh in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C34BF40616E73ACD001CD3D1 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C34BF41A16E73ACD001CD3D1 /* ARDoorTests.m in Sources */,
+				00427A50142B956600E5019E /* main.m in Sources */,
+				00427A54142B956600E5019E /* AppDelegate.mm in Sources */,
+				00E53783142BE6D600F30526 /* UIImage+OpenCV.mm in Sources */,
+				00E53787142BFEE600F30526 /* VideoCaptureViewController.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXTargetDependency section */
-		C34BF41116E73ACD001CD3D1 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = C34BF3E116E73ACD001CD3D1 /* ARDoor */;
-			targetProxy = C34BF41016E73ACD001CD3D1 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
 /* Begin PBXVariantGroup section */
-		C34BF3EE16E73ACD001CD3D1 /* InfoPlist.strings */ = {
+		00427A4C142B956600E5019E /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				C34BF3EF16E73ACD001CD3D1 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		C34BF40016E73ACD001CD3D1 /* ViewController_iPhone.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C34BF40116E73ACD001CD3D1 /* en */,
-			);
-			name = ViewController_iPhone.xib;
-			sourceTree = "<group>";
-		};
-		C34BF40316E73ACD001CD3D1 /* ViewController_iPad.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C34BF40416E73ACD001CD3D1 /* en */,
-			);
-			name = ViewController_iPad.xib;
-			sourceTree = "<group>";
-		};
-		C34BF41516E73ACD001CD3D1 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C34BF41616E73ACD001CD3D1 /* en */,
+				00427A4D142B956600E5019E /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -430,15 +222,12 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		C34BF41B16E73ACD001CD3D1 /* Debug */ = {
+		00427A5B142B956600E5019E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_OBJC_ARC = YES;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -452,143 +241,106 @@
 					"$(inherited)",
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
-				ONLY_ACTIVE_ARCH = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		C34BF41C16E73ACD001CD3D1 /* Release */ = {
+		00427A5C142B956600E5019E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_OBJC_ARC = YES;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
-		C34BF41E16E73ACD001CD3D1 /* Debug */ = {
+		00427A5E142B956600E5019E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Mato Ilic (SSS85SKZDZ)";
+				ARCHS = (
+					armv6,
+					armv7,
+				);
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)\"",
 					"\"$(SRCROOT)/../Libraries\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ARDoor/ARDoor-Prefix.pch";
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_THUMB_SUPPORT = NO;
 				INFOPLIST_FILE = "ARDoor/ARDoor-Info.plist";
-				ONLY_ACTIVE_ARCH = NO;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "B47540E0-8D0F-4F67-9B12-E3E880C2A2FB";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
+				PRODUCT_NAME = ARDoor;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
 		};
-		C34BF41F16E73ACD001CD3D1 /* Release */ = {
+		00427A5F142B956600E5019E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = (
+					armv6,
+					armv7,
+				);
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)\"",
 					"\"$(SRCROOT)/../Libraries\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ARDoor/ARDoor-Prefix.pch";
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_THUMB_SUPPORT = NO;
 				INFOPLIST_FILE = "ARDoor/ARDoor-Info.plist";
-				ONLY_ACTIVE_ARCH = NO;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
+				PRODUCT_NAME = ARDoor;
 				WRAPPER_EXTENSION = app;
-			};
-			name = Release;
-		};
-		C34BF42116E73ACD001CD3D1 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ARDoor.app/ARDoor";
-				FRAMEWORK_SEARCH_PATHS = (
-					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
-					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "ARDoor/ARDoor-Prefix.pch";
-				INFOPLIST_FILE = "ARDoorTests/ARDoorTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = octest;
-			};
-			name = Debug;
-		};
-		C34BF42216E73ACD001CD3D1 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ARDoor.app/ARDoor";
-				FRAMEWORK_SEARCH_PATHS = (
-					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
-					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "ARDoor/ARDoor-Prefix.pch";
-				INFOPLIST_FILE = "ARDoorTests/ARDoorTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = octest;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C34BF3DD16E73ACD001CD3D1 /* Build configuration list for PBXProject "ARDoor" */ = {
+		00427A39142B956500E5019E /* Build configuration list for PBXProject "ARDoor" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C34BF41B16E73ACD001CD3D1 /* Debug */,
-				C34BF41C16E73ACD001CD3D1 /* Release */,
+				00427A5B142B956600E5019E /* Debug */,
+				00427A5C142B956600E5019E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C34BF41D16E73ACD001CD3D1 /* Build configuration list for PBXNativeTarget "ARDoor" */ = {
+		00427A5D142B956600E5019E /* Build configuration list for PBXNativeTarget "ARDoor" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C34BF41E16E73ACD001CD3D1 /* Debug */,
-				C34BF41F16E73ACD001CD3D1 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		C34BF42016E73ACD001CD3D1 /* Build configuration list for PBXNativeTarget "ARDoorTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				C34BF42116E73ACD001CD3D1 /* Debug */,
-				C34BF42216E73ACD001CD3D1 /* Release */,
+				00427A5E142B956600E5019E /* Debug */,
+				00427A5F142B956600E5019E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = C34BF3DA16E73ACD001CD3D1 /* Project object */;
+	rootObject = 00427A36142B956500E5019E /* Project object */;
 }
