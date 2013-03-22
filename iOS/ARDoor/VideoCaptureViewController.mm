@@ -8,6 +8,9 @@ const int kFrameTimeBufferSize = 25;
 const int kCannyAperture = 7;
 const int kCannyLow = 20 * kCannyAperture * kCannyAperture;
 const int kCannyHigh = 200 * kCannyAperture * kCannyAperture;
+const int kSobelX = 2;
+const int kSobelY = 2;
+const int kSobelKernelSize = 5;
 
 @interface VideoCaptureViewController ()
     - (BOOL)createCaptureSessionForCamera:(NSInteger)camera qualityPreset:(NSString *)qualityPreset grayscale:(BOOL)grayscale;
@@ -235,7 +238,6 @@ const int kCannyHigh = 200 * kCannyAperture * kCannyAperture;
     dispatch_release(queue);
     
     _videoOutput.alwaysDiscardsLateVideoFrames = YES;
-    _videoOutput.minFrameDuration = CMTimeMake(1, 30);
     
     
     // For grayscale mode, the luminance channel from the YUV fromat is used
@@ -266,6 +268,7 @@ const int kCannyHigh = 200 * kCannyAperture * kCannyAperture;
     _videoPreviewLayer = [[AVCaptureVideoPreviewLayer alloc] initWithSession:_captureSession];
     [_videoPreviewLayer setFrame:self.view.bounds];
     _videoPreviewLayer.videoGravity = AVLayerVideoGravityResizeAspectFill;
+    _videoPreviewLayer.connection.videoMinFrameDuration = CMTimeMake(1, 30);
     [self.view.layer insertSublayer:_videoPreviewLayer atIndex:0];
     
     return YES;
@@ -447,8 +450,6 @@ const int kCannyHigh = 200 * kCannyAperture * kCannyAperture;
     
     _edgeImage = [UIImage alloc];
     _featureLayer = [[CALayer alloc] init];
-    
-    self.showEdges = YES;
 }
 
 - (void)viewDidUnload
@@ -530,9 +531,9 @@ const int kCannyHigh = 200 * kCannyAperture * kCannyAperture;
     }
     
     videOrientation = AVCaptureVideoOrientationPortrait;
-    
+
     if(_mode == 1) {
-        cv::Sobel(mat, mat, mat.depth(), 1, 1, 3);
+        cv::Sobel(mat, mat, mat.depth(), kSobelX, kSobelY, kSobelKernelSize);
     } else {
         cv::Canny(mat, mat, kCannyLow, kCannyHigh, kCannyAperture);
     }
