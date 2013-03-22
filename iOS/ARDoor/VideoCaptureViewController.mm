@@ -237,8 +237,7 @@ const int kSobelKernelSize = 5;
     [_videoOutput setSampleBufferDelegate:self queue:queue];
     dispatch_release(queue);
     
-    _videoOutput.alwaysDiscardsLateVideoFrames = YES;
-    
+    _videoOutput.alwaysDiscardsLateVideoFrames = YES;    
     
     // For grayscale mode, the luminance channel from the YUV fromat is used
     // For color mode, BGRA format is used

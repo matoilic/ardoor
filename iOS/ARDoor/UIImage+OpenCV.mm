@@ -104,7 +104,10 @@ static void ProviderReleaseDataNOP(void *info, const void *data, size_t size)
                                         provider,                                       // CGDataProviderRef
                                         NULL,                                           // Decode
                                         false,                                          // Should interpolate
-                                        kCGRenderingIntentDefault);                     // Intent   
+                                        kCGRenderingIntentDefault);                     // Intent
+    
+    //const float colorMasking[6] = {0.0, 0.0, 0.0, 0.0, 0.0, 0.0};                       //make black areas transparent
+    //imageRef = CGImageCreateWithMaskingColors(imageRef, colorMasking);
     
     self = [self initWithCGImage:imageRef];
     CGImageRelease(imageRef);

@@ -8,11 +8,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "ARDoor/VideoCaptureViewController.mm"
-         timestampString = "385635764.820539"
+         timestampString = "385638161.579647"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "426"
-         endingLineNumber = "426"
+         startingLineNumber = "424"
+         endingLineNumber = "424"
          landmarkName = "-showEdges"
          landmarkType = "5">
       </FileBreakpoint>
@@ -21,11 +21,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "ARDoor/VideoCaptureViewController.mm"
-         timestampString = "385635764.820539"
+         timestampString = "385638161.579647"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "506"
-         endingLineNumber = "506"
+         startingLineNumber = "504"
+         endingLineNumber = "504"
          landmarkName = "-processFrame:videoRect:videoOrientation:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -34,11 +34,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "ARDoor/VideoCaptureViewController.mm"
-         timestampString = "385635764.820539"
+         timestampString = "385638161.579647"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "421"
-         endingLineNumber = "421"
+         startingLineNumber = "419"
+         endingLineNumber = "419"
          landmarkName = "-setShowEdges:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -47,11 +47,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "ARDoor/VideoCaptureViewController.mm"
-         timestampString = "385635764.820539"
+         timestampString = "385638125.986892"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "411"
-         endingLineNumber = "411"
+         startingLineNumber = "409"
+         endingLineNumber = "409"
          landmarkName = "-setShowEdges:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -60,12 +60,25 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "ARDoor/VideoCaptureViewController.mm"
-         timestampString = "385635764.820539"
+         timestampString = "385638161.579647"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "536"
-         endingLineNumber = "536"
+         startingLineNumber = "534"
+         endingLineNumber = "534"
          landmarkName = "-processFrame:videoRect:videoOrientation:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "ARDoor/UIImage+OpenCV.mm"
+         timestampString = "385637879.334028"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "82"
+         endingLineNumber = "82"
+         landmarkName = "-initWithCVMat:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>
