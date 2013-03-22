@@ -5,9 +5,9 @@
 // Number of frames to average for FPS calculation
 const int kFrameTimeBufferSize = 25;
 
-const int kCannyAperture = 7;
-const int kCannyLow = 20 * kCannyAperture * kCannyAperture;
-const int kCannyHigh = 200 * kCannyAperture * kCannyAperture;
+const int kCannyAperture = 3;
+const int kCannyLow = 30;
+const int kCannyHigh = 150;
 const int kSobelX = 2;
 const int kSobelY = 2;
 const int kSobelKernelSize = 5;
@@ -67,7 +67,8 @@ const int kSobelKernelSize = 5;
     // Move origin to center so rotation and scale are applied correctly
     CGAffineTransform t = CGAffineTransformMakeTranslation(-videoFrame.size.width / 2.0f, -videoFrame.size.height / 2.0f);
     
-    switch (videoOrientation) {
+    switch (videoOrientation)
+    {
         case AVCaptureVideoOrientationPortrait:
             widthScale = viewSize.width / videoFrame.size.width;
             heightScale = viewSize.height / videoFrame.size.height;
@@ -93,11 +94,13 @@ const int kSobelKernelSize = 5;
     }
     
     // Adjust scaling to match video gravity mode of video preview
-    if (videoGravity == AVLayerVideoGravityResizeAspect) {
+    if (videoGravity == AVLayerVideoGravityResizeAspect)
+    {
         heightScale = MIN(heightScale, widthScale);
         widthScale = heightScale;
     }
-    else if (videoGravity == AVLayerVideoGravityResizeAspectFill) {
+    else if (videoGravity == AVLayerVideoGravityResizeAspectFill)
+    {
         heightScale = MAX(heightScale, widthScale);
         widthScale = heightScale;
     }
@@ -122,7 +125,8 @@ const int kSobelKernelSize = 5;
     CGRect videoRect = CGRectMake(0.0f, 0.0f, CVPixelBufferGetWidth(pixelBuffer), CVPixelBufferGetHeight(pixelBuffer));
     AVCaptureVideoOrientation videoOrientation = [[[_videoOutput connections] objectAtIndex:0] videoOrientation];
     
-    if (format == kCVPixelFormatType_420YpCbCr8BiPlanarFullRange) {
+    if (format == kCVPixelFormatType_420YpCbCr8BiPlanarFullRange)
+    {
         // For grayscale mode, the luminance channel of the YUV data is used
         CVPixelBufferLockBaseAddress(pixelBuffer, 0);
         void *baseaddress = CVPixelBufferGetBaseAddressOfPlane(pixelBuffer, 0);
@@ -133,7 +137,8 @@ const int kSobelKernelSize = 5;
         
         CVPixelBufferUnlockBaseAddress(pixelBuffer, 0);
     }
-    else if (format == kCVPixelFormatType_32BGRA) {
+    else if (format == kCVPixelFormatType_32BGRA)
+    {
         // For color mode a 4-channel cv::Mat is created from the BGRA data
         CVPixelBufferLockBaseAddress(pixelBuffer, 0);
         void *baseaddress = CVPixelBufferGetBaseAddress(pixelBuffer);
@@ -144,18 +149,21 @@ const int kSobelKernelSize = 5;
         
         CVPixelBufferUnlockBaseAddress(pixelBuffer, 0);
     }
-    else {
+    else
+    {
         NSLog(@"Unsupported video format");
     }
     
     // Update FPS calculation
     CMTime presentationTime = CMSampleBufferGetOutputPresentationTimeStamp(sampleBuffer);
     
-    if (_lastFrameTimestamp == 0) {
+    if (_lastFrameTimestamp == 0)
+    {
         _lastFrameTimestamp = presentationTime.value;
         _framesToAverage = 1;
     }
-    else {
+    else
+    {
         float frameTime = (float)(presentationTime.value - _lastFrameTimestamp) / presentationTime.timescale;
         _lastFrameTimestamp = presentationTime.value;
         
@@ -181,7 +189,8 @@ const int kSobelKernelSize = 5;
         }
         
         _framesToAverage++;
-        if (_framesToAverage > kFrameTimeBufferSize) {
+        if (_framesToAverage > kFrameTimeBufferSize)
+        {
             _framesToAverage = kFrameTimeBufferSize;
         }
     }
@@ -203,20 +212,24 @@ const int kSobelKernelSize = 5;
     // Set up AV capture
     NSArray* devices = [AVCaptureDevice devicesWithMediaType:AVMediaTypeVideo];
     
-    if ([devices count] == 0) {
+    if ([devices count] == 0)
+    {
         NSLog(@"No video capture devices found");
         return NO;
     }
     
-    if (camera == -1) {
+    if (camera == -1)
+    {
         _camera = -1;
         _captureDevice = [[AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo] retain];
     }
-    else if (camera >= 0 && camera < [devices count]) {
+    else if (camera >= 0 && camera < [devices count])
+    {
         _camera = camera;
         _captureDevice = [[devices objectAtIndex:camera] retain];
     }
-    else {
+    else
+    {
         _camera = -1;
         _captureDevice = [[AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo] retain];
         NSLog(@"Camera number out of range. Using default camera");
@@ -245,7 +258,8 @@ const int kSobelKernelSize = 5;
     
     // Check YUV format is available before selecting it (iPhone 3 does not support it)
     if (grayscale && [_videoOutput.availableVideoCVPixelFormatTypes containsObject:
-                      [NSNumber numberWithInt:kCVPixelFormatType_420YpCbCr8BiPlanarFullRange]]) {
+                      [NSNumber numberWithInt:kCVPixelFormatType_420YpCbCr8BiPlanarFullRange]])
+    {
         format = kCVPixelFormatType_420YpCbCr8BiPlanarFullRange;
     }
     
@@ -253,11 +267,13 @@ const int kSobelKernelSize = 5;
                                                              forKey:(id)kCVPixelBufferPixelFormatTypeKey];
     
     // Connect up inputs and outputs
-    if ([_captureSession canAddInput:input]) {
+    if ([_captureSession canAddInput:input])
+    {
         [_captureSession addInput:input];
     }
     
-    if ([_captureSession canAddOutput:_videoOutput]) {
+    if ([_captureSession canAddOutput:_videoOutput])
+    {
         [_captureSession addOutput:_videoOutput];
     }
     
@@ -279,7 +295,8 @@ const int kSobelKernelSize = 5;
     [_fpsLabel release];
     _fpsLabel = nil;
     
-    if (_frameTimes) {
+    if (_frameTimes)
+    {
         free(_frameTimes);
     }
     
@@ -312,7 +329,8 @@ const int kSobelKernelSize = 5;
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     
-    if (self) {
+    if (self)
+    {
         _camera = -1;
         _qualityPreset = AVCaptureSessionPresetMedium;
         _captureGrayscale = YES;
@@ -337,7 +355,8 @@ const int kSobelKernelSize = 5;
     {
         _camera = camera;
         
-        if (_captureSession) {
+        if (_captureSession)
+        {
             NSArray* devices = [AVCaptureDevice devicesWithMediaType:AVMediaTypeVideo];
             
             [_captureSession beginConfiguration];
@@ -346,10 +365,12 @@ const int kSobelKernelSize = 5;
             
             [_captureDevice release];
             
-            if (_camera >= 0 && _camera < [devices count]) {
+            if (_camera >= 0 && _camera < [devices count])
+            {
                 _captureDevice = [devices objectAtIndex:camera];
             }
-            else {
+            else
+            {
                 _captureDevice = [[AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo] retain];
             }
             
@@ -374,13 +395,15 @@ const int kSobelKernelSize = 5;
 
 - (void)setShowDebugInfo:(BOOL)showDebugInfo
 {
-    if (!showDebugInfo && _fpsLabel) {
+    if (!showDebugInfo && _fpsLabel)
+    {
         [_fpsLabel removeFromSuperview];
         [_fpsLabel release];
         _fpsLabel = nil;
     }
     
-    if (showDebugInfo && !_fpsLabel) {
+    if (showDebugInfo && !_fpsLabel)
+    {
         // Create label to show FPS
         CGRect frame = self.view.bounds;
         frame.size.height = 40.0f;
@@ -396,9 +419,11 @@ const int kSobelKernelSize = 5;
 - (void)setTorchOn:(BOOL)torch
 {
     NSError *error = nil;
-    if ([_captureDevice hasTorch]) {
+    if ([_captureDevice hasTorch])
+    {
         BOOL locked = [_captureDevice lockForConfiguration:&error];
-        if (locked) {
+        if (locked)
+        {
             _captureDevice.torchMode = (torch)? AVCaptureTorchModeOn : AVCaptureTorchModeOff;
             [_captureDevice unlockForConfiguration];
         }
@@ -434,8 +459,10 @@ const int kSobelKernelSize = 5;
     return (_captureDevice.torchMode == AVCaptureTorchModeOn);
 }
 
-- (void)updateDebugInfo {
-    if (_fpsLabel) {
+- (void)updateDebugInfo
+{
+    if (_fpsLabel)
+    {
         _fpsLabel.text = [NSString stringWithFormat:@"FPS: %0.1f", _fps];
     }
 }
@@ -525,15 +552,19 @@ const int kSobelKernelSize = 5;
         // flip around y axis for back camera
         cv::flip(mat, mat, 1);
     }
-    else {
+    else
+    {
         // Front camera output needs to be mirrored to match preview layer so no flip is required here
     }
     
     videOrientation = AVCaptureVideoOrientationPortrait;
 
-    if(_mode == 1) {
+    if(_mode == 1)
+    {
         cv::Sobel(mat, mat, mat.depth(), kSobelX, kSobelY, kSobelKernelSize);
-    } else {
+    }
+    else
+    {
         cv::Canny(mat, mat, kCannyLow, kCannyHigh, kCannyAperture);
     }
     
