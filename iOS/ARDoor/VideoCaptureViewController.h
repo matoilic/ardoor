@@ -14,6 +14,7 @@
     NSString *_qualityPreset;
     BOOL _captureGrayscale;
     BOOL _showEdges;
+    unsigned char _mode;
     
     // Fps calculation
     CMTimeValue _lastFrameTimestamp;

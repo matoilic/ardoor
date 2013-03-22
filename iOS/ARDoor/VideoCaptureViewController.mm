@@ -404,22 +404,22 @@ const int kCannyHigh = 200 * kCannyAperture * kCannyAperture;
 }
 
 - (void)setShowEdges:(BOOL)showEdges
-{
-    if(showEdges)
+{    
+    if(_mode == 0)
     {
         [self.view.layer insertSublayer:_featureLayer above:_videoPreviewLayer];
     }
-    else
+    else if(_mode == 2)
     {
         [_featureLayer removeFromSuperlayer];
     }
     
-    _showEdges = showEdges;
+    _mode = (_mode + 1) % 3;
 }
 
 - (BOOL)showEdges
 {
-    return _showEdges;
+    return _mode > 0;
 }
 
 - (BOOL)showDebugInfo
@@ -531,8 +531,11 @@ const int kCannyHigh = 200 * kCannyAperture * kCannyAperture;
     
     videOrientation = AVCaptureVideoOrientationPortrait;
     
-    cv::Sobel(mat, mat, mat.depth(), 1, 1, 3);
-    cv::Canny(mat, mat, kCannyLow, kCannyHigh, kCannyAperture);
+    if(_mode == 1) {
+        cv::Sobel(mat, mat, mat.depth(), 1, 1, 3);
+    } else {
+        cv::Canny(mat, mat, kCannyLow, kCannyHigh, kCannyAperture);
+    }
     
     dispatch_sync(dispatch_get_main_queue(), ^{
         [self showEdges:mat
