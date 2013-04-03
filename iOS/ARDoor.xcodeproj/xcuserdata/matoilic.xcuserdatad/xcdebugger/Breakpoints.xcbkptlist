@@ -8,24 +8,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "ARDoor/VideoCaptureViewController.mm"
-         timestampString = "385650817.052128"
+         timestampString = "386684354.94897"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "449"
-         endingLineNumber = "449"
-         landmarkName = "-showEdges"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "ARDoor/VideoCaptureViewController.mm"
-         timestampString = "385650817.052128"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "531"
-         endingLineNumber = "531"
+         startingLineNumber = "563"
+         endingLineNumber = "563"
          landmarkName = "-processFrame:videoRect:videoOrientation:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -34,12 +21,12 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "ARDoor/VideoCaptureViewController.mm"
-         timestampString = "385650817.052128"
+         timestampString = "386684354.94897"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "444"
-         endingLineNumber = "444"
-         landmarkName = "-setShowEdges:"
+         startingLineNumber = "433"
+         endingLineNumber = "433"
+         landmarkName = "-showFeatureLayer"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -47,25 +34,38 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "ARDoor/VideoCaptureViewController.mm"
-         timestampString = "385650817.052128"
+         timestampString = "386684354.94897"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "434"
-         endingLineNumber = "434"
-         landmarkName = "-setShowEdges:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "ARDoor/VideoCaptureViewController.mm"
-         timestampString = "385650817.052128"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "562"
-         endingLineNumber = "562"
+         startingLineNumber = "595"
+         endingLineNumber = "595"
          landmarkName = "-processFrame:videoRect:videoOrientation:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "ARDoor/VideoCaptureViewController.mm"
+         timestampString = "386684354.94897"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "525"
+         endingLineNumber = "525"
+         landmarkName = "-toggleEdges:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "../Libraries/ARDoorCommon/CameraCalibration.cpp"
+         timestampString = "386685955.164858"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "78"
+         endingLineNumber = "78"
+         landmarkName = "CameraCalibration::findChessboardPoints(const cv::Mat &amp;image, cv::Size &amp;boardSize, std::vector&lt;cv::Point2f&gt; &amp;imageCorners, std::vector&lt;cv::Point3f&gt; &amp;objectCorners)"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

@@ -21,7 +21,7 @@ const int kSobelKernelSize = 5;
 
     - (void)updateDebugInfo;
 
-    - (void)showEdges:(const cv::Mat &)edgeData
+    - (void)showFeature:(const cv::Mat &)edgeData
             forVideoRect:(CGRect)videoRect
             videoOrientation:(AVCaptureVideoOrientation)videoOrientation;
 
@@ -41,7 +41,6 @@ const int kSobelKernelSize = 5;
 
 @dynamic showDebugInfo;
 @dynamic torchOn;
-@dynamic showEdges;
 
 // Create an affine transform for converting CGPoints and CGRects from the video frame coordinate space to the
 // preview layer coordinate space. Usage:
@@ -430,23 +429,20 @@ const int kSobelKernelSize = 5;
     }
 }
 
-- (void)setShowEdges:(BOOL)showEdges
-{    
-    if(_mode == 0)
+- (void)showFeatureLayer
+{
+    if(_featureLayer.superlayer == nil)
     {
         [self.view.layer insertSublayer:_featureLayer above:_videoPreviewLayer];
     }
-    else if(_mode == 2)
+}
+
+- (void)hideFeatureLayer
+{
+    if(_featureLayer.superlayer != nil)
     {
         [_featureLayer removeFromSuperlayer];
     }
-    
-    _mode = (_mode + 1) % 3;
-}
-
-- (BOOL)showEdges
-{
-    return _mode > 0;
 }
 
 - (BOOL)showDebugInfo
@@ -470,12 +466,16 @@ const int kSobelKernelSize = 5;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    _captureGrayscale = YES;
     
     [self createCaptureSessionForCamera:_camera qualityPreset:_qualityPreset grayscale:_captureGrayscale];
     [_captureSession startRunning];
     
+    _mode = ARDOOR_MODE_NONE;
+    _edgeMode = ARDOOR_EDGE_MODE_NONE;
     _edgeImage = [UIImage alloc];
     _featureLayer = [[CALayer alloc] init];
+    _calibrator = new ARDoor::CameraCalibration();
 }
 
 - (void)viewDidUnload
@@ -484,6 +484,7 @@ const int kSobelKernelSize = 5;
     [self destroyCaptureSession];
     [_fpsLabel release];
     _fpsLabel = nil;
+    delete(_calibrator);
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -521,14 +522,43 @@ const int kSobelKernelSize = 5;
 
 - (IBAction)toggleEdges:(id)sender
 {
-    self.showEdges = !self.showEdges;
+    if(_edgeMode == ARDOOR_EDGE_MODE_NONE)
+    {
+        _mode = ARDOOR_MODE_EDGES;
+        _edgeMode = ARDOOR_EDGE_MODE_SOBEL;
+        [self showFeatureLayer];
+    }
+    else if(_edgeMode == ARDOOR_EDGE_MODE_SOBEL)
+    {
+        _edgeMode = ARDOOR_EDGE_MODE_CANNY;
+    }
+    else
+    {
+        _edgeMode = ARDOOR_EDGE_MODE_NONE;
+        _mode = ARDOOR_MODE_NONE;
+        [self hideFeatureLayer];
+    }
+}
+
+- (IBAction)toggleCalibration:(id)sender
+{
+    if(_mode != ARDOOR_MODE_CALIBRATION)
+    {
+        [self showFeatureLayer];
+        _mode = ARDOOR_MODE_CALIBRATION;
+    }
+    else
+    {
+        [self hideFeatureLayer];
+        _mode = ARDOOR_MODE_NONE;
+    }
 }
 
 // MARK: VideoCaptureViewController overrides
 
 - (void)processFrame:(cv::Mat &)mat videoRect:(CGRect)rect videoOrientation:(AVCaptureVideoOrientation)videOrientation
 {
-    if(!self.showEdges)
+    if(_mode == ARDOOR_MODE_NONE)
     {
         return;
     }
@@ -559,7 +589,25 @@ const int kSobelKernelSize = 5;
     
     videOrientation = AVCaptureVideoOrientationPortrait;
 
-    if(_mode == 1)
+    if(_mode == ARDOOR_MODE_EDGES)
+    {
+        [self detectEdges:mat];
+    }
+    else if(_mode == ARDOOR_MODE_CALIBRATION)
+    {
+        [self detectChessBoard:mat];
+    }
+    
+    dispatch_sync(dispatch_get_main_queue(), ^{
+        [self showFeature:mat
+              forVideoRect:rect
+              videoOrientation:videOrientation];
+    });
+}
+
+- (void) detectEdges:(cv::Mat &)mat
+{
+    if(_edgeMode == ARDOOR_EDGE_MODE_SOBEL)
     {
         cv::Sobel(mat, mat, mat.depth(), kSobelX, kSobelY, kSobelKernelSize);
     }
@@ -567,31 +615,36 @@ const int kSobelKernelSize = 5;
     {
         cv::Canny(mat, mat, kCannyLow, kCannyHigh, kCannyAperture);
     }
-    
-    dispatch_sync(dispatch_get_main_queue(), ^{
-        [self showEdges:mat
-           forVideoRect:rect
-       videoOrientation:videOrientation];
-    });
 }
 
-- (void) showEdges:(const cv::Mat &)edgeData
-      forVideoRect:(CGRect)videoRect
-  videoOrientation:(AVCaptureVideoOrientation)videoOrientation
+- (void) detectChessBoard:(cv::Mat &)mat
+{
+    std::vector<cv::Point2f> imageCorners;
+    std::vector<cv::Point3f> objectCorners;
+    cv::Size size = cv::Size(7, 3);
+    
+    _calibrator->findChessboardPoints(mat, size, imageCorners, objectCorners);
+    NSLog([NSString stringWithFormat:@"%d found", (int)imageCorners.size()]);
+    cv::drawChessboardCorners(mat, size, imageCorners, true);
+}
+
+- (void) showFeature:(const cv::Mat &)data
+         forVideoRect:(CGRect)videoRect
+         videoOrientation:(AVCaptureVideoOrientation)videoOrientation
 {
 	[CATransaction begin];
 	[CATransaction setValue:(id)kCFBooleanTrue forKey:kCATransactionDisableActions];
     
-    [_edgeImage initWithCVMat:edgeData];
+    [_edgeImage initWithCVMat:data];
     
     CGAffineTransform t = [self affineTransformForVideoFrame:videoRect orientation:videoOrientation];
     
-    CGRect edgeRect = CGRectMake(0, 0, videoRect.size.width, videoRect.size.height);
+    CGRect rect = CGRectMake(0, 0, videoRect.size.width, videoRect.size.height);
     
-    edgeRect = CGRectApplyAffineTransform(edgeRect, t);
+    rect = CGRectApplyAffineTransform(rect, t);
     
     _featureLayer.contents = (id)_edgeImage.CGImage;
-    _featureLayer.frame = edgeRect;
+    _featureLayer.frame = rect;
     [_featureLayer setHidden:NO];
     
     [CATransaction commit];

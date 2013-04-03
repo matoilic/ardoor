@@ -23,6 +23,7 @@
 		00E53788142BFEE700F30526 /* VideoCaptureViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00E53786142BFEE600F30526 /* VideoCaptureViewController.xib */; };
 		C39CAA4916FA4988009C59CC /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C39CAA4816FA4988009C59CC /* opencv2.framework */; };
 		C39CAA4B16FA49A5009C59CC /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C39CAA4A16FA49A5009C59CC /* libc++.dylib */; };
+		C3B7B387170C172C00849857 /* CameraCalibration.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C3B7B385170C172C00849857 /* CameraCalibration.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,8 @@
 		00E53786142BFEE600F30526 /* VideoCaptureViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideoCaptureViewController.xib; sourceTree = "<group>"; };
 		C39CAA4816FA4988009C59CC /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = opencv2.framework; path = ../Libraries/opencv2.framework; sourceTree = "<group>"; };
 		C39CAA4A16FA49A5009C59CC /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
+		C3B7B385170C172C00849857 /* CameraCalibration.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CameraCalibration.cpp; sourceTree = "<group>"; };
+		C3B7B386170C172C00849857 /* CameraCalibration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraCalibration.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +86,7 @@
 		00427A34142B956500E5019E = {
 			isa = PBXGroup;
 			children = (
+				C3B7B384170C170600849857 /* ARDoorCommon */,
 				00427A49142B956600E5019E /* ARDoor */,
 				00427A42142B956600E5019E /* Frameworks */,
 				00427A40142B956600E5019E /* Products */,
@@ -137,6 +141,16 @@
 				00427A51142B956600E5019E /* ARDoor-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C3B7B384170C170600849857 /* ARDoorCommon */ = {
+			isa = PBXGroup;
+			children = (
+				C3B7B385170C172C00849857 /* CameraCalibration.cpp */,
+				C3B7B386170C172C00849857 /* CameraCalibration.h */,
+			);
+			name = ARDoorCommon;
+			path = ../Libraries/ARDoorCommon;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -205,6 +219,7 @@
 				00427A54142B956600E5019E /* AppDelegate.mm in Sources */,
 				00E53783142BE6D600F30526 /* UIImage+OpenCV.mm in Sources */,
 				00E53787142BFEE600F30526 /* VideoCaptureViewController.mm in Sources */,
+				C3B7B387170C172C00849857 /* CameraCalibration.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

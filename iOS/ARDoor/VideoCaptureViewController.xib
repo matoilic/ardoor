@@ -42,7 +42,6 @@
 						<string key="NSFrame">{{0, 416}, {320, 44}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
@@ -61,7 +60,7 @@
 								<reference key="IBUIToolbar" ref="131775805"/>
 							</object>
 							<object class="IBUIBarButtonItem" id="496530063">
-								<string key="IBUITitle">Camera</string>
+								<string key="IBUITitle">Cam</string>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								<int key="IBUIStyle">1</int>
 								<reference key="IBUIToolbar" ref="131775805"/>
@@ -78,6 +77,12 @@
 								<int key="IBUIStyle">1</int>
 								<reference key="IBUIToolbar" ref="131775805"/>
 							</object>
+							<object class="IBUIBarButtonItem" id="994851029">
+								<string key="IBUITitle">CV</string>
+								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+								<int key="IBUIStyle">1</int>
+								<reference key="IBUIToolbar" ref="131775805"/>
+							</object>
 							<object class="IBUIBarButtonItem" id="193690455">
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								<reference key="IBUIToolbar" ref="131775805"/>
@@ -89,7 +94,7 @@
 				<string key="NSFrame">{{0, 20}, {320, 460}}</string>
 				<reference key="NSSuperview"/>
 				<reference key="NSWindow"/>
-				<reference key="NSNextKeyView"/>
+				<reference key="NSNextKeyView" ref="131775805"/>
 				<object class="NSColor" key="IBUIBackgroundColor">
 					<int key="NSColorSpace">3</int>
 					<bytes key="NSWhite">MAA</bytes>
@@ -140,6 +145,14 @@
 					</object>
 					<int key="connectionID">25</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">toggleCalibration:</string>
+						<reference key="source" ref="994851029"/>
+						<reference key="destination" ref="372490531"/>
+					</object>
+					<int key="connectionID">31</int>
+				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<array key="orderedObjects">
@@ -178,6 +191,7 @@
 							<reference ref="924725992"/>
 							<reference ref="497353909"/>
 							<reference ref="193690455"/>
+							<reference ref="994851029"/>
 						</array>
 						<reference key="parent" ref="191373211"/>
 					</object>
@@ -211,6 +225,11 @@
 						<reference key="object" ref="193690455"/>
 						<reference key="parent" ref="131775805"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">30</int>
+						<reference key="object" ref="994851029"/>
+						<reference key="parent" ref="131775805"/>
+					</object>
 				</array>
 			</object>
 			<dictionary class="NSMutableDictionary" key="flattenedProperties">
@@ -231,12 +250,13 @@
 				<string key="23.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="28.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="29.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+				<string key="30.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 			</dictionary>
 			<dictionary class="NSMutableDictionary" key="unlocalizedProperties"/>
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">29</int>
+			<int key="maxID">31</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -244,12 +264,17 @@
 					<string key="className">VideoCaptureViewController</string>
 					<string key="superclassName">UIViewController</string>
 					<dictionary class="NSMutableDictionary" key="actions">
+						<string key="toggleCalibration:">id</string>
 						<string key="toggleCamera:">id</string>
 						<string key="toggleEdges:">id</string>
 						<string key="toggleFps:">id</string>
 						<string key="toggleTorch:">id</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="actionInfosByName">
+						<object class="IBActionInfo" key="toggleCalibration:">
+							<string key="name">toggleCalibration:</string>
+							<string key="candidateClassName">id</string>
+						</object>
 						<object class="IBActionInfo" key="toggleCamera:">
 							<string key="name">toggleCamera:</string>
 							<string key="candidateClassName">id</string>

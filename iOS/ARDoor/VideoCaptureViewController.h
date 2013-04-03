@@ -2,6 +2,14 @@
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
 #import "VideoCaptureViewController.h"
+#import "CameraCalibration.h"
+
+#define ARDOOR_MODE_NONE 0
+#define ARDOOR_MODE_EDGES 1
+#define ARDOOR_MODE_CALIBRATION 2
+#define ARDOOR_EDGE_MODE_NONE 0
+#define ARDOOR_EDGE_MODE_CANNY 1
+#define ARDOOR_EDGE_MODE_SOBEL 2
 
 @interface VideoCaptureViewController : UIViewController <AVCaptureVideoDataOutputSampleBufferDelegate>
 {
@@ -13,8 +21,8 @@
     int _camera;
     NSString *_qualityPreset;
     BOOL _captureGrayscale;
-    BOOL _showEdges;
     unsigned char _mode;
+    unsigned char _edgeMode;
     
     // Fps calculation
     CMTimeValue _lastFrameTimestamp;
@@ -30,13 +38,14 @@
     
     UIImage *_edgeImage;
     CALayer *_featureLayer;
+    
+    ARDoor::CameraCalibration *_calibrator;
 }
 
 // Current frames per second
 @property (nonatomic, readonly) float fps;
 @property (nonatomic, assign) BOOL showDebugInfo;
 @property (nonatomic, assign) BOOL torchOn;
-@property (nonatomic, assign) BOOL showEdges;
 
 // AVFoundation components
 @property (nonatomic, readonly) AVCaptureSession *captureSession;
@@ -54,6 +63,7 @@
 - (IBAction)toggleTorch:(id)sender;
 - (IBAction)toggleCamera:(id)sender;
 - (IBAction)toggleEdges:(id)sender;
+- (IBAction)toggleCalibration:(id)sender;
 
 - (CGAffineTransform)affineTransformForVideoFrame:(CGRect)videoFrame orientation:(AVCaptureVideoOrientation)videoOrientation;
 
