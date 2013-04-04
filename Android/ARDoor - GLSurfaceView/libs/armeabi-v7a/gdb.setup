@@ -1,0 +1,2 @@
+set solib-search-path ./obj/local/armeabi-v7a
+directory /media/Data/Development/Repository/Android/Linux/android-ndk-r8d/platforms/android-9/arch-arm/usr/include jni//../../OpenCV-2.4.4-android-sdk/sdk/native/jni/include/opencv jni//../../OpenCV-2.4.4-android-sdk/sdk/native/jni/include /media/Data/Development/Repository/Android/Linux/android-ndk-r8d/sources/cxx-stl/gnu-libstdc++/4.6/include /media/Data/Development/Repository/Android/Linux/android-ndk-r8d/sources/cxx-stl/gnu-libstdc++/4.6/libs/armeabi-v7a/include
