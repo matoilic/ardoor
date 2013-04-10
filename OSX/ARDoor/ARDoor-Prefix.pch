@@ -1,0 +1,12 @@
+//
+// Prefix header for all source files of the 'ARDoor' target in the 'ARDoor' project
+//
+
+#ifdef __OBJC__
+    #import <Cocoa/Cocoa.h>
+    #import <Foundation/Foundation.h>
+#endif
+
+#ifdef __cplusplus
+    #import <opencv2/opencv.hpp>
+#endif
