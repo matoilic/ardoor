@@ -28,7 +28,7 @@
         if([NSImage canInitWithPasteboard: [sender draggingPasteboard]])
         {
             NSImage *newImage = [[NSImage alloc] initWithPasteboard: [sender draggingPasteboard]];
-            cv::Mat mat = [newImage CVGrayscaleMat];
+            cv::Mat mat = [newImage CVMat];
             cv::Size size = cv::Size(mat.cols, mat.rows);
             _calibrator->calibrate(size);
             _calibrator->remap(mat);

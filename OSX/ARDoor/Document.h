@@ -17,6 +17,7 @@
 }
 
 - (IBAction)chooseFolder:(id)sender;
+- (IBAction)saveImage:(id)sender;
 
 @property (assign) IBOutlet CalibrationImageView *calibrationImageView;
 @property (assign) IBOutlet DisortionImageView *disortionImageView;

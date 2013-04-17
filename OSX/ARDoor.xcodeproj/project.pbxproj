@@ -36,6 +36,7 @@
 		C3BEE9FB171EDE4B00F2A5FD /* libopencv_ts.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C3BEE9E8171EDE4B00F2A5FD /* libopencv_ts.a */; };
 		C3BEE9FC171EDE4B00F2A5FD /* libopencv_video.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C3BEE9E9171EDE4B00F2A5FD /* libopencv_video.a */; };
 		C3BEE9FD171EDE4B00F2A5FD /* libopencv_videostab.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C3BEE9EA171EDE4B00F2A5FD /* libopencv_videostab.a */; };
+		C3BEEA00171EF4A800F2A5FD /* NSImage+SaveAs.m in Sources */ = {isa = PBXBuildFile; fileRef = C3BEE9FF171EF4A800F2A5FD /* NSImage+SaveAs.m */; };
 		C3BFA27717155BC3001C6DAA /* NSImage+OpenCV.mm in Sources */ = {isa = PBXBuildFile; fileRef = C3BFA27617155BC3001C6DAA /* NSImage+OpenCV.mm */; };
 		C3BFA27D1715810A001C6DAA /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3BFA27C1715810A001C6DAA /* OpenGL.framework */; };
 		C3BFA2A417158AB6001C6DAA /* CameraCalibration.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C3B48E36170EE2BF009EE28B /* CameraCalibration.cpp */; };
@@ -84,6 +85,8 @@
 		C3BEE9E8171EDE4B00F2A5FD /* libopencv_ts.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libopencv_ts.a; path = /usr/local/opencv/2.4/lib/libopencv_ts.a; sourceTree = "<absolute>"; };
 		C3BEE9E9171EDE4B00F2A5FD /* libopencv_video.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libopencv_video.a; path = /usr/local/opencv/2.4/lib/libopencv_video.a; sourceTree = "<absolute>"; };
 		C3BEE9EA171EDE4B00F2A5FD /* libopencv_videostab.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libopencv_videostab.a; path = /usr/local/opencv/2.4/lib/libopencv_videostab.a; sourceTree = "<absolute>"; };
+		C3BEE9FE171EF4A800F2A5FD /* NSImage+SaveAs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSImage+SaveAs.h"; sourceTree = "<group>"; };
+		C3BEE9FF171EF4A800F2A5FD /* NSImage+SaveAs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSImage+SaveAs.m"; sourceTree = "<group>"; };
 		C3BFA27517155BC3001C6DAA /* NSImage+OpenCV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSImage+OpenCV.h"; sourceTree = "<group>"; };
 		C3BFA27617155BC3001C6DAA /* NSImage+OpenCV.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "NSImage+OpenCV.mm"; sourceTree = "<group>"; };
 		C3BFA27C1715810A001C6DAA /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
@@ -163,6 +166,8 @@
 		C3B48E13170EAB29009EE28B /* ARDoor */ = {
 			isa = PBXGroup;
 			children = (
+				C3BEE9FE171EF4A800F2A5FD /* NSImage+SaveAs.h */,
+				C3BEE9FF171EF4A800F2A5FD /* NSImage+SaveAs.m */,
 				C3BEE9A9171ECA4800F2A5FD /* DisortionImageView.h */,
 				C3BEE9AA171ECA4800F2A5FD /* DisortionImageView.mm */,
 				C3731A62171EC66100960030 /* DragDropImageView.h */,
@@ -301,6 +306,7 @@
 				C3BFA27717155BC3001C6DAA /* NSImage+OpenCV.mm in Sources */,
 				C3731A64171EC66100960030 /* DragDropImageView.mm in Sources */,
 				C3BEE9AB171ECA4800F2A5FD /* DisortionImageView.mm in Sources */,
+				C3BEEA00171EF4A800F2A5FD /* NSImage+SaveAs.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

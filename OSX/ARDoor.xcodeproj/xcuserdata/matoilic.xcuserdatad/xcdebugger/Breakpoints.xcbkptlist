@@ -71,11 +71,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "ARDoor/Document.mm"
-         timestampString = "387896198.500956"
+         timestampString = "387905089.803338"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "25"
-         endingLineNumber = "25"
+         startingLineNumber = "26"
+         endingLineNumber = "26"
          landmarkName = "-dealloc"
          landmarkType = "5">
       </FileBreakpoint>
@@ -97,11 +97,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "ARDoor/Document.mm"
-         timestampString = "387895707.220579"
+         timestampString = "387905089.803338"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "18"
-         endingLineNumber = "18"
+         startingLineNumber = "19"
+         endingLineNumber = "19"
          landmarkName = "-init"
          landmarkType = "5">
       </FileBreakpoint>
@@ -149,11 +149,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "../Libraries/ARDoorCommon/CameraCalibration.cpp"
-         timestampString = "387904288.145544"
+         timestampString = "387905089.803338"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "103"
-         endingLineNumber = "103"
+         startingLineNumber = "87"
+         endingLineNumber = "87"
          landmarkName = "CameraCalibration::remap(const cv::Mat &amp;image)"
          landmarkType = "5">
       </FileBreakpoint>
@@ -162,11 +162,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "../Libraries/ARDoorCommon/CameraCalibration.cpp"
-         timestampString = "387904288.145544"
+         timestampString = "387905089.803338"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "61"
-         endingLineNumber = "61"
+         startingLineNumber = "45"
+         endingLineNumber = "45"
          landmarkName = "CameraCalibration::calibrate(cv::Size &amp;imageSize)"
          landmarkType = "5">
       </FileBreakpoint>
@@ -175,11 +175,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "ARDoor/Document.mm"
-         timestampString = "387901187.682125"
+         timestampString = "387905180.454738"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "82"
-         endingLineNumber = "82"
+         startingLineNumber = "84"
+         endingLineNumber = "84"
          landmarkName = "-chooseFolder:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -188,11 +188,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "ARDoor/Document.mm"
-         timestampString = "387901187.682125"
+         timestampString = "387905180.454738"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "91"
-         endingLineNumber = "91"
+         startingLineNumber = "93"
+         endingLineNumber = "93"
          landmarkName = "-chooseFolder:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -201,11 +201,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "../Libraries/ARDoorCommon/CameraCalibration.cpp"
-         timestampString = "387904288.145544"
+         timestampString = "387905089.803338"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "120"
-         endingLineNumber = "120"
+         startingLineNumber = "104"
+         endingLineNumber = "104"
          landmarkName = "CameraCalibration::remap(const cv::Mat &amp;image)"
          landmarkType = "5">
       </FileBreakpoint>
@@ -214,11 +214,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "../Libraries/ARDoorCommon/CameraCalibration.cpp"
-         timestampString = "387904288.145544"
+         timestampString = "387905089.803338"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "106"
-         endingLineNumber = "106"
+         startingLineNumber = "90"
+         endingLineNumber = "90"
          landmarkName = "CameraCalibration::remap(const cv::Mat &amp;image)"
          landmarkType = "5">
       </FileBreakpoint>
@@ -233,6 +233,19 @@
          startingLineNumber = "37"
          endingLineNumber = "37"
          landmarkName = "CameraCalibration::addPoints(const std::vector&lt;cv::Point2f&gt; &amp;imageCorners, std::vector&lt;cv::Point3f&gt; &amp;objectCorners)"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "ARDoor/NSImage+SaveAs.m"
+         timestampString = "387905246.20357"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "14"
+         endingLineNumber = "14"
+         landmarkName = "-saveAsJpegWithName:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

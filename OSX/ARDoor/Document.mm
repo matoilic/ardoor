@@ -7,6 +7,7 @@
 //
 
 #import "Document.h"
+#import "NSImage+SaveAs.h"
 
 @implementation Document
 
@@ -67,17 +68,18 @@
 
 - (IBAction)chooseFolder:(id)sender
 {
-    NSOpenPanel *openDlg = [NSOpenPanel openPanel];
-    openDlg.canChooseFiles = YES;
-    openDlg.canChooseDirectories = NO;
-    openDlg.allowsMultipleSelection = YES;
+    NSOpenPanel *openDialog = [NSOpenPanel openPanel];
+    openDialog.canChooseFiles = YES;
+    openDialog.canChooseDirectories = NO;
+    openDialog.allowsMultipleSelection = YES;
 
     int i;
     std::vector<std::string> files;
     
-    if ([openDlg runModal] == NSOKButton)
+    if ([openDialog runModal] == NSOKButton)
     {
-        NSArray *selectedFiles = openDlg.filenames;
+        [openDialog orderOut:self];
+        NSArray *selectedFiles = openDialog.filenames;
         
         for(i = 0; i < [selectedFiles count]; i++)
         {
@@ -91,6 +93,19 @@
         int successes = _calibrator->addChessboardPoints(files, size);
         NSLog(@"%i boards detected", successes);
     });
+}
+
+- (IBAction)saveImage:(id)sender
+{
+    NSSavePanel *saveDialog = [NSSavePanel savePanel];
+    [saveDialog setAllowedFileTypes:[NSArray arrayWithObject:@"jpg"]];
+    
+    if([saveDialog runModal] == NSOKButton)
+    {
+        [saveDialog orderOut:self];
+        NSURL *url = saveDialog.URL;
+        [self.disortionImageView.image saveAsJpegWithName:url];
+    }
 }
 
 @end
