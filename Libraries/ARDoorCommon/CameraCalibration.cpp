@@ -29,8 +29,10 @@ int CameraCalibration::addChessboardPoints(const std::vector<std::string> &filel
     return successes;
 }
 
-void CameraCalibration::addPoints(const std::vector<cv::Point2f> &imageCorners, const std::vector<cv::Point3f> &objectCorners)
+void CameraCalibration::addPoints(const std::vector<cv::Point2f> &imageCorners, std::vector<cv::Point3f> &objectCorners)
 {
+    mustInitUndistort= true;
+    objectCorners.resize(imageCorners.size(), objectCorners[0]);
     imagePoints.push_back(imageCorners);
     objectPoints.push_back(objectCorners);
 }
@@ -57,23 +59,25 @@ bool CameraCalibration::findChessboardPoints(const cv::Mat &image, cv::Size &boa
     {
         for(int j = 0; j < boardSize.width; j++)
         {
-            objectCorners.push_back(cv::Point3f(i, j, 0.0f));
+            objectCorners.push_back(cv::Point3f(i * 110, j * 110, 0.0f));
         }
     }
     
-    cv::findChessboardCorners(image, boardSize, imageCorners, CV_CALIB_CB_ADAPTIVE_THRESH | CV_CALIB_CB_FILTER_QUADS);
+    bool success = cv::findChessboardCorners(image, boardSize, imageCorners, CV_CALIB_CB_ADAPTIVE_THRESH | CV_CALIB_CB_FILTER_QUADS);
     
-    /*cv::cornerSubPix(
-        image,
-        imageCorners,
-        cv::Size(5,5),
-        cv::Size(-1,-1),
-        cv::TermCriteria(
-            cv::TermCriteria::MAX_ITER + cv::TermCriteria::EPS,
-            30,  // max number of iterations
-            0.1  // min accuracy
-        )
-    );*/
+    if(success) {
+        cv::cornerSubPix(
+            image,
+            imageCorners,
+            cv::Size(5,5),
+            cv::Size(-1,-1),
+            cv::TermCriteria(
+                cv::TermCriteria::MAX_ITER + cv::TermCriteria::EPS,
+                30,  // max number of iterations
+                0.1  // min accuracy
+            )
+        );
+    }
     
     return imageCorners.size() == boardSize.area();
 }

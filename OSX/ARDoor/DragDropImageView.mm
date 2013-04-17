@@ -7,7 +7,6 @@
 //
 
 #import "DragDropImageView.h"
-#import "NSImage+OpenCV.h"
 
 @implementation DragDropImageView
 
@@ -44,11 +43,11 @@
 #pragma MARK - Drag & Drop
 
 - (NSDragOperation)draggingEntered:(id <NSDraggingInfo>)sender
-{    
+{
     // Check if the pasteboard contains image data and source/user wants it copied
     if ( [NSImage canInitWithPasteboard:[sender draggingPasteboard]] &&
-         [sender draggingSourceOperationMask] &
-         NSDragOperationCopy )
+        [sender draggingSourceOperationMask] &
+        NSDragOperationCopy )
     {
         
         [self setNeedsDisplay: YES];
@@ -61,7 +60,7 @@
 }
 
 - (void)draggingExited:(id <NSDraggingInfo>)sender
-{    
+{
     [self setNeedsDisplay: YES];
 }
 
@@ -72,28 +71,7 @@
 
 - (BOOL)performDragOperation:(id <NSDraggingInfo>)sender
 {
-    NSLog(@"Image dropped");
-    
-    if ([sender draggingSource] != self)
-    {
-        NSURL* fileURL;
-        
-        //set the image using the best representation we can get from the pasteboard
-        if([NSImage canInitWithPasteboard: [sender draggingPasteboard]])
-        {
-            NSImage *newImage = [[NSImage alloc] initWithPasteboard: [sender draggingPasteboard]];
-            cv::Mat mat = [newImage CVGrayscaleMat];
-            cv::Canny(mat, mat, 30, 150, 3);
-            [self setImage:[newImage initWithCVMat:mat]];
-        }
-        
-        //if the drag comes from a file, set the window title to the filename
-        fileURL=[NSURL URLFromPasteboard: [sender draggingPasteboard]];
-        [[self window] setTitle: fileURL!=NULL ? [fileURL absoluteString] : @"(no name)"];
-        [self setNeedsDisplay: YES];
-    }
-    
-    return NO;
+    return YES;
 }
 
 - (void)pasteboard:(NSPasteboard *)sender item:(NSPasteboardItem *)item provideDataForType:(NSString *)type

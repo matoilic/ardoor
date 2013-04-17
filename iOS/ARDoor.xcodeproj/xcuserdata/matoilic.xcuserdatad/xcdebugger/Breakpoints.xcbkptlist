@@ -60,11 +60,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "../Libraries/ARDoorCommon/CameraCalibration.cpp"
-         timestampString = "386685955.164858"
+         timestampString = "387890892.268305"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "78"
-         endingLineNumber = "78"
+         startingLineNumber = "80"
+         endingLineNumber = "80"
          landmarkName = "CameraCalibration::findChessboardPoints(const cv::Mat &amp;image, cv::Size &amp;boardSize, std::vector&lt;cv::Point2f&gt; &amp;imageCorners, std::vector&lt;cv::Point3f&gt; &amp;objectCorners)"
          landmarkType = "5">
       </FileBreakpoint>

@@ -35,7 +35,7 @@ public:
      * @param imageCorners point positions in world coordinates
      * @param objectCorners point positions in pixels
      */
-    void addPoints(const std::vector<cv::Point2f> &imageCorners, const std::vector<cv::Point3f> &objectCorners);
+    void addPoints(const std::vector<cv::Point2f> &imageCorners, std::vector<cv::Point3f> &objectCorners);
     
     /**
      * Performs the calibration.

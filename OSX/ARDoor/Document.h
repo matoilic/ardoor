@@ -7,11 +7,18 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "CameraCalibration.h"
+#import "CalibrationImageView.h"
+#import "DisortionImageView.h"
 
 @interface Document : NSDocument
+{
+    ARDoor::CameraCalibration *_calibrator;
+}
 
-- (IBAction)imageSelected:(id)sender;
+- (IBAction)chooseFolder:(id)sender;
 
-@property (assign) IBOutlet NSImageView *imageView;
+@property (assign) IBOutlet CalibrationImageView *calibrationImageView;
+@property (assign) IBOutlet DisortionImageView *disortionImageView;
 
 @end

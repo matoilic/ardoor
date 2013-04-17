@@ -621,7 +621,7 @@ const int kSobelKernelSize = 5;
 {
     std::vector<cv::Point2f> imageCorners;
     std::vector<cv::Point3f> objectCorners;
-    cv::Size size = cv::Size(7, 3);
+    cv::Size size = cv::Size(9, 6);
     
     _calibrator->findChessboardPoints(mat, size, imageCorners, objectCorners);
     NSLog([NSString stringWithFormat:@"%d found", (int)imageCorners.size()]);

@@ -1,5 +1,5 @@
 //
-//  Document.m
+//  Document.mm
 //  ARDoor
 //
 //  Created by Mato Ilic on 05.04.13.
@@ -15,9 +15,14 @@
     self = [super init];
     if (self) {
         NSLog(@"Application started");
-        // Add your subclass-specific initialization here.
+        _calibrator = new ARDoor::CameraCalibration();
     }
     return self;
+}
+
+- (void)dealloc
+{
+    delete(_calibrator);
 }
 
 - (NSString *)windowNibName
@@ -30,7 +35,8 @@
 - (void)windowControllerDidLoadNib:(NSWindowController *)aController
 {
     [super windowControllerDidLoadNib:aController];
-    // Add any code here that needs to be executed once the windowController has loaded the document's window.
+    self.calibrationImageView.calibrator = _calibrator;
+    self.disortionImageView.calibrator = _calibrator;
 }
 
 + (BOOL)autosavesInPlace
@@ -59,9 +65,32 @@
 
 #pragma MARK actions
 
-- (IBAction)imageSelected:(id)sender
+- (IBAction)chooseFolder:(id)sender
 {
-    NSLog(@"Image selected");
+    NSOpenPanel *openDlg = [NSOpenPanel openPanel];
+    openDlg.canChooseFiles = YES;
+    openDlg.canChooseDirectories = NO;
+    openDlg.allowsMultipleSelection = YES;
+
+    int i;
+    std::vector<std::string> files;
+    
+    if ([openDlg runModal] == NSOKButton)
+    {
+        NSArray *selectedFiles = openDlg.filenames;
+        
+        for(i = 0; i < [selectedFiles count]; i++)
+        {
+            NSString* fileName = [selectedFiles objectAtIndex:i];
+            files.push_back([fileName UTF8String]);
+        }
+    }
+    
+    dispatch_sync(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+        cv::Size size = cv::Size(9, 6);
+        int successes = _calibrator->addChessboardPoints(files, size);
+        NSLog(@"%i boards detected", successes);
+    });
 }
 
 @end
