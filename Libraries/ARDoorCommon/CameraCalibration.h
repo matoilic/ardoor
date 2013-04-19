@@ -44,6 +44,8 @@ public:
      */
     double calibrate(cv::Size &imageSize);
     
+    bool findAndDrawChessboardPoints(const cv::Mat &image, cv::Size &boardSize, std::vector<cv::Point2f> &imageCorners, std::vector<cv::Point3f> &objectCorners);
+    
     /**
      * Adds an additional image to be used for calibration
      * @param image the image to prcess
@@ -60,6 +62,9 @@ public:
      * @return the undisorted image
      */
     cv::Mat remap(const cv::Mat &image);
+    
+private:
+    void printMat(const cv::Mat &mat, std::string name);
 };
     
 }

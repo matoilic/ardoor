@@ -53,13 +53,32 @@ double CameraCalibration::calibrate(cv::Size &imageSize)
     );
 }
     
+bool CameraCalibration::findAndDrawChessboardPoints(const cv::Mat &image, cv::Size &boardSize, std::vector<cv::Point2f> &imageCorners, std::vector<cv::Point3f> &objectCorners)
+{
+    cv::Mat greyImage;
+    if(image.type() == CV_8UC4)
+    {
+        cv::cvtColor(image, greyImage, CV_BGR2GRAY);
+    }
+    else
+    {
+        greyImage = image;
+    }
+    
+    bool success = findChessboardPoints(greyImage, boardSize, imageCorners, objectCorners);
+    
+    cv::drawChessboardCorners(image, boardSize, imageCorners, success);
+    
+    return success;
+}
+    
 bool CameraCalibration::findChessboardPoints(const cv::Mat &image, cv::Size &boardSize, std::vector<cv::Point2f> &imageCorners, std::vector<cv::Point3f> &objectCorners)
 {
     for(int i = 0; i < boardSize.height; i++)
     {
         for(int j = 0; j < boardSize.width; j++)
         {
-            objectCorners.push_back(cv::Point3f(i * 110, j * 110, 0.0f));
+            objectCorners.push_back(cv::Point3f(i * 110, j * 110, 0.0f)); //110 = size of one square on the board
         }
     }
     
@@ -98,12 +117,32 @@ cv::Mat CameraCalibration::remap(const cv::Mat &image)
             mapY           
         );
         
+        printMat(cameraMatrix, "Camera Matrix");
+        printMat(distCoeffs, "Disortion Coefficients");
+        
         mustInitUndistort= false;
     }
     
     cv::remap(image, undistorted, mapX, mapY, cv::INTER_LINEAR);
     
     return undistorted;
+}
+    
+void CameraCalibration::printMat(const cv::Mat &mat, std::string name)
+{
+    int r, c;
+    
+    std::cout << name << std::endl;
+    
+    for(r = 0; r < mat.rows; r++)
+    {
+        for(c = 0; c < mat.cols; c++)
+        {
+            std::cout << mat.row(r).col(c) << " ";
+        }
+        
+        std::cout << std::endl;
+    }
 }
 
 }
