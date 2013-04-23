@@ -6,5 +6,6 @@
 
 @property(nonatomic, readonly) cv::Mat CVMat;
 @property(nonatomic, readonly) cv::Mat CVGrayscaleMat;
+@property(nonatomic, readonly) CGImageRef CGImage;
 
 @end

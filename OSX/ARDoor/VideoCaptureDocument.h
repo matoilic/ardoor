@@ -7,7 +7,18 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import <AVFoundation/AVFoundation.h>
+#import "CameraCalibration.h"
 
-@interface VideoCapture : NSDocument
+@interface VideoCaptureDocument : NSDocument<AVCaptureVideoDataOutputSampleBufferDelegate>
+{
+@private
+    AVCaptureSession *_session;
+    AVCaptureVideoDataOutput *_videoOutput;
+    NSImage *_outputImage;
+    ARDoor::CameraCalibration *_calibrator;
+}
+
+@property (assign) IBOutlet NSImageView *videoView;
 
 @end

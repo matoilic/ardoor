@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		C3731A64171EC66100960030 /* DragDropImageView.mm in Sources */ = {isa = PBXBuildFile; fileRef = C3731A63171EC66100960030 /* DragDropImageView.mm */; };
+		C3808C4C1721632A0090E4CE /* PoseEstimation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C3808C4A1721632A0090E4CE /* PoseEstimation.cpp */; };
+		C3808C4F172179CE0090E4CE /* Configuration.m in Sources */ = {isa = PBXBuildFile; fileRef = C3808C4E172179CE0090E4CE /* Configuration.m */; };
 		C3B48E0E170EAB29009EE28B /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3B48E0D170EAB29009EE28B /* Cocoa.framework */; };
 		C3B48E18170EAB29009EE28B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C3B48E16170EAB29009EE28B /* InfoPlist.strings */; };
 		C3B48E1A170EAB29009EE28B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C3B48E19170EAB29009EE28B /* main.m */; };
@@ -36,16 +38,26 @@
 		C3BEE9FB171EDE4B00F2A5FD /* libopencv_ts.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C3BEE9E8171EDE4B00F2A5FD /* libopencv_ts.a */; };
 		C3BEE9FC171EDE4B00F2A5FD /* libopencv_video.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C3BEE9E9171EDE4B00F2A5FD /* libopencv_video.a */; };
 		C3BEE9FD171EDE4B00F2A5FD /* libopencv_videostab.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C3BEE9EA171EDE4B00F2A5FD /* libopencv_videostab.a */; };
-		C3BEEA00171EF4A800F2A5FD /* NSImage+SaveAs.m in Sources */ = {isa = PBXBuildFile; fileRef = C3BEE9FF171EF4A800F2A5FD /* NSImage+SaveAs.m */; };
+		C3BEEA00171EF4A800F2A5FD /* NSImage+SaveAs.mm in Sources */ = {isa = PBXBuildFile; fileRef = C3BEE9FF171EF4A800F2A5FD /* NSImage+SaveAs.mm */; };
+		C3BEEA02171F1A4600F2A5FD /* VideoCaptureDocument.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3BEEA01171F1A4600F2A5FD /* VideoCaptureDocument.xib */; };
+		C3BEEA05171F1B1500F2A5FD /* VideoCaptureDocument.mm in Sources */ = {isa = PBXBuildFile; fileRef = C3BEEA04171F1B1500F2A5FD /* VideoCaptureDocument.mm */; };
+		C3BEEA07171F1D6D00F2A5FD /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3BEEA06171F1D6D00F2A5FD /* AVFoundation.framework */; };
 		C3BFA27717155BC3001C6DAA /* NSImage+OpenCV.mm in Sources */ = {isa = PBXBuildFile; fileRef = C3BFA27617155BC3001C6DAA /* NSImage+OpenCV.mm */; };
 		C3BFA27D1715810A001C6DAA /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3BFA27C1715810A001C6DAA /* OpenGL.framework */; };
 		C3BFA2A417158AB6001C6DAA /* CameraCalibration.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C3B48E36170EE2BF009EE28B /* CameraCalibration.cpp */; };
 		C3BFA2A517158AB6001C6DAA /* CameraCalibration.h in Sources */ = {isa = PBXBuildFile; fileRef = C3B48E37170EE2BF009EE28B /* CameraCalibration.h */; };
+		C3C26B3E1721298300532A9C /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3C26B3D1721298300532A9C /* CoreMedia.framework */; };
+		C3C26B4017212A8E00532A9C /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3C26B3F17212A8E00532A9C /* CoreVideo.framework */; };
+		C3C26B421721378900532A9C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3C26B411721378900532A9C /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		C3731A62171EC66100960030 /* DragDropImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DragDropImageView.h; sourceTree = "<group>"; };
 		C3731A63171EC66100960030 /* DragDropImageView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DragDropImageView.mm; sourceTree = "<group>"; };
+		C3808C4A1721632A0090E4CE /* PoseEstimation.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PoseEstimation.cpp; sourceTree = "<group>"; };
+		C3808C4B1721632A0090E4CE /* PoseEstimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PoseEstimation.h; sourceTree = "<group>"; };
+		C3808C4D172179CE0090E4CE /* Configuration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Configuration.h; sourceTree = "<group>"; };
+		C3808C4E172179CE0090E4CE /* Configuration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Configuration.m; sourceTree = "<group>"; };
 		C3B48E0A170EAB29009EE28B /* ARDoor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARDoor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3B48E0D170EAB29009EE28B /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		C3B48E10170EAB29009EE28B /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -86,10 +98,17 @@
 		C3BEE9E9171EDE4B00F2A5FD /* libopencv_video.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libopencv_video.a; path = /usr/local/opencv/2.4/lib/libopencv_video.a; sourceTree = "<absolute>"; };
 		C3BEE9EA171EDE4B00F2A5FD /* libopencv_videostab.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libopencv_videostab.a; path = /usr/local/opencv/2.4/lib/libopencv_videostab.a; sourceTree = "<absolute>"; };
 		C3BEE9FE171EF4A800F2A5FD /* NSImage+SaveAs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSImage+SaveAs.h"; sourceTree = "<group>"; };
-		C3BEE9FF171EF4A800F2A5FD /* NSImage+SaveAs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSImage+SaveAs.m"; sourceTree = "<group>"; };
+		C3BEE9FF171EF4A800F2A5FD /* NSImage+SaveAs.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "NSImage+SaveAs.mm"; sourceTree = "<group>"; };
+		C3BEEA01171F1A4600F2A5FD /* VideoCaptureDocument.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideoCaptureDocument.xib; sourceTree = "<group>"; };
+		C3BEEA03171F1B1500F2A5FD /* VideoCaptureDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoCaptureDocument.h; sourceTree = "<group>"; };
+		C3BEEA04171F1B1500F2A5FD /* VideoCaptureDocument.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = VideoCaptureDocument.mm; sourceTree = "<group>"; };
+		C3BEEA06171F1D6D00F2A5FD /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		C3BFA27517155BC3001C6DAA /* NSImage+OpenCV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSImage+OpenCV.h"; sourceTree = "<group>"; };
 		C3BFA27617155BC3001C6DAA /* NSImage+OpenCV.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "NSImage+OpenCV.mm"; sourceTree = "<group>"; };
 		C3BFA27C1715810A001C6DAA /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		C3C26B3D1721298300532A9C /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		C3C26B3F17212A8E00532A9C /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		C3C26B411721378900532A9C /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +116,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3C26B421721378900532A9C /* QuartzCore.framework in Frameworks */,
+				C3C26B4017212A8E00532A9C /* CoreVideo.framework in Frameworks */,
+				C3C26B3E1721298300532A9C /* CoreMedia.framework in Frameworks */,
+				C3BEEA07171F1D6D00F2A5FD /* AVFoundation.framework in Frameworks */,
 				C3BEE9EB171EDE4B00F2A5FD /* libopencv_calib3d.a in Frameworks */,
 				C3BEE9EC171EDE4B00F2A5FD /* libopencv_contrib.a in Frameworks */,
 				C3BEE9ED171EDE4B00F2A5FD /* libopencv_core.a in Frameworks */,
@@ -146,6 +169,10 @@
 		C3B48E0C170EAB29009EE28B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C3C26B411721378900532A9C /* QuartzCore.framework */,
+				C3C26B3F17212A8E00532A9C /* CoreVideo.framework */,
+				C3C26B3D1721298300532A9C /* CoreMedia.framework */,
+				C3BEEA06171F1D6D00F2A5FD /* AVFoundation.framework */,
 				C3BFA27C1715810A001C6DAA /* OpenGL.framework */,
 				C3B48E0D170EAB29009EE28B /* Cocoa.framework */,
 				C3B48E0F170EAB29009EE28B /* Other Frameworks */,
@@ -166,21 +193,26 @@
 		C3B48E13170EAB29009EE28B /* ARDoor */ = {
 			isa = PBXGroup;
 			children = (
-				C3BEE9FE171EF4A800F2A5FD /* NSImage+SaveAs.h */,
-				C3BEE9FF171EF4A800F2A5FD /* NSImage+SaveAs.m */,
+				C3B48E2D170EBD13009EE28B /* CalibrationImageView.h */,
+				C3B48E2E170EBD13009EE28B /* CalibrationImageView.mm */,
 				C3BEE9A9171ECA4800F2A5FD /* DisortionImageView.h */,
 				C3BEE9AA171ECA4800F2A5FD /* DisortionImageView.mm */,
-				C3731A62171EC66100960030 /* DragDropImageView.h */,
-				C3731A63171EC66100960030 /* DragDropImageView.mm */,
-				C3BFA27517155BC3001C6DAA /* NSImage+OpenCV.h */,
-				C3BFA27617155BC3001C6DAA /* NSImage+OpenCV.mm */,
 				C3B48E1F170EAB29009EE28B /* Document.h */,
 				C3B48E20170EAB29009EE28B /* Document.mm */,
 				C3B48E22170EAB29009EE28B /* Document.xib */,
-				C3B48E2D170EBD13009EE28B /* CalibrationImageView.h */,
-				C3B48E2E170EBD13009EE28B /* CalibrationImageView.mm */,
+				C3731A62171EC66100960030 /* DragDropImageView.h */,
+				C3731A63171EC66100960030 /* DragDropImageView.mm */,
 				C3B48E25170EAB29009EE28B /* MainMenu.xib */,
+				C3BFA27517155BC3001C6DAA /* NSImage+OpenCV.h */,
+				C3BFA27617155BC3001C6DAA /* NSImage+OpenCV.mm */,
+				C3BEE9FE171EF4A800F2A5FD /* NSImage+SaveAs.h */,
+				C3BEE9FF171EF4A800F2A5FD /* NSImage+SaveAs.mm */,
 				C3B48E14170EAB29009EE28B /* Supporting Files */,
+				C3BEEA01171F1A4600F2A5FD /* VideoCaptureDocument.xib */,
+				C3BEEA03171F1B1500F2A5FD /* VideoCaptureDocument.h */,
+				C3BEEA04171F1B1500F2A5FD /* VideoCaptureDocument.mm */,
+				C3808C4D172179CE0090E4CE /* Configuration.h */,
+				C3808C4E172179CE0090E4CE /* Configuration.m */,
 			);
 			path = ARDoor;
 			sourceTree = "<group>";
@@ -202,6 +234,8 @@
 			children = (
 				C3B48E36170EE2BF009EE28B /* CameraCalibration.cpp */,
 				C3B48E37170EE2BF009EE28B /* CameraCalibration.h */,
+				C3808C4A1721632A0090E4CE /* PoseEstimation.cpp */,
+				C3808C4B1721632A0090E4CE /* PoseEstimation.h */,
 			);
 			name = ARDoorCommon;
 			path = ../Libraries/ARDoorCommon;
@@ -288,6 +322,7 @@
 				C3B48E1E170EAB29009EE28B /* Credits.rtf in Resources */,
 				C3B48E24170EAB29009EE28B /* Document.xib in Resources */,
 				C3B48E27170EAB29009EE28B /* MainMenu.xib in Resources */,
+				C3BEEA02171F1A4600F2A5FD /* VideoCaptureDocument.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -306,7 +341,10 @@
 				C3BFA27717155BC3001C6DAA /* NSImage+OpenCV.mm in Sources */,
 				C3731A64171EC66100960030 /* DragDropImageView.mm in Sources */,
 				C3BEE9AB171ECA4800F2A5FD /* DisortionImageView.mm in Sources */,
-				C3BEEA00171EF4A800F2A5FD /* NSImage+SaveAs.m in Sources */,
+				C3BEEA00171EF4A800F2A5FD /* NSImage+SaveAs.mm in Sources */,
+				C3BEEA05171F1B1500F2A5FD /* VideoCaptureDocument.mm in Sources */,
+				C3808C4C1721632A0090E4CE /* PoseEstimation.cpp in Sources */,
+				C3808C4F172179CE0090E4CE /* Configuration.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

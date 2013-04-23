@@ -2,6 +2,36 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>BoardColumns</key>
+	<integer>9</integer>
+	<key>BoardRows</key>
+	<string>6</string>
+	<key>Camera Matrix</key>
+	<array>
+		<array>
+			<real>2615.032471497271</real>
+			<integer>0</integer>
+			<real>1169.891450964949</real>
+		</array>
+		<array>
+			<integer>0</integer>
+			<real>2703.932979590988</real>
+			<real>1133.451102314093</real>
+		</array>
+		<array>
+			<integer>0</integer>
+			<integer>0</integer>
+			<integer>1</integer>
+		</array>
+	</array>
+	<key>Disortion Coefficients</key>
+	<array>
+		<real>-0.1250519642148226</real>
+		<real>0.5233505779507136</real>
+		<real>-0.01130022499601467</real>
+		<real>-0.008575044469523171</real>
+		<real>-1.221593433554958</real>
+	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDocumentTypes</key>
@@ -23,6 +53,18 @@
 			<string>Editor</string>
 			<key>NSDocumentClass</key>
 			<string>Document</string>
+		</dict>
+		<dict>
+			<key>NSDocumentClass</key>
+			<string>VideoCaptureDocument</string>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleTypeName</key>
+			<string>DocumentType</string>
+			<key>CFBundleTypeExtensions</key>
+			<array>
+				<string>ardoor</string>
+			</array>
 		</dict>
 	</array>
 	<key>CFBundleExecutable</key>

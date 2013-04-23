@@ -8,6 +8,7 @@
 
 #import "CalibrationImageView.h"
 #import "NSImage+OpenCV.h"
+#import "Configuration.h"
 
 @implementation CalibrationImageView
 
@@ -29,7 +30,7 @@
 {
     std::vector<cv::Point2f> imageCorners;
     std::vector<cv::Point3f> objectCorners;
-    cv::Size size = cv::Size(9, 6);
+    cv::Size size = cv::Size([Configuration boardColumns], [Configuration boardRows]);
     
     if ([sender draggingSource] != self)
     {

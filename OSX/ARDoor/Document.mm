@@ -8,6 +8,7 @@
 
 #import "Document.h"
 #import "NSImage+SaveAs.h"
+#import "Configuration.h"
 
 @implementation Document
 
@@ -89,7 +90,7 @@
     }
     
     dispatch_sync(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
-        cv::Size size = cv::Size(9, 6);
+        cv::Size size = cv::Size([Configuration boardColumns], [Configuration boardRows]);
         int successes = _calibrator->addChessboardPoints(files, size);
         NSLog(@"%i boards detected", successes);
     });

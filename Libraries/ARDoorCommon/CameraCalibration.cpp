@@ -32,7 +32,6 @@ int CameraCalibration::addChessboardPoints(const std::vector<std::string> &filel
 void CameraCalibration::addPoints(const std::vector<cv::Point2f> &imageCorners, std::vector<cv::Point3f> &objectCorners)
 {
     mustInitUndistort= true;
-    objectCorners.resize(imageCorners.size(), objectCorners[0]);
     imagePoints.push_back(imageCorners);
     objectPoints.push_back(objectCorners);
 }
@@ -97,6 +96,8 @@ bool CameraCalibration::findChessboardPoints(const cv::Mat &image, cv::Size &boa
             )
         );
     }
+    
+    objectCorners.resize(imageCorners.size(), objectCorners[0]);
     
     return imageCorners.size() == boardSize.area();
 }

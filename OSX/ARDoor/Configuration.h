@@ -9,5 +9,15 @@
 #import <Foundation/Foundation.h>
 
 @interface Configuration : NSObject
+{
+    NSNumber *_boardColumns;
+    NSNumber *_boardRows;
+}
+
+@property (nonatomic, readonly) NSNumber *boardColumns;
+@property (nonatomic, readonly) NSNumber *boardRows;
+
++(int)boardColumns;
++(int)boardRows;
 
 @end

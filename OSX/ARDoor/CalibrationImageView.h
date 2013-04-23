@@ -13,6 +13,8 @@
 @interface CalibrationImageView : DragDropImageView
 {
     ARDoor::CameraCalibration *_calibrator;
+    NSNumber *boardColumns;
+    NSNumber *boardRows;
 }
 
 @property (nonatomic, assign) ARDoor::CameraCalibration *calibrator;
