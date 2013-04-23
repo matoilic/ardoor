@@ -1,0 +1,12 @@
+release: ENVIRONMENT = "release"
+debug:   ENVIRONMENT = "debug"
+
+BUILDPATH = $$PWD/build/$$ENVIRONMENT
+DESTDIR = $$BUILDPATH/$$TARGET
+
+OBJECTS_DIR = $$DESTDIR/obj
+MOC_DIR = $$DESTDIR/moc
+RCC_DIR = $$DESTDIR/qrc
+UI_DIR = $$DESTDIR/ui
+
+

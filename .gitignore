@@ -6,3 +6,6 @@ obj/
 *~
 ~*
 
+# Qt Creator Build + Configuration
+build/
+*.pro.user*
