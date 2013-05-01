@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui multimedia multimediawidgets
+QT       += core gui multimedia multimediawidgets opengl
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -20,14 +20,16 @@ SOURCES += \
     CalibrationDialog.cpp \
     CameraImageProcessor.cpp \
     ImageWidget.cpp \
-    QtUtil.cpp
+    QtUtil.cpp \
+    test.cpp
 
 HEADERS += \
     MainWindow.h \
     CalibrationDialog.h \
     CameraImageProcessor.h \
     ImageWidget.h \
-    QtUtil.h
+    QtUtil.h \
+    GLRenderer.h
 
 FORMS += \
     MainWindow.ui \
@@ -35,6 +37,8 @@ FORMS += \
 
 CONFIG += link_pkgconfig
 PKGCONFIG += opencv
+
+LIBS += -lglut -lGLU
 
 # ARDoorCommon Library
 INCLUDEPATH += ../Libraries/ARDoorCommon

@@ -7,6 +7,16 @@ CameraCalibration::CameraCalibration()
 {
     mustInitUndistort = false;
 }
+
+cv::Mat CameraCalibration::getIntrinsicsMatrix()
+{
+    return cameraMatrix;
+}
+
+cv::Mat CameraCalibration::getDistortionCoeffs()
+{
+    return distCoeffs;
+}
     
 int CameraCalibration::addChessboardPoints(const std::vector<std::string> &filelist, cv::Size &boardSize)
 {
