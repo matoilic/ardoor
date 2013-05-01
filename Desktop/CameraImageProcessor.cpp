@@ -2,9 +2,9 @@
 #include "QtUtil.h"
 #include <opencv2/core/core.hpp>
 
-CameraImageProcessor::CameraImageProcessor(ImageWidget* widget, ARDoor::ImagePipeline* pipeline)
+CameraImageProcessor::CameraImageProcessor(GLRenderer *renderer, ARDoor::ImagePipeline* pipeline)
 {
-    this->widget = widget;
+    this->renderer = renderer;
     this->pipeline = pipeline;
 }
 
@@ -17,11 +17,7 @@ QList<QVideoFrame::PixelFormat> CameraImageProcessor::supportedPixelFormats(QAbs
 
 bool CameraImageProcessor::present(const QVideoFrame &frame)
 {
-    cv::Mat output;
-    cv::Mat input = QtUtil::convertToMat(frame);
-
-    pipeline->processFrame(input, output);
-    widget->setMat(output);
-
+    cv::Mat mat = QtUtil::convertToMat(frame);
+    renderer->updateBackground(mat);
     return true;
 }

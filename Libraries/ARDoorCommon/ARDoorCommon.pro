@@ -6,6 +6,7 @@
 
 
 QT       -= core gui
+QT       += opengl
 
 TARGET = ARDoorCommon
 TEMPLATE = lib
@@ -16,14 +17,16 @@ SOURCES += \
     CameraCalibration.cpp \
     PoseEstimation.cpp \
     ImagePipeline.cpp \
-    TestImageProcessor.cpp
+    TestImageProcessor.cpp \
+    RenderingContext.cpp
 
 HEADERS += \
     CameraCalibration.h \
     PoseEstimation.h \
     ImagePipeline.h \
     ImageProcessor.h \
-    TestImageProcessor.h
+    TestImageProcessor.h \
+    RenderingContext.h
 
 CONFIG += link_pkgconfig
 PKGCONFIG += opencv

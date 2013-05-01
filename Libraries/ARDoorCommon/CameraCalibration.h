@@ -26,6 +26,10 @@ class CameraCalibration
     
 public:
     CameraCalibration();
+
+    cv::Mat getIntrinsicsMatrix();
+
+    cv::Mat getDistortionCoeffs();
     
     /**
      * Adds additional images to be used for calibration

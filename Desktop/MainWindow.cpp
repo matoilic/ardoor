@@ -11,8 +11,13 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
 
     // setup camera widget
-    cameraWidget = new ImageWidget();
-    ui->cameraContainer->addWidget(cameraWidget, 1);
+    //cameraWidget = new ImageWidget();
+    //ui->cameraContainer->addWidget(cameraWidget, 1);
+
+    context = new ARDoor::RenderingContext(&calibrator);
+
+    glRenderer = new GLRenderer(this, context);
+    ui->cameraContainer->addWidget(glRenderer, 1);
 
     // create image pipeline
     pipeline = new ARDoor::ImagePipeline(calibrator);
@@ -25,7 +30,7 @@ MainWindow::MainWindow(QWidget *parent) :
     pipeline->setConfiguration(configuration);
 
     // setup image processor and camera
-    imageProcessor = new CameraImageProcessor(cameraWidget, pipeline);
+    imageProcessor = new CameraImageProcessor(glRenderer, pipeline);
     camera.setCaptureMode(QCamera::CaptureViewfinder);
     camera.setViewfinder(imageProcessor);
 }

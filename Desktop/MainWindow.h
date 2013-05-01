@@ -6,6 +6,7 @@
 #include "TestImageProcessor.h"
 #include "CameraImageProcessor.h"
 #include "ImageWidget.h"
+#include "GLRenderer.h"
 
 #include <QMainWindow>
 #include <QCamera>
@@ -29,11 +30,14 @@ private slots:
 
 private:
     ARDoor::CameraCalibration calibrator;
+    ARDoor::RenderingContext* context;
     ARDoor::ImagePipeline* pipeline;
     ARDoor::TestImageProcessor* testProcessor;
 
     Ui::MainWindow *ui;
     ImageWidget* cameraWidget;
+    GLRenderer* glRenderer;
+
     CameraImageProcessor* imageProcessor;
     QCamera camera;
 };
