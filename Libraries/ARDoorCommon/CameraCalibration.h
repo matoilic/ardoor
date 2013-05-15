@@ -28,8 +28,10 @@ public:
     CameraCalibration();
 
     cv::Mat getIntrinsicsMatrix();
+    void setIntrinsicsMatrix(cv::Mat intrinsics);
 
     cv::Mat getDistortionCoeffs();
+    void setDistortionCoeffs(cv::Mat distortion);
     
     /**
      * Adds additional images to be used for calibration

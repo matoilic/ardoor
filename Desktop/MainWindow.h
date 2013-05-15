@@ -10,6 +10,7 @@
 
 #include <QMainWindow>
 #include <QCamera>
+#include <QSettings>
 
 namespace Ui {
 class MainWindow;
@@ -40,6 +41,7 @@ private:
 
     CameraImageProcessor* imageProcessor;
     QCamera camera;
+    QSettings settings;
 };
 
 #endif // MAINWINDOW_H

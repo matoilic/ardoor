@@ -21,7 +21,7 @@ SOURCES += \
     CameraImageProcessor.cpp \
     ImageWidget.cpp \
     QtUtil.cpp \
-    test.cpp
+    CalibrationImageProcessor.cpp
 
 HEADERS += \
     MainWindow.h \
@@ -29,7 +29,8 @@ HEADERS += \
     CameraImageProcessor.h \
     ImageWidget.h \
     QtUtil.h \
-    GLRenderer.h
+    GLRenderer.h \
+    CalibrationImageProcessor.h
 
 FORMS += \
     MainWindow.ui \

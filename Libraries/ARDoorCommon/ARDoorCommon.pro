@@ -26,7 +26,8 @@ HEADERS += \
     ImagePipeline.h \
     ImageProcessor.h \
     TestImageProcessor.h \
-    RenderingContext.h
+    RenderingContext.h \
+    DebugHelper.h
 
 CONFIG += link_pkgconfig
 PKGCONFIG += opencv

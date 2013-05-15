@@ -4,8 +4,9 @@
 
 int main(int argc, char *argv[])
 {
-    test();
-    return 0;
+    QCoreApplication::setOrganizationName("BFH");
+    QCoreApplication::setOrganizationDomain("bfh.ch");
+    QCoreApplication::setApplicationName("ARDoor");
 
     QApplication a(argc, argv);
     MainWindow w;

@@ -13,9 +13,19 @@ cv::Mat CameraCalibration::getIntrinsicsMatrix()
     return cameraMatrix;
 }
 
+void CameraCalibration::setIntrinsicsMatrix(cv::Mat intrinsics)
+{
+    cameraMatrix = intrinsics;
+}
+
 cv::Mat CameraCalibration::getDistortionCoeffs()
 {
     return distCoeffs;
+}
+
+void CameraCalibration::setDistortionCoeffs(cv::Mat distortion)
+{
+    distCoeffs = distortion;
 }
     
 int CameraCalibration::addChessboardPoints(const std::vector<std::string> &filelist, cv::Size &boardSize)
