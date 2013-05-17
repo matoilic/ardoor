@@ -1,7 +1,7 @@
 
 #include "ImageWidget.h"
 #include "QtUtil.h"
-#include <opencv/cv.hpp>
+#include <opencv2/opencv.hpp>
 #include <iostream>
 #include <cmath>
 

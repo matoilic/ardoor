@@ -1,7 +1,7 @@
 #ifndef TESTIMAGEPROCESSOR_H
 #define TESTIMAGEPROCESSOR_H
 
-#include <ImageProcessor.h>
+#include "ImageProcessor.h"
 
 namespace ARDoor {
 

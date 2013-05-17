@@ -8,7 +8,8 @@
 
 #include "PoseEstimation.h"
 
-namespace ARDoor {
+namespace ARDoor
+{
     PoseEstimation::PoseEstimation(const cv::Mat &cameraMatrix, const cv::Mat &disortionCoefficients, cv::Size boardSize)
     {
         cameraMatrix.copyTo(_cameraMatrix);
