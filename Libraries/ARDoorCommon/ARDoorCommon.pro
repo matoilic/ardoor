@@ -29,5 +29,12 @@ HEADERS += \
     RenderingContext.h \
     DebugHelper.h
 
-CONFIG += link_pkgconfig
-PKGCONFIG += opencv
+unix:!macx {
+    CONFIG += link_pkgconfig
+    PKGCONFIG += opencv
+}
+
+macx {
+    QMAKE_LFLAGS += -F/Library/Frameworks
+    LIBS += -framework opencv2
+}

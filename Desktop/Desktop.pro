@@ -36,10 +36,16 @@ FORMS += \
     MainWindow.ui \
     CalibrationDialog.ui
 
-CONFIG += link_pkgconfig
-PKGCONFIG += opencv
+unix:!macx {
+    CONFIG += link_pkgconfig
+    PKGCONFIG += opencv
+    LIBS += -lglut -lGLU
+}
 
-LIBS += -lglut -lGLU
+macx {
+    QMAKE_LFLAGS += -F/Library/Frameworks
+    LIBS += -framework opencv2
+}
 
 # ARDoorCommon Library
 INCLUDEPATH += ../Libraries/ARDoorCommon

@@ -1,9 +1,14 @@
 #include "RenderingContext.h"
 #include "DebugHelper.h"
 
-#include <GL/gl.h>
-#include <GL/glu.h>
-#include <GL/glut.h>
+#if defined(__APPLE__) || defined(MACOSX)
+    #include <GLUT/glut.h>
+#else
+    #include <GL/gl.h>
+    #include <GL/glu.h>
+    #include <GL/glut.h>
+#endif
+
 #include <iostream>
 #include <opencv2/video/video.hpp>
 
