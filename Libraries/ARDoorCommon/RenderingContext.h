@@ -10,7 +10,6 @@ class RenderingContext
 {
 public:
     RenderingContext(CameraCalibration *c);
-    ~RenderingContext();
 
     void initialize();
     void draw();
@@ -23,8 +22,8 @@ private:
     void drawCoordinateAxis();
     void drawCubeModel();
 
-    void getPlanarSurface(std::vector<cv::Point2f>& imgP);
-    void cvtPtoKpts(std::vector<cv::KeyPoint>& kpts, std::vector<cv::Point2f>& points);
+    void buildProjectionMatrix(CameraCalibration* calibration, int screen_width, int screen_height, cv::Mat& projectionMatrix);
+    void detectChessboard();
 
 private:
     bool               m_isTextureInitialized;
@@ -32,7 +31,8 @@ private:
     CameraCalibration  *m_calibration;
     cv::Mat            m_backgroundImage;
 
-    cv::Mat perspMat;
+    bool isPatternPresent;
+    cv::Mat objectPosition;
 };
 
 }

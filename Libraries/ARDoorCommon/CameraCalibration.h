@@ -28,9 +28,11 @@ namespace ARDoor {
         CameraCalibration();
 
         cv::Mat getIntrinsicsMatrix();
+        void setIntrinsicsMatrix(cv::Mat intrinsics);
 
         cv::Mat getDistortionCoeffs();
-        
+        void setDistortionCoeffs(cv::Mat distortion);
+    
         /**
          * Adds additional images to be used for calibration
          * @param fileList list of files to be loaded
@@ -72,8 +74,8 @@ namespace ARDoor {
          */
         cv::Mat remap(const cv::Mat &image);
         
-    private:
-        void printMat(const cv::Mat &mat, std::string name);
+        private:
+            void printMat(const cv::Mat &mat, std::string name);
     };
     
 }

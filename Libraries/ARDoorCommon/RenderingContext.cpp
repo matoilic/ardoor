@@ -1,7 +1,9 @@
 #include "RenderingContext.h"
+#include "DebugHelper.h"
 
 #include <GL/gl.h>
 #include <GL/glu.h>
+#include <GL/glut.h>
 #include <iostream>
 #include <opencv2/video/video.hpp>
 
@@ -36,6 +38,10 @@ void RenderingContext::initialize()
     glEnable(GL_LIGHT0);
     glEnable(GL_LIGHTING);
 
+    glMatrixMode(GL_PROJECTION);
+    glLoadIdentity();
+    glOrtho(-1.0, 1.0, -1.0, 1.0, -1.0, 100.0);
+
     /* Use depth buffering for hidden surface elimination. */
     glEnable(GL_DEPTH_TEST);
 
@@ -49,71 +55,22 @@ void RenderingContext::draw()
         return;
     }
 
+    std::cout << "draw()" << std::endl;
+
     glClear(GL_DEPTH_BUFFER_BIT | GL_COLOR_BUFFER_BIT);
 
-    glLoadIdentity();
-    glTranslatef(0.0, 0.0, -10.0);
+    detectChessboard();
 
-
-    std::vector<cv::Point2f> corners;
-    cv::Size boardSize = cv::Size(9, 6);
-
-    float a = 0.2f;						// The widht/height of each square of the chessboard object
-    std::vector<cv::Point3f> _3DPoints;	// Vector that contains the 3D coordinates for each chessboard corner
-
-    // Initialising the 3D-Points for the chessboard
-    float rot = 0.0f;
-    cv::Point3f _3DPoint;
-    float y = (((boardSize.height-1.0f)/2.0f)*a)+(a/2.0f);
-    float x = 0.0f;
-    for (int h = 0; h < boardSize.height; h++, y+=a) {
-        x = (((boardSize.height-2.0f)/2.0f)*(-a))-(a/2.0f);
-        for (int w = 0; w < boardSize.width; w++, x+=a) {
-            _3DPoint.x = x;
-            _3DPoint.y = y;
-            _3DPoint.z = 0.0f;
-            _3DPoints.push_back(_3DPoint);
-        }
-    }
-
-    bool found = cv::findChessboardCorners(m_backgroundImage, boardSize, corners, CV_CALIB_CB_ADAPTIVE_THRESH | CV_CALIB_CB_FILTER_QUADS);
-    if (found)
-    {
-        cv::Mat M = m_calibration->getIntrinsicsMatrix();
-        if (M.data == NULL) {
-            cv::Size imageSize = m_backgroundImage.size();
-            m_calibration->calibrate(imageSize);
-
-            M = m_calibration->getIntrinsicsMatrix();
-        }
-        cv::Mat D = m_calibration->getDistortionCoeffs();
-
-        // Declaration of rotation and translation Vector
-        cv::Mat R(3, 1, CV_64F);
-        cv::Mat T(3, 1, CV_64F);
-
-        cv::solvePnP(cv::Mat(_3DPoints), cv::Mat(corners), M, D, R, T);		//Calculate the Rotation and Translation vector
-
-        //std::cout << T.at<double>(0, 0) << "," << T.at<double>(1, 0) << "," << T.at<double>(2, 0) << std::endl;
-        double theta = sqrt((R.at<double>(0,0)*R.at<double>(0,0))+
-                                              (R.at<double>(1,0)*R.at<double>(1,0))+
-                                              (R.at<double>(2,0)*R.at<double>(2,0)));
-
-        glRotatef((theta*180.0f)/3.14159f, R.at<double>(0,0), R.at<double>(1,0), R.at<double>(2,0));
-
-        std::cout << theta << std::endl;
-        std::cout.flush();
-    }
-
-    drawCameraFrame();
-
-   // drawAugmentedScene();
+    //drawCameraFrame();
+    drawAugmentedScene();
 
     glFlush();
 }
 
 void RenderingContext::drawCameraFrame()
 {
+    std::cout << "drawCameraFrame()" << std::endl;
+
     // Initialize texture for background image
     if (!m_isTextureInitialized)
     {
@@ -170,12 +127,73 @@ void RenderingContext::drawCameraFrame()
 
 void RenderingContext::drawAugmentedScene()
 {
-    drawCoordinateAxis();
-    drawCubeModel();
+    std::cout << "drawAugmentedScene()" << std::endl;
+
+      // Init augmentation projection
+      cv::Mat projectionMatrix;
+      int w = m_backgroundImage.cols;
+      int h = m_backgroundImage.rows;
+      buildProjectionMatrix(m_calibration, w, h, projectionMatrix);
+
+      //glMatrixMode(GL_PROJECTION);
+      //glLoadMatrixf(reinterpret_cast<const GLfloat*>(&projectionMatrix.data[0]));
+
+      glMatrixMode(GL_MODELVIEW);
+      glLoadIdentity();
+
+      if (isPatternPresent)
+      {
+        // Set the pattern transformation
+        glLoadMatrixf(reinterpret_cast<const GLfloat*>(&objectPosition.data[0]));
+
+        // Render model
+        drawCoordinateAxis();
+        drawCubeModel();
+      }
+}
+
+
+void RenderingContext::buildProjectionMatrix(CameraCalibration* calibration, int screen_width, int screen_height, cv::Mat& projectionMatrix)
+{
+    std::cout << "buildProjectionMatrix()" << std::endl;
+
+  float nearPlane = 0.01f;  // Near clipping distance
+  float farPlane  = 100.0f;  // Far clipping distance
+
+  // Camera parameters
+  cv::Mat intrinsics = calibration->getIntrinsicsMatrix();
+  float f_x = intrinsics.at<float>(1, 1); // Focal length in x axis
+  float f_y = intrinsics.at<float>(0, 0); // Focal length in y axis (usually the same?)
+  float c_x = intrinsics.at<float>(0, 2); // Camera primary point x
+  float c_y = intrinsics.at<float>(1, 2); // Camera primary point y
+
+  projectionMatrix = cv::Mat(4, 4, CV_32F);
+
+  projectionMatrix.at<float>(0, 0) = -2.0f * f_x / screen_width;
+  projectionMatrix.at<float>(0, 1) = 0.0f;
+  projectionMatrix.at<float>(0, 2) = 0.0f;
+  projectionMatrix.at<float>(0, 3) = 0.0f;
+
+  projectionMatrix.at<float>(1, 0) = 0.0f;
+  projectionMatrix.at<float>(1, 1) = 2.0f * f_y / screen_height;
+  projectionMatrix.at<float>(1, 2) = 0.0f;
+  projectionMatrix.at<float>(1, 3) = 0.0f;
+
+  projectionMatrix.at<float>(2, 0) = 2.0f * c_x / screen_width - 1.0f;
+  projectionMatrix.at<float>(2, 1) = 2.0f * c_y / screen_height - 1.0f;
+  projectionMatrix.at<float>(2, 2) = -( farPlane + nearPlane) / ( farPlane - nearPlane );
+  projectionMatrix.at<float>(2, 3) = -1.0f;
+
+  projectionMatrix.at<float>(3, 0) = 0.0f;
+  projectionMatrix.at<float>(3, 1) = 0.0f;
+  projectionMatrix.at<float>(3, 2) = -2.0f * farPlane * nearPlane / ( farPlane - nearPlane );
+  projectionMatrix.at<float>(3, 3) = 0.0f;
 }
 
 void RenderingContext::drawCoordinateAxis()
 {
+    std::cout << "drawCoordinateAxis()" << std::endl;
+
     static float lineX[] = {0,0,0,1,0,0};
     static float lineY[] = {0,0,0,0,1,0};
     static float lineZ[] = {0,0,0,0,0,1};
@@ -201,6 +219,8 @@ void RenderingContext::drawCoordinateAxis()
 
 void RenderingContext::drawCubeModel()
 {
+    std::cout << "drawCubeModel()" << std::endl;
+
     static const GLfloat LightAmbient[]=  { 0.25f, 0.25f, 0.25f, 1.0f };    // Ambient Light Values
     static const GLfloat LightDiffuse[]=  { 0.1f, 0.1f, 0.1f, 1.0f };    // Diffuse Light Values
     static const GLfloat LightPosition[]= { 0.0f, 0.0f, 2.0f, 1.0f };    // Light Position
@@ -306,6 +326,74 @@ void RenderingContext::drawCubeModel()
     glEnd();
 
     glPopAttrib();
+}
+
+void RenderingContext::detectChessboard()
+{
+    std::cout << "detectChessboard()" << std::endl;
+
+    cv::Size boardSize = cv::Size(9, 6);
+
+    std::vector<cv::Point2f> corners;
+    float a = 0.2f;						// The widht/height of each square of the chessboard object
+    std::vector<cv::Point3f> _3DPoints;	// Vector that contains the 3D coordinates for each chessboard corner
+
+    // Initialising the 3D-Points for the chessboard
+    cv::Point3f _3DPoint;
+    float y = (((boardSize.height-1.0f)/2.0f)*a)+(a/2.0f);
+    float x = 0.0f;
+    for (int h = 0; h < boardSize.height; h++, y+=a) {
+        x = (((boardSize.height-2.0f)/2.0f)*(-a))-(a/2.0f);
+        for (int w = 0; w < boardSize.width; w++, x+=a) {
+            _3DPoint.x = x;
+            _3DPoint.y = y;
+            _3DPoint.z = 0.0f;
+            _3DPoints.push_back(_3DPoint);
+        }
+    }
+
+    isPatternPresent = cv::findChessboardCorners(m_backgroundImage, boardSize, corners, CV_CALIB_CB_ADAPTIVE_THRESH | CV_CALIB_CB_FILTER_QUADS);
+
+    if (isPatternPresent)
+    {
+        cv::Mat M = m_calibration->getIntrinsicsMatrix();
+        cv::Mat D = m_calibration->getDistortionCoeffs();
+
+        cv::Mat_<float> Rvec;
+        cv::Mat_<float> Tvec;
+        cv::Mat raux, taux;
+        cv::solvePnP(cv::Mat(_3DPoints), cv::Mat(corners), M, D, raux, taux);		//Calculate the Rotation and Translation vector
+
+        raux.convertTo(Rvec, CV_32F);
+        taux.convertTo(Tvec, CV_32F);
+
+        cv::Mat_<float> rotMat(3, 3);
+        cv::Rodrigues(Rvec, rotMat);
+
+        cv::Mat projectionMatrix(4, 4, CV_32F);
+        projectionMatrix.at<float>(0, 0) = rotMat.at<float>(0, 0);
+        projectionMatrix.at<float>(0, 1) = rotMat.at<float>(0, 1);
+        projectionMatrix.at<float>(0, 2) = rotMat.at<float>(0, 2);
+        projectionMatrix.at<float>(0, 3) = Rvec.at<float>(0, 0);
+
+        projectionMatrix.at<float>(1, 0) = rotMat.at<float>(1, 0);
+        projectionMatrix.at<float>(1, 1) = rotMat.at<float>(1, 1);
+        projectionMatrix.at<float>(1, 2) = rotMat.at<float>(1, 2);
+        projectionMatrix.at<float>(1, 3) = Rvec.at<float>(1, 0);
+
+        projectionMatrix.at<float>(2, 0) = rotMat.at<float>(2, 0);
+        projectionMatrix.at<float>(2, 1) = rotMat.at<float>(2, 1);
+        projectionMatrix.at<float>(2, 2) = rotMat.at<float>(2, 2);
+        projectionMatrix.at<float>(2, 3) = Rvec.at<float>(2, 0);
+
+        projectionMatrix.at<float>(3, 0) = 0;
+        projectionMatrix.at<float>(3, 1) = 0;
+        projectionMatrix.at<float>(3, 2) = 0;
+        projectionMatrix.at<float>(3, 3) = 1;
+
+        objectPosition = projectionMatrix.inv();
+    }
+
 }
 
 }

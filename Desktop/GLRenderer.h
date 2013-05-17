@@ -21,15 +21,6 @@ protected:
     {
         int side = qMin(width, height);
         glViewport((width - side) / 2, (height - side) / 2, side, side);
-
-        glMatrixMode(GL_PROJECTION);
-        glLoadIdentity();
-    #ifdef QT_OPENGL_ES_1
-        glOrthof(-0.5, +0.5, -0.5, +0.5, 4.0, 15.0);
-    #else
-        glOrtho(-0.5, +0.5, -0.5, +0.5, 4.0, 15.0);
-    #endif
-        glMatrixMode(GL_MODELVIEW);
     }
     void paintGL() { context->draw(); }
 

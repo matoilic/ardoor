@@ -1,6 +1,7 @@
 #include "MainWindow.h"
 #include "ui_MainWindow.h"
 #include "CalibrationDialog.h"
+#include "DebugHelper.h"
 #include <iostream>
 #include <QFileDialog>
 
@@ -9,10 +10,6 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-
-    // setup camera widget
-    //cameraWidget = new ImageWidget();
-    //ui->cameraContainer->addWidget(cameraWidget, 1);
 
     context = new ARDoor::RenderingContext(&calibrator);
 
@@ -33,6 +30,36 @@ MainWindow::MainWindow(QWidget *parent) :
     imageProcessor = new CameraImageProcessor(glRenderer, pipeline);
     camera.setCaptureMode(QCamera::CaptureViewfinder);
     camera.setViewfinder(imageProcessor);
+
+    // load calibration settings
+    if (settings.contains("calibration/matrix/intrinsics/m00")) {
+        cv::Mat intrinsics = cv::Mat(3, 3, CV_32F);
+        cv::Mat distortion = cv::Mat(1, 5, CV_32F);
+
+        settings.beginGroup("calibration/matrix/intrinsics");
+        for (int i = 0; i < intrinsics.rows; ++i) {
+            for (int j = 0; j < intrinsics.cols; ++j) {
+                QString settingName = QString("m") + QString::number(i) + QString::number(j);
+                intrinsics.at<float>(i, j) = settings.value(settingName).toFloat();
+            }
+        }
+        settings.endGroup();
+
+        settings.beginGroup("calibration/matrix/distortion");
+        for (int i = 0; i < distortion.rows; ++i) {
+            for (int j = 0; j < distortion.cols; ++j) {
+                QString settingName = QString("m") + QString::number(i) + QString::number(j);
+                distortion.at<float>(i, j) = settings.value(settingName).toFloat();
+            }
+        }
+        settings.endGroup();
+
+        DebugHelper::printMat<float>(intrinsics);
+        DebugHelper::printMat<float>(distortion);
+
+        calibrator.setIntrinsicsMatrix(intrinsics);
+        calibrator.setDistortionCoeffs(distortion);
+    }
 }
 
 MainWindow::~MainWindow()
@@ -68,6 +95,6 @@ void MainWindow::on_pushButton_clicked()
 
 void MainWindow::on_pushButton_2_clicked()
 {
-    CalibrationDialog dialog(this);
+    CalibrationDialog dialog(&calibrator, this);
     dialog.exec();
 }

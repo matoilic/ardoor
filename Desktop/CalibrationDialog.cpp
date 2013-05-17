@@ -1,72 +1,72 @@
 #include "CalibrationDialog.h"
 #include "ui_CalibrationDialog.h"
+#include "CalibrationImageProcessor.h"
+#include "DebugHelper.h"
 
-#include <QFileDialog>
-#include <QStandardItemModel>
-#include <opencv2/highgui/highgui.hpp>
+#include <QCamera>
 
-CalibrationDialog::CalibrationDialog(QWidget *parent) :
+CalibrationDialog::CalibrationDialog(ARDoor::CameraCalibration *calibrator, QWidget *parent) :
     QDialog(parent),
     ui(new Ui::CalibrationDialog)
 {
     ui->setupUi(this);
 
+    this->calibrator = calibrator;
+
     matWidget = new ImageWidget(this);
     ui->mainContainer->addWidget(matWidget, 1);
+
+    // setup image processor and camera
+    imageProcessor = new CalibrationImageProcessor(calibrator, matWidget);
+    camera.setCaptureMode(QCamera::CaptureViewfinder);
+    camera.setViewfinder(imageProcessor);
 }
 
 CalibrationDialog::~CalibrationDialog()
 {
     delete ui;
-}
-
-void CalibrationDialog::setCalibrator(ARDoor::CameraCalibration *calibrator)
-{
-    this->calibrator = calibrator;
+    delete matWidget;
+    delete imageProcessor;
 }
 
 void CalibrationDialog::on_pushButton_clicked()
 {
-
-    /*
-    QStringList files = QFileDialog::getOpenFileNames(this, "Select one or more files to open");
-    QStandardItemModel* model = new QStandardItemModel(this);
-
-    QStringList::Iterator it = files.begin();
-    while (it != files.end()) {
-        QStandardItem* item = new QStandardItem(QIcon(*it), "");
-        model->appendRow(item);
-        ++it;
+    if (camera.status() == QCamera::ActiveStatus) {
+        camera.stop();
+    } else {
+        camera.start();
     }
+}
 
-    ui->listView->setModel(model);
-    */
+void CalibrationDialog::on_pushButton_2_clicked()
+{
+    cv::Size size = imageProcessor->getImageSize();
+    calibrator->calibrate(size);
 
-    QList<QString> files = QFileDialog::getOpenFileNames(this, "Select file");
+    cv::Mat_<float> intrinsics = calibrator->getIntrinsicsMatrix();
+    cv::Mat_<float> distortion = calibrator->getDistortionCoeffs();
 
-    for (QList<QString>::iterator it = files.begin(); it != files.end(); ++it) {
-        QString file = *it;
-        QImage image(file, "JPG");
+    DebugHelper::printMat<float>(intrinsics);
+    DebugHelper::printMat<float>(distortion);
 
-        std::vector<cv::Point2f> imageCorners;
-        std::vector<cv::Point3f> objectCorners;
-        cv::Size size = cv::Size(9, 6);
 
-        try {
-            cv::Mat mat(image.height(), image.width(), CV_8UC4, image.bits(), image.bytesPerLine());
-            if (calibrator->findChessboardPoints(mat, size, imageCorners, objectCorners))
-            {
-                calibrator->addPoints(imageCorners, objectCorners);
-            }
-            cv::drawChessboardCorners(mat, size, imageCorners, true);
-
-            //cv::Canny(mat, mat, 30, 150, 3);
-            matWidget->setMat(mat);
-            matWidget->repaint();
-
-        } catch (cv::Exception& e) {
-            std::cout << file.toStdString() << std::endl;
-            std::cout << e.what() << std::endl;
+    settings.beginGroup("calibration/matrix/intrinsics");
+    for (int i = 0; i < intrinsics.rows; ++i) {
+        for (int j = 0; j < intrinsics.cols; ++j) {
+            QString settingName = QString("m") + QString::number(i) + QString::number(j);
+            settings.setValue(settingName, intrinsics.at<float>(i, j));
         }
     }
+    settings.endGroup();
+
+    std::cout.flush();
+
+    settings.beginGroup("calibration/matrix/distortion");
+    for (int i = 0; i < distortion.rows; ++i) {
+        for (int j = 0; j < distortion.cols; ++j) {
+            QString settingName = QString("m") + QString::number(i) + QString::number(j);
+            settings.setValue(settingName, distortion.at<float>(i, j));
+        }
+    }
+    settings.endGroup();
 }
