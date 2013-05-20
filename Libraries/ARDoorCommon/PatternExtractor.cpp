@@ -1,5 +1,5 @@
 
-#include "PatterExtractor.h"
+#include "PatternExtractor.h"
 #include "ImageUtils.h"
 
 namespace ARDoor

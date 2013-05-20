@@ -32,8 +32,8 @@ void RenderingContext::initialize()
 
     glClearColor(0.0, 0.0, 0.0, 0.0);
 
-    GLfloat light_ambient[] = {1.0, 1.0, 1.0, 1.0};  /* Red diffuse light. */
-    GLfloat light_diffuse[] = {1.0, 0.0, 0.0, 1.0};  /* Red diffuse light. */
+    GLfloat light_ambient[] = {1.0, 1.0, 1.0, 1.0};
+    GLfloat light_diffuse[] = {1.0, 1.0, 1.0, 1.0};
     GLfloat light_position[] = {1.0, 1.0, 1.0, 0.0};  /* Infinite light location. */
 
     /* Enable a single OpenGL light. */
@@ -65,9 +65,8 @@ void RenderingContext::draw()
     glClear(GL_DEPTH_BUFFER_BIT | GL_COLOR_BUFFER_BIT);
 
     detectChessboard();
-
-    //drawCameraFrame();
     drawAugmentedScene();
+    drawCameraFrame();
 
     glFlush();
 }
@@ -82,23 +81,23 @@ void RenderingContext::drawCameraFrame()
         glGenTextures(1, &m_backgroundTextureId);
         glBindTexture(GL_TEXTURE_2D, m_backgroundTextureId);
 
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
 
         m_isTextureInitialized = true;
     }
 
     int w = m_backgroundImage.cols;
     int h = m_backgroundImage.rows;
-
-    glPixelStorei(GL_PACK_ALIGNMENT, 1);
+    glPixelStorei(GL_PACK_ALIGNMENT, 3);
+    glPixelStorei(GL_UNPACK_ALIGNMENT, 3);
     glBindTexture(GL_TEXTURE_2D, m_backgroundTextureId);
 
     // Upload new texture data:
     if (m_backgroundImage.channels() == 3)
-        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, w, h, 0, GL_BGR_EXT, GL_UNSIGNED_BYTE, m_backgroundImage.data);
+        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, w, h, 0, GL_BGR, GL_UNSIGNED_BYTE, m_backgroundImage.data);
     else if(m_backgroundImage.channels() == 4)
-        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, w, h, 0, GL_BGRA_EXT, GL_UNSIGNED_BYTE, m_backgroundImage.data);
+        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, w, h, 0, GL_BGRA, GL_UNSIGNED_BYTE, m_backgroundImage.data);
     else if (m_backgroundImage.channels()==1)
         glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, w, h, 0, GL_LUMINANCE, GL_UNSIGNED_BYTE, m_backgroundImage.data);
 
@@ -140,8 +139,8 @@ void RenderingContext::drawAugmentedScene()
       int h = m_backgroundImage.rows;
       buildProjectionMatrix(m_calibration, w, h, projectionMatrix);
 
-      //glMatrixMode(GL_PROJECTION);
-      //glLoadMatrixf(reinterpret_cast<const GLfloat*>(&projectionMatrix.data[0]));
+      glMatrixMode(GL_PROJECTION);
+      glLoadMatrixf(reinterpret_cast<const GLfloat*>(&projectionMatrix.data[0]));
 
       glMatrixMode(GL_MODELVIEW);
       glLoadIdentity();

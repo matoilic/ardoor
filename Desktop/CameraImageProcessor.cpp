@@ -18,6 +18,7 @@ QList<QVideoFrame::PixelFormat> CameraImageProcessor::supportedPixelFormats(QAbs
 bool CameraImageProcessor::present(const QVideoFrame &frame)
 {
     cv::Mat mat = QtUtil::convertToMat(frame);
+    cv::cvtColor(mat, mat, CV_BGR2RGB);
     renderer->updateBackground(mat);
     return true;
 }

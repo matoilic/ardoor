@@ -18,7 +18,9 @@ SOURCES += \
     PoseEstimation.cpp \
     ImagePipeline.cpp \
     TestImageProcessor.cpp \
-    RenderingContext.cpp
+    RenderingContext.cpp \
+    PatternExtractor.cpp \
+    ImageUtils.cpp
 
 HEADERS += \
     CameraCalibration.h \
@@ -27,7 +29,10 @@ HEADERS += \
     ImageProcessor.h \
     TestImageProcessor.h \
     RenderingContext.h \
-    DebugHelper.h
+    DebugHelper.h \
+    PatternExtractor.h \
+    Pattern.h \
+    ImageUtils.h
 
 unix:!macx {
     CONFIG += link_pkgconfig
