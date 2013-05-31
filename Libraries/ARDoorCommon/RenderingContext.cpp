@@ -64,9 +64,9 @@ void RenderingContext::draw()
 
     glClear(GL_DEPTH_BUFFER_BIT | GL_COLOR_BUFFER_BIT);
 
+    drawCameraFrame();
     detectChessboard();
     drawAugmentedScene();
-    drawCameraFrame();
 
     glFlush();
 }
@@ -81,8 +81,8 @@ void RenderingContext::drawCameraFrame()
         glGenTextures(1, &m_backgroundTextureId);
         glBindTexture(GL_TEXTURE_2D, m_backgroundTextureId);
 
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 
         m_isTextureInitialized = true;
     }
@@ -106,10 +106,10 @@ void RenderingContext::drawCameraFrame()
     const GLfloat proj[]              = { 0, -2.f/w, 0, 0, -2.f/h, 0, 0, 0, 0, 0, 1, 0, 1, 1, 0, 1 };
 
     glMatrixMode(GL_PROJECTION);
-    glLoadMatrixf(proj);
-
-    glMatrixMode(GL_MODELVIEW);
+    glPushMatrix();
     glLoadIdentity();
+    glMatrixMode(GL_MODELVIEW);
+    glLoadMatrixf(proj);
 
     glEnable(GL_TEXTURE_2D);
     glBindTexture(GL_TEXTURE_2D, m_backgroundTextureId);
@@ -127,6 +127,10 @@ void RenderingContext::drawCameraFrame()
     glDisableClientState(GL_VERTEX_ARRAY);
     glDisableClientState(GL_TEXTURE_COORD_ARRAY);
     glDisable(GL_TEXTURE_2D);
+
+    glMatrixMode(GL_PROJECTION);
+    glPopMatrix();
+    glMatrixMode(GL_MODELVIEW);
 }
 
 void RenderingContext::drawAugmentedScene()
@@ -140,7 +144,7 @@ void RenderingContext::drawAugmentedScene()
       buildProjectionMatrix(m_calibration, w, h, projectionMatrix);
 
       glMatrixMode(GL_PROJECTION);
-      glLoadMatrixf(reinterpret_cast<const GLfloat*>(&projectionMatrix.data[0]));
+      //glLoadMatrixf(reinterpret_cast<const GLfloat*>(&projectionMatrix.data[0]));
 
       glMatrixMode(GL_MODELVIEW);
       glLoadIdentity();
@@ -246,7 +250,7 @@ void RenderingContext::drawCubeModel()
     glEnable(GL_COLOR_MATERIAL);
 
     glScalef(0.25,0.25, 0.25);
-    glTranslatef(0,0, 1);
+    glTranslatef(0, 0, 1);
 
     glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
     glBegin(GL_QUADS);

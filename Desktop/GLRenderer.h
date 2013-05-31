@@ -20,7 +20,7 @@ protected:
     void resizeGL(int width, int height)
     {
         int side = qMin(width, height);
-        glViewport((width - side) / 2, (height - side) / 2, side, side);
+        glViewport(0, 0, width, height);
     }
     void paintGL() { context->draw(); }
 
