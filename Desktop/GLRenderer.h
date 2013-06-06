@@ -14,14 +14,10 @@ public:
         context->updateBackground(mat);
         update();
     }
+    void resizeGL(int width, int height) { std::cout << "resize" << std::endl; std::cout.flush(); context->resize(width, height); }
 
 protected:
-    void initializeGL() { context->initialize(); }
-    void resizeGL(int width, int height)
-    {
-        int side = qMin(width, height);
-        glViewport(0, 0, width, height);
-    }
+    void initializeGL() { QGLWidget::initializeGL(); context->initialize(); }
     void paintGL() { context->draw(); }
 
 private:

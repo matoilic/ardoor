@@ -15,6 +15,7 @@ public:
     void draw();
 
     void updateBackground(const cv::Mat& frame);
+    void resize(int width, int height);
 
 private:
     void drawCameraFrame();

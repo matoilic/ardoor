@@ -105,6 +105,7 @@ void RenderingContext::drawCameraFrame()
     const GLfloat bgTextureCoords[]   = { 1, 0, 1, 1, 0, 0, 0, 1 };
     const GLfloat proj[]              = { 0, -2.f/w, 0, 0, -2.f/h, 0, 0, 0, 0, 0, 1, 0, 1, 1, 0, 1 };
 
+    //begin othogonal projection
     glMatrixMode(GL_PROJECTION);
     glPushMatrix();
     glLoadIdentity();
@@ -128,6 +129,7 @@ void RenderingContext::drawCameraFrame()
     glDisableClientState(GL_TEXTURE_COORD_ARRAY);
     glDisable(GL_TEXTURE_2D);
 
+    //end orthogonal projection
     glMatrixMode(GL_PROJECTION);
     glPopMatrix();
     glMatrixMode(GL_MODELVIEW);
@@ -343,7 +345,7 @@ void RenderingContext::detectChessboard()
     cv::Size boardSize = cv::Size(9, 6);
 
     std::vector<cv::Point2f> corners;
-    float a = 0.2f;						// The widht/height of each square of the chessboard object
+    float a = 0.1f;						// The widht/height of each square of the chessboard object
     std::vector<cv::Point3f> _3DPoints;	// Vector that contains the 3D coordinates for each chessboard corner
 
     // Initialising the 3D-Points for the chessboard
@@ -400,8 +402,14 @@ void RenderingContext::detectChessboard()
         projectionMatrix.at<float>(3, 3) = 1;
 
         objectPosition = projectionMatrix.inv();
+        //objectPosition = projectionMatrix;
     }
 
+}
+
+void RenderingContext::resize(int width, int height)
+{
+    glViewport(0, 0, width, height);
 }
 
 }
