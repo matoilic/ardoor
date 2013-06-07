@@ -22,7 +22,9 @@ RenderingContext::RenderingContext(CameraCalibration *c)
 
 void RenderingContext::updateBackground(const cv::Mat& frame)
 {
-    frame.copyTo(m_backgroundImage);
+    //frame.copyTo(m_backgroundImage);
+    m_backgroundImage = frame;
+    cv::flip(m_backgroundImage, m_backgroundImage, 1);
 }
 
 void RenderingContext::initialize()
@@ -146,7 +148,8 @@ void RenderingContext::drawAugmentedScene()
       buildProjectionMatrix(m_calibration, w, h, projectionMatrix);
 
       glMatrixMode(GL_PROJECTION);
-      //glLoadMatrixf(reinterpret_cast<const GLfloat*>(&projectionMatrix.data[0]));
+      glLoadIdentity();
+      glLoadMatrixf(reinterpret_cast<const GLfloat*>(&projectionMatrix.data[0]));
 
       glMatrixMode(GL_MODELVIEW);
       glLoadIdentity();
@@ -163,41 +166,65 @@ void RenderingContext::drawAugmentedScene()
 }
 
 
-void RenderingContext::buildProjectionMatrix(CameraCalibration* calibration, int screen_width, int screen_height, cv::Mat& projectionMatrix)
+void RenderingContext::buildProjectionMatrix(CameraCalibration* calibration, int screenWidth, int screenHeight, cv::Mat& projectionMatrix)
 {
     std::cout << "buildProjectionMatrix()" << std::endl;
 
-  float nearPlane = 0.01f;  // Near clipping distance
+  float nearPlane = -1.0f;  // Near clipping distance
   float farPlane  = 100.0f;  // Far clipping distance
 
   // Camera parameters
   cv::Mat intrinsics = calibration->getIntrinsicsMatrix();
-  float f_x = intrinsics.at<float>(1, 1); // Focal length in x axis
-  float f_y = intrinsics.at<float>(0, 0); // Focal length in y axis (usually the same?)
-  float c_x = intrinsics.at<float>(0, 2); // Camera primary point x
-  float c_y = intrinsics.at<float>(1, 2); // Camera primary point y
+  float k00 = intrinsics.at<float>(0, 0); // Focal length in x axis
+  float k01 = intrinsics.at<float>(0, 1); // Focal length in y axis (usually the same?)
+  float k02 = intrinsics.at<float>(0, 2); // Camera primary point x
+  float k11 = intrinsics.at<float>(1, 1); // Camera primary point y
+  float k12 = intrinsics.at<float>(1, 2); // Camera primary point y
+
 
   projectionMatrix = cv::Mat(4, 4, CV_32F);
 
-  projectionMatrix.at<float>(0, 0) = -2.0f * f_x / screen_width;
-  projectionMatrix.at<float>(0, 1) = 0.0f;
-  projectionMatrix.at<float>(0, 2) = 0.0f;
+  /*
+  projectionMatrix.at<float>(0, 0) = 2.0f * k00 / screenWidth;
+  projectionMatrix.at<float>(0, 1) = -2.0f * k01 / screenWidth;
+  projectionMatrix.at<float>(0, 2) = (screenWidth - 2.0f * k02) / screenWidth;
   projectionMatrix.at<float>(0, 3) = 0.0f;
 
   projectionMatrix.at<float>(1, 0) = 0.0f;
-  projectionMatrix.at<float>(1, 1) = 2.0f * f_y / screen_height;
-  projectionMatrix.at<float>(1, 2) = 0.0f;
+  projectionMatrix.at<float>(1, 1) = -2.0f * k11 / screenHeight;
+  projectionMatrix.at<float>(1, 2) = (screenHeight - 2.0f * k12) / screenHeight;
   projectionMatrix.at<float>(1, 3) = 0.0f;
 
-  projectionMatrix.at<float>(2, 0) = 2.0f * c_x / screen_width - 1.0f;
-  projectionMatrix.at<float>(2, 1) = 2.0f * c_y / screen_height - 1.0f;
-  projectionMatrix.at<float>(2, 2) = -( farPlane + nearPlane) / ( farPlane - nearPlane );
-  projectionMatrix.at<float>(2, 3) = -1.0f;
+  projectionMatrix.at<float>(2, 0) = 0.0f;
+  projectionMatrix.at<float>(2, 1) = 0.0f;
+  projectionMatrix.at<float>(2, 2) = (-farPlane - nearPlane) / (farPlane - nearPlane);
+  projectionMatrix.at<float>(2, 3) = -2.0f * farPlane * nearPlane / (farPlane - nearPlane);
 
   projectionMatrix.at<float>(3, 0) = 0.0f;
   projectionMatrix.at<float>(3, 1) = 0.0f;
-  projectionMatrix.at<float>(3, 2) = -2.0f * farPlane * nearPlane / ( farPlane - nearPlane );
+  projectionMatrix.at<float>(3, 2) = -1.0f;
   projectionMatrix.at<float>(3, 3) = 0.0f;
+  */
+
+    projectionMatrix.at<float>(0, 0) = 2.0f * k00 / screenWidth;
+    projectionMatrix.at<float>(0, 1) = 0.0f;
+    projectionMatrix.at<float>(0, 2) = 2.0f * k02 / screenWidth - 1.0f;
+    projectionMatrix.at<float>(0, 3) = 0.0f;
+
+    projectionMatrix.at<float>(1, 0) = 0.0f;
+    projectionMatrix.at<float>(1, 1) = 2.0f * k11 / screenHeight;
+    projectionMatrix.at<float>(1, 2) = 2.0f * k12 / screenHeight - 1.0f;
+    projectionMatrix.at<float>(1, 3) = 0.0f;
+
+    projectionMatrix.at<float>(2, 0) = 0.0f;
+    projectionMatrix.at<float>(2, 1) = 0.0f;
+    projectionMatrix.at<float>(2, 2) = -( farPlane + nearPlane) / ( farPlane - nearPlane );
+    projectionMatrix.at<float>(2, 3) = -2.0f * farPlane * nearPlane / ( farPlane - nearPlane );
+
+    projectionMatrix.at<float>(3, 0) = 0.0f;
+    projectionMatrix.at<float>(3, 1) = 0.0f;
+    projectionMatrix.at<float>(3, 2) = -1.0f;
+    projectionMatrix.at<float>(3, 3) = 0.0f;
 }
 
 void RenderingContext::drawCoordinateAxis()
@@ -251,7 +278,7 @@ void RenderingContext::drawCubeModel()
     glLightfv(GL_LIGHT1, GL_POSITION, LightPosition);
     glEnable(GL_COLOR_MATERIAL);
 
-    glScalef(0.25,0.25, 0.25);
+    glScalef(0.2,0.2,0.2);
     glTranslatef(0, 0, 1);
 
     glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
@@ -345,7 +372,7 @@ void RenderingContext::detectChessboard()
     cv::Size boardSize = cv::Size(9, 6);
 
     std::vector<cv::Point2f> corners;
-    float a = 0.1f;						// The widht/height of each square of the chessboard object
+    float a = 110.0f;						// The widht/height of each square of the chessboard object
     std::vector<cv::Point3f> _3DPoints;	// Vector that contains the 3D coordinates for each chessboard corner
 
     // Initialising the 3D-Points for the chessboard
@@ -362,7 +389,10 @@ void RenderingContext::detectChessboard()
         }
     }
 
-    isPatternPresent = cv::findChessboardCorners(m_backgroundImage, boardSize, corners, CV_CALIB_CB_ADAPTIVE_THRESH | CV_CALIB_CB_FILTER_QUADS);
+    cv::Mat gray;
+    cv::cvtColor(m_backgroundImage, gray, CV_BGR2GRAY);
+
+    isPatternPresent = cv::findChessboardCorners(gray, boardSize, corners, CV_CALIB_CB_ADAPTIVE_THRESH | CV_CALIB_CB_FILTER_QUADS);
 
     if (isPatternPresent)
     {
@@ -382,17 +412,17 @@ void RenderingContext::detectChessboard()
 
         cv::Mat projectionMatrix(4, 4, CV_32F);
         projectionMatrix.at<float>(0, 0) = rotMat.at<float>(0, 0);
-        projectionMatrix.at<float>(0, 1) = rotMat.at<float>(0, 1);
-        projectionMatrix.at<float>(0, 2) = rotMat.at<float>(0, 2);
+        projectionMatrix.at<float>(0, 1) = rotMat.at<float>(1, 0);
+        projectionMatrix.at<float>(0, 2) = rotMat.at<float>(2, 0);
         projectionMatrix.at<float>(0, 3) = Rvec.at<float>(0, 0);
 
-        projectionMatrix.at<float>(1, 0) = rotMat.at<float>(1, 0);
+        projectionMatrix.at<float>(1, 0) = rotMat.at<float>(0, 1);
         projectionMatrix.at<float>(1, 1) = rotMat.at<float>(1, 1);
-        projectionMatrix.at<float>(1, 2) = rotMat.at<float>(1, 2);
+        projectionMatrix.at<float>(1, 2) = rotMat.at<float>(2, 1);
         projectionMatrix.at<float>(1, 3) = Rvec.at<float>(1, 0);
 
-        projectionMatrix.at<float>(2, 0) = rotMat.at<float>(2, 0);
-        projectionMatrix.at<float>(2, 1) = rotMat.at<float>(2, 1);
+        projectionMatrix.at<float>(2, 0) = rotMat.at<float>(0, 2);
+        projectionMatrix.at<float>(2, 1) = rotMat.at<float>(1, 2);
         projectionMatrix.at<float>(2, 2) = rotMat.at<float>(2, 2);
         projectionMatrix.at<float>(2, 3) = Rvec.at<float>(2, 0);
 
