@@ -1,4 +1,0 @@
-\select@language {german}
-\contentsline {title}{AR Door}{1}
-\authcount {2}
-\contentsline {author}{Mato Ilic, David Kron}{1}

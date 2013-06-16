@@ -9,3 +9,10 @@ obj/
 # Qt Creator Build + Configuration
 build/
 *.pro.user*
+
+*.synctex.gz
+*.aux
+*.log
+*.toc
+*.pyg
+Documentation/*.pdf
