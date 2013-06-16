@@ -1,0 +1,54 @@
+\documentclass{llncs}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{amsmath,amsfonts}
+\usepackage{subfiles}
+\usepackage[english,german]{babel}
+\usepackage{fancyvrb}
+\usepackage{minted}
+\usepackage{color}
+\definecolor{codebg}{rgb}{0.8,0.8,0.9}
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
+\makeatletter
+\renewcommand*\l@author[2]{}
+\renewcommand*\l@title[2]{}
+\makeatletter
+%
+\begin{document}
+%
+\pagestyle{headings}  % switches on printing of running heads
+%
+\title{AR Door}
+%
+\titlerunning{AR Door}  % abbreviated title (for running head)
+%                                     also used for the TOC unless
+%                                     \toctitle is used
+%
+\author{Mato Ilic \and David Kron}
+%
+\authorrunning{Kron und Ilic}   % abbreviated author list (for running head)
+%
+%%%% list of authors for the TOC (use if author list has to be modified)
+\tocauthor{Mato Ilic, David Kron}
+%
+\institute{Berner Fachhochschule, Biel, Schweiz}
+
+\maketitle              % typeset the title of the contribution
+
+\tableofcontents
+\newpage
+
+\subfile{ziele.tex}
+
+\newpage
+
+%
+%
+% ---- Bibliography ----
+%
+\newpage
+\begin{thebibliography}{5}
+
+\end{thebibliography}
+\end{document}
