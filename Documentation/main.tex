@@ -8,6 +8,7 @@
 \usepackage{minted}
 \usepackage{color}
 \definecolor{codebg}{rgb}{0.8,0.8,0.9}
+\newminted{c++}{linenos=true,bgcolor=codebg,tabsize=4}
 \setcounter{secnumdepth}{3}
 \setcounter{tocdepth}{3}
 \makeatletter
@@ -40,6 +41,8 @@
 \newpage
 
 \subfile{ziele.tex}
+\newpage
+
 \subfile{umsetzung.tex}
 
 
@@ -51,6 +54,15 @@
 %
 \newpage
 \begin{thebibliography}{5}
+
+\bibitem {learningopencv}
+Bradski, Gary / Kaehler Adrian:
+Learning OpenCV: Computer Vision with the OpenCV Library.
+Sebastopol: O'Reilly Media, Inc.
+
+\bibitem {zhang}
+Zhang, Zhengyou (1998): A Flexible New Technique for Camera Calibration. 
+Redmond: Microsoft Research.
 
 \end{thebibliography}
 \end{document}
