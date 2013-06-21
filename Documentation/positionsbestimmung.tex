@@ -125,6 +125,45 @@ Da \textit{cv::findChessboardCorners} nur die ungefähre Position der Eckpunkte 
 solvePnP beschreiben
 
 \subsection{Rotation}
-Rodrigues beschreiben
+Eine 3x3 Matrix ist die geläufigste Methode wenn es darum geht eine Rotation im Raum zu vollziehen. Multipliziert man den Vektor mit der Matrix welche die entsprechenden Parameter enthält, so erhält man als Resultat den rotierten Vektor. Der Nachteil dabei ist, dass man für die Rotation jeder Achse andere Parameter der Matrix anpassen muss. Man kann die drei Matritzen zu einer zusammenfassen, jedoch wird die Prozedur dadurch noch unübersichtlicher. Da die Rotationsmatritzen nur drei Freiheitsgrade haben, ist der Gedanke nahe die Informationen in einen Vektor anbzubilden. Und genau hier setzt die in OpenCV implementierte Rodrigues Transformatin an. Nich nur für uns Menschen ist ein Vektor einfacher lesbar, auch für numerische optimierungen ist es einfacher mit einem Drei-Komponenten-Vektor zu arbeiten als mit einer 3x3 Matrix.
+
+\paragraph{}
+Rodrigues nutzt die Richtung des Vektors um die Rotationsachse und die Länge des Vektors um den Winkel der Rotation – im Gegenuhrzeigersinn – abzubilden. Sei $r$ ein dreidimensionaler Vektor 
+
+\begin{equation}
+\begin{pmatrix} r_x \\ r_y \\ r_z \end{pmatrix}
+\end{equation}
+
+Dieser Vektor bildet implizit den Winkel anhand seiner Länge ab.
+
+\begin{equation}
+\theta = \sqrt{{r_x}^2 + {r_y}^2 + {r_z}^2}
+\end{equation}
+
+Anhand dieser Repräsentation kann die Rotationsmatrix wie folgt wieder hergestellt werden:
+
+\begin{equation}
+R = \cos(\theta) * I + (1 - \cos(\theta)) * r * r^T + \sin(\theta) * 
+\begin{bmatrix}
+0 & -r_z & r_y \\
+r_z & 0 & -r_x \\
+r_y & r_x & 0
+\end{bmatrix}
+\end{equation}
+
+Umgekehrt kann man aus der Rotationsmatrix die Rodrigues-Darstellung wie folgt ableiten:
+
+\begin{equation}
+\sin(\theta) * 
+\begin{bmatrix}
+0 & -r_z & r_y \\
+r_z & 0 & -r_x \\
+r_y & r_x & 0
+\end{bmatrix}
+= 
+\frac{R - R^T}{2}
+\end{equation}
+
+Und genau diese zwei Möglichkeiten sind in \textit{cv::Rodrigues} implementiert. Wird als erster Parameter ein 3D-Vektor und als zweiter eine 3x3 Matrix übergeben so wird der Vektor zu einer Matrix transformiert. Will man die Operation umkehren, so müssen nur die Parameter-Typen in umgekehrter Reihenfolge übergeben werden.
 
 \end{document}
