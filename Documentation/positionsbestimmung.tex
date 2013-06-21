@@ -122,9 +122,62 @@ Da \textit{cv::findChessboardCorners} nur die ungefähre Position der Eckpunkte 
 \end{figure}
 
 \subsection{Perspektive}
-solvePnP beschreiben
+
+\subsubsection{Projektionsmodell}
+Alle Funktionen in OpenCV arbeiten nach dem sogenannten Pinhole Camera Modell. Dabei werden die 3D-Punkte einer Szene mittels perspektivischer Transformation auf die Bildebene projiziert.
+
+\begin{equation}
+\vec{p^p} = K [R|t] \vec{p^i}
+\end{equation}
+
+Die ausgeschriebene Form zum besseren Verständnis:
+
+\begin{equation}
+\begin{bmatrix}	
+p^c_x \\ p^c_y \\ 1
+\end{bmatrix} 
+=
+\begin{bmatrix}
+f_x & 0 & c_x \\
+0 & f_y & c_y \\
+0 & 0 & 1
+\end{bmatrix} 
+\begin{bmatrix}
+r_{11} & r_{12} & r_{13} & t_1 \\
+r_{21} & r_{22} & r_{23} & t_2 \\
+r_{31} & r_{32} & r_{33} & t_3
+\end{bmatrix} 
+\begin{bmatrix}
+p^i_x \\ p^i_y \\ p^i_z \\ 1
+\end{bmatrix} 
+\end{equation}
+
+Ein Punkt $(p^i_x, p^i_y, p^i_z)$ im dreidimensionalen Raum wird dadurch auf einen zweidimensionalen Punkt in der Bildebene projiziert. Die Kamera-Matrix $K$ sind dabei die intrinsischen Parameter und müssen nur einmal berechnet werden. Die kombinierte Rotations- und Translationsmatrix $[R|t]$ überführt Objekt- in Kamera-Koordinaten, also in die Position, aus der das Objekt von der Kamera gesehen wird. Diese Matrix stellt die extrinsischen Parameter dar und muss anhand einer \textit{Pose Estimation} berechnet werden.
+
+\subsubsection{Pose Estimation}
+Bei der 3D Pose Estimation wird die Position sowie die Rotation eines Objekts in einem zweidimensionalen Bildes berechnet. Dadurch erhält man die Position des 3D-Objekts im dreidimensionalen Objektraum. Es gibt eine vielzahl an Algorithmen die sich diesem Problem widmen.
+
+\paragraph{}
+In OpenCV existieren diverse Funktionen, die gängige Algorithmen zur Positionsbestimmung implementieren. In ARDoor verwenden wir im Moment hauptsächlich die Funktion $cv::solvePnP(...)$. PnP wird in der Literatur als \textit{perspective-n-point-problem} bezeichnet, wobei n für die Anzahl an Punktent steht. Bei diesem Problem werden für das im Bild zu suchende Objekt 3D-Punkte definiert, sogenannte \textit{object points} oder auch \textit{feature points}. Diese Punkte werden mit Bildpunkten (\textit{image points}) assoziert, welche bereits vor dem solve ermittelt werden müssen. Für ARDoor wird der Einfachheit halber das Kalibrations-Schachtbrett als Muster verwendet, da in OpenCV bereits Funktionen existieren, um die \textit{image points} des Schachbretts zu ermitteln. Anhand dieser Punktzuordnungen werden mit einem PnP-Algorithmus anschliessend Positions- und Rotations-Vektoren berechnet.
+
+\paragraph{}
+Die $solvePnP$ Funktion in OpenCV unterstützt drei verschiedene Methoden zur Lösung eines PnP Problems:
+
+\begin{itemize}
+
+\item \textbf{Iterative Methode}
+Diese Methode basiert auf der Levenberg-Marquardt Optimierung.
+
+\item \textbf{P3P}
+Basiert auf der Publikation von X.S. Gao, X.-R. Hou, J. Tang, H.-F. Chang ``Complete Solution Classification for the Perspective-Three-Point Problem''. Es werden exakt vier Objekt- und Bildpunkte benötigt.
+
+\item \textbf{EPnP}
+Diese Methode wurde durch F.Moreno-Noguer, V.Lepetit und P.Fua in der Publikation ``EPnP: Efficient Perspective-n-Point Camera Pose Estimation'' entwickelt.
+
+\end{itemize}
 
 \subsection{Rotation}
 Rodrigues beschreiben
+
 
 \end{document}
