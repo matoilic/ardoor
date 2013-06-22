@@ -134,6 +134,7 @@
     rect.size.width *= scaleFactor;
     rect.size.height *= scaleFactor;
 
+    cv::cvtColor(mat, mat, CV_BGR2RGB);
     _outputImage = [_outputImage initWithCVMat:mat];
     self.videoView.image = _outputImage;
     self.videoView.needsDisplay = YES;

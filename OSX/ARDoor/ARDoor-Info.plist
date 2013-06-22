@@ -15,6 +15,22 @@
 			<array>
 				<string>ardoor</string>
 			</array>
+			<key>CFBundleTypeName</key>
+			<string>VideoCapture</string>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>LSItemContentTypes</key>
+			<array>
+				<string>videocapture</string>
+			</array>
+			<key>NSDocumentClass</key>
+			<string>VideoCaptureDocument</string>
+		</dict>
+		<dict>
+			<key>CFBundleTypeExtensions</key>
+			<array>
+				<string>ardoor</string>
+			</array>
 			<key>CFBundleTypeIconFile</key>
 			<string></string>
 			<key>CFBundleTypeName</key>
@@ -31,22 +47,6 @@
 			</array>
 			<key>NSDocumentClass</key>
 			<string>Document</string>
-		</dict>
-		<dict>
-			<key>CFBundleTypeExtensions</key>
-			<array>
-				<string>ardoor</string>
-			</array>
-			<key>CFBundleTypeName</key>
-			<string>VideoCapture</string>
-			<key>CFBundleTypeRole</key>
-			<string>Editor</string>
-			<key>LSItemContentTypes</key>
-			<array>
-				<string>videocapture</string>
-			</array>
-			<key>NSDocumentClass</key>
-			<string>VideoCaptureDocument</string>
 		</dict>
 		<dict>
 			<key>CFBundleTypeExtensions</key>
@@ -86,14 +86,14 @@
 	<key>Camera Matrix</key>
 	<array>
 		<array>
-			<real>2615.0324714972712</real>
+			<real>2615.032471497271</real>
 			<integer>0</integer>
-			<real>1169.8914509649489</real>
+			<real>1169.891450964949</real>
 		</array>
 		<array>
 			<integer>0</integer>
 			<real>2703.932979590988</real>
-			<real>1133.4511023140931</real>
+			<real>1133.451102314093</real>
 		</array>
 		<array>
 			<integer>0</integer>
@@ -103,11 +103,11 @@
 	</array>
 	<key>Disortion Coefficients</key>
 	<array>
-		<real>-0.12505196421482259</real>
+		<real>-0.1250519642148226</real>
 		<real>0.5233505779507136</real>
-		<real>-0.011300224996014669</real>
-		<real>-0.0085750444695231708</real>
-		<real>-1.2215934335549581</real>
+		<real>-0.01130022499601467</real>
+		<real>-0.008575044469523171</real>
+		<real>-1.221593433554958</real>
 	</array>
 	<key>LSMinimumSystemVersion</key>
 	<string>${MACOSX_DEPLOYMENT_TARGET}</string>

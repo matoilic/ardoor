@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C3259A9A173A68F50028C7BA /* PatterExtractor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C3259A98173A68F50028C7BA /* PatterExtractor.cpp */; };
 		C3259A9D173A6E140028C7BA /* ImageUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C3259A9B173A6E140028C7BA /* ImageUtils.cpp */; };
 		C3259AA2173A7B770028C7BA /* PatternDetectorDocument.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3259AA1173A7B770028C7BA /* PatternDetectorDocument.xib */; };
 		C3259AA5173A7BC00028C7BA /* PatternDetectorDocument.mm in Sources */ = {isa = PBXBuildFile; fileRef = C3259AA4173A7BC00028C7BA /* PatternDetectorDocument.mm */; };
@@ -44,8 +43,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		C3259A98173A68F50028C7BA /* PatterExtractor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PatterExtractor.cpp; sourceTree = "<group>"; };
-		C3259A99173A68F50028C7BA /* PatterExtractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PatterExtractor.h; sourceTree = "<group>"; };
 		C3259A9B173A6E140028C7BA /* ImageUtils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ImageUtils.cpp; sourceTree = "<group>"; };
 		C3259A9C173A6E140028C7BA /* ImageUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageUtils.h; sourceTree = "<group>"; };
 		C3259A9F173A70870028C7BA /* Pattern.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pattern.h; sourceTree = "<group>"; };
@@ -214,8 +211,6 @@
 				C3B48E37170EE2BF009EE28B /* CameraCalibration.h */,
 				C3808C4A1721632A0090E4CE /* PoseEstimation.cpp */,
 				C3808C4B1721632A0090E4CE /* PoseEstimation.h */,
-				C3259A98173A68F50028C7BA /* PatterExtractor.cpp */,
-				C3259A99173A68F50028C7BA /* PatterExtractor.h */,
 				C3259A9B173A6E140028C7BA /* ImageUtils.cpp */,
 				C3259A9C173A6E140028C7BA /* ImageUtils.h */,
 				C3259A9F173A70870028C7BA /* Pattern.h */,
@@ -316,7 +311,6 @@
 				C3808C4F172179CE0090E4CE /* Configuration.m in Sources */,
 				C35F05D7172A933A005776A2 /* ImagePipeline.cpp in Sources */,
 				C35F05D8172A933A005776A2 /* TestImageProcessor.cpp in Sources */,
-				C3259A9A173A68F50028C7BA /* PatterExtractor.cpp in Sources */,
 				C3259A9D173A6E140028C7BA /* ImageUtils.cpp in Sources */,
 				C3259AA5173A7BC00028C7BA /* PatternDetectorDocument.mm in Sources */,
 			);
