@@ -103,6 +103,25 @@ Der Calibration Dialog dient dazu, die Kameraparameter zu ermitteln. Dies muss g
 Das Mainwindow ist der Hauptteil der Applikation. Innerhalb von diesem wird die Augmented Reality Szene dargestellt.
 
 \subsection{ARDoor Library}
+Wir haben uns zum Ziel gesetzt, die ARDoor Library möglichst modular aufzubauen, so dass wir verschiedene Komponenten einfach austauschen könnten und wir somit flexibel in der Entwicklung sind. Da wir bei der Entwicklung sehr viele Dinge ausprobiert haben und ständig Sachen neu implementiert haben, konnten wir dies nicht zu 100\% umsetzen. Sobald wir eine erste funktionierende Version mit Positionsbestimmung und korrektem Rendering haben, werden wir ein generelles Code-Refactoring durchführen.
 
+\subsubsection{ImagePipeline}
+Eine der Hauptkomponente der ARDoor Library ist die Image Pipeline. Der Grundgedanke dahinter ist, dass die verschiedenen Schritte zur Bildbearbeitung und -verarbeitung in sich geschlossenen modularen Klassen - einem \textit{ImageProcessor} - implementiert werden. Wir erhoffen uns davon eine einfachere Entwicklung, da wir dadurch die verschiedenen Verarbeitungsschritte einfach austauschen oder in der Reihenfolge der Ausführung neu positionieren können.
+
+\paragraph{}
+Ein weiterer Grundgedanke für diesen Aufbau war, dass wir so einfach Debugmöglichkeiten einbauen könnten: Man könnte einen einfachen Debug ImageProcessor, der das aktuelle Bild nur darstellt und nicht verändert, implementieren und diesen an eine beliebige Position der Pipline setzen.
+
+\paragraph{}
+Implementiert haben wir die Pipeline so, dass für jedes Bild, welches wir von der Kamera erhalten, eine OpenCV-Matrix cv::Mat erzeugt wird. Diese wird der Pipeline nun zur Verarbeitung übergeben. Die Pipeline übergibt diese Matrix dem aktuellen ImageProcessor, der eine weitere Matrix als Rückgabewert liefert. Die zurückgegebene Matrix wird jeweils als Eingabe für den nächsten ImageProcessor in der Pipeline verwendet. Zum Schluss wird von der Pipeline das finale Bild nach allen Verarbeitungsschritten zurückgegeben. Dieser Ablauf ist in Abbildung \ref{fig:image-pipeline} grafisch dargestellt.
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[scale=0.8]{images/image-pipeline.jpg} 
+\caption{Aufbau der Image Pipeline}
+\label{fig:image-pipeline}
+\end{figure}
+
+\subsubsection{RenderingContext}
+Eine weitere Komponente der Library ist der RenderingContext. Die primäre Aufgabe dieser Komponente ist das Rendering der 3D-Modelle einer Szene sowie das korrekte setzen der Projektions- und ModelView-Matrizen. Diese strikte Trennung ist im Moment noch nicht konsequent umgesetzt, da der RenderingContext auch Aufgaben der Pose Estimation übernimmt.  
 
 \end{document}
